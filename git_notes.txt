@@ -1,0 +1,27 @@
+This recommended guide is so useful! -> https://rogerdudler.github.io/git-guide/
+
+In summary, you can either start a new repo (git init), 
+or clone an existing repo from a remote destination (git clone)
+How to find repo path? -> go to the green code button on every repo (options are HTTPS, SSH, CLI)
+
+git repositories are organized as trees, with the head pointing at the latest commmit
+
+Made changes? Stage them (git add <filename> (or * for all))
+Then commit them! (git commit -m "message")
+This puts them in the head
+
+Ready to send them to main? -> Do git push origin master (or whatever branch you desire)
+Didn't clone originally? You can still add the remote destination with git remote add origin <URL>
+
+There's different branches, too. They help isolate features from the main. 
+Add a branch by "checking it out" -> git checkout -b name_of_feature
+Want to go back to master? -> git checkout master
+Want to push branch to origin? -> git push origin <branch>
+
+Hey, lets see what main is up to! -> git pull
+Hey, lets try to merge a branch with ours! -> git merge <branch>
+
+Want to track status, differences, or logs?
+-> git status, git diff branch1 branch2, git log
+
+Want to edit configurations? -> git config 
