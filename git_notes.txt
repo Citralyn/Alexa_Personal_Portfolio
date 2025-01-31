@@ -4,7 +4,7 @@ In summary, you can either start a new repo (git init),
 or clone an existing repo from a remote destination (git clone)
 How to find repo path? -> go to the green code button on every repo (options are HTTPS, SSH, CLI)
 
-git repositories are organized as trees, with the head pointing at the latest commmit
+Git repositories are organized as trees, with the head pointing at the latest commmit
 
 Made changes? Stage them (git add <filename> (or * for all))
 Then commit them! (git commit -m "message")
@@ -25,3 +25,5 @@ Want to track status, differences, or logs?
 -> git status, git diff branch1 branch2, git log
 
 Want to edit configurations? -> git config 
+
+Entered an inescapable CLI editing mode? -> Press "q" or control C! 
