@@ -1,1 +1,0 @@
-// for netlify and render 

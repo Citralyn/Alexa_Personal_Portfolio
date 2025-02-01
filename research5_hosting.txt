@@ -1,0 +1,23 @@
+PRELUDE - a former personal project
+
+Before I make any official notes,
+I just want to say that I finally deployed my Big 2 app
+that I have been working a while on successfully!
+
+AKA - front-end deployed on netlify,
+and back-end deployed on render!
+
+I am on the free tier for both, 
+but both services are pretty generous with their use restrictions.
+
+All I had to do was make sure the proxy
+(defined in vite.config.js)
+was targeting the right backend server 
+(aka something ending with onrender.com)
+
+And that the backend express server
+was including the front-end react server
+(aka something ending with netlify.app)
+in its CORS configuration!
+
+Yay!
