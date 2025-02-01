@@ -1,0 +1,197 @@
+Presenting: Advanced Express! 
+Specifically: Useful methods, multiple servers, and CORS/Authentication
+
+Express objects (app, request, response, router, etc) 
+come with a lot of useful methods.
+
+We've already looked at a few of the app ones:
+app.get(), app.listen(), app.all(), app.route(), app.use, etc.
+
+One cool one we haven't covered is app.render().
+
+So Express has these things called template engines 
+which will replace variables in a template with values,
+effectively rendering a customized HTML page. 
+
+There's many view engines to choose from an install (Pug, EJS, etc).
+Default directory to locate views is /views, but you can set it with:
+app.set('views', './viewPathName')
+
+Then to access a view, use app.render (or req.render!) 
+app.get('/', (req, res) => {
+  res.render('index', { title: 'Hey', message: 'Hello there!' })
+})
+**Instead of index, you would write index.pug or index.ejs, or whichever render engine you used**
+**You can also specify the render engine with app.set -> EX: app.set('view engine', 'pug')
+
+Template Engines are cool, but what if I want a separate frontend server entirely?
+
+A common example would be 
+Way 1: Use fetch()
+
+You pass in a url and it returns a promise. 
+
+For instance, in my frontend react app, I could have:
+
+'use client';
+
+export default function Home() {
+  function callApi() {
+    fetch('http://localhost:3001/api')
+    .then(response => {
+      if (response.ok) {
+        return response.json(); // Parse the response data as JSON
+      } else {
+        throw new Error('API request failed');
+      }
+    })
+    .then(data => {
+      // Process the response data here
+      console.log(data); // Example: Logging the data to the console
+    })
+    .catch(error => {
+      // Handle any errors here
+      console.error(error); // Example: Logging the error to the console
+    });
+    }
+  return(
+    <button onClick={callApi}>Call API</button>
+  )
+}
+
+// The above is a simple react component that can be run with npm run dev
+// By default my react app runs on port 3000 (though that can be changed)
+
+In my Express server code, I could have:
+
+const express = require('express'); // import express
+const app = express(); // create an express object (can call it anything)
+
+app.get('/api', (req, res) => {
+  console.log("hi react")
+  res.json("content"); 
+});
+
+// start the server (any server, just not the same as react)
+app.listen(3001, () => { // listen at port 3001 on localhost 
+    console.log('Server is running on http://localhost:3001');
+});
+
+Now, when I press the button that I implemented in the react component, 
+it will fetch the resources at the URL I specify (http://localhost:3001)
+
+But wait! There's this thing called CORS that's blocking the response!
+CORS: Cross-Origin-Resource-Sharing
+
+Why does it exist?
+It prevents users on one domain from accessing resources on another domain,
+unless you explicitly include that domain in your CORs whitelist
+
+EX:
+const cors = require('cors') //first include cors
+
+var corsOptions = {
+  origin: 'http://localhost:3000' //then specify the domains you're okay with
+}
+
+// finally pass in the origin to the desired HTTP request
+app.get('/api', cors(corsOptions), (req, res) => {
+  console.log("hi react")
+  res.json('hi react');
+  
+});
+
+If origin is set to nothing, or you don't pass in cors(corsOptions)
+to your request handler, then anything can call your API.
+
+It would be the same effect as:
+
+// allow all domains to access api
+const cors = require('cors')
+app.use(cors())
+
+Great! Now what about the other connection methods other than fetch?
+
+Way 2: Axios 
+
+EX: // in your react component 
+function callApiAxios() {
+axios.get('http://localhost:3001/api/axios')
+.then(response => {
+    // Access the response data
+    const responseData = response.data;
+    // Process the response data here
+    console.log(responseData)
+})
+.catch(error => {
+    // Handle any errors
+});}
+
+So hypothetically you could have two API calls in the same React component,
+using two different request types!
+
+EX:
+'use client';
+import axios from 'axios';
+
+export default function Home() {
+  function callApiAxios() {
+    axios.get('http://localhost:3001/api/axios')
+    .then(response => {
+        // Access the response data
+        const responseData = response.data;
+        // Process the response data here
+        console.log(responseData)
+    })
+    .catch(error => {
+        // Handle any errors
+    });
+
+  }
+  function callApiFetch() {
+    fetch('http://localhost:3001/api/fetch')
+    .then(response => {
+      if (response.ok) {
+        return response.json(); // Parse the response data as JSON
+      } else {
+        throw new Error('API request failed');
+      }
+    })
+    .then(data => {
+      // Process the response data here
+      console.log(data); // Example: Logging the data to the console
+    })
+    .catch(error => {
+      // Handle any errors here
+      console.error(error); // Example: Logging the error to the console
+    });
+    }
+  return(
+    <>
+    <button onClick={callApiFetch}>Call API using Fetch</button>
+    <button onClick={callApiAxios}>Call API using Axios</button>
+    </>
+)}
+
+There's other ways too, 
+but they all pretty much do the same thing,
+i.e., send a request to the API URL, 
+and return a promise. 
+
+That was quite a detour from our original topic
+(Express object methods), so we'll quickly conclude on some more helpful methods
+
+The request object has information about the request
+(EX: req.body, req.ip, req.params, req.cookies)
+
+The response object has a lot of different methods for responding
+(EX: res.cookie(), res.download(), res.render(), res.send(), res.status())
+Note to self -> more exploring cookies later?
+
+The router also has methods! 
+Many of these are the same as the app object (HTTP requests, all, route, use...)
+
+For instance, you could have a function globally run at a mounted path:
+
+EX: //checking for authentication
+router.all('*', requireAuthentication)

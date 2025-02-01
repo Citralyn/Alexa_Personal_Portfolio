@@ -3,10 +3,24 @@ const app = express(); // create an express object (can call it anything)
 const cats = require('./cats.js');
 const dogs = require('./dogs.js');
 const app2 = express(); 
+const cors = require('cors')
+
+var corsOptions = {
+  origin: 'http://localhost:3000'
+}
+
+
 
 // define a route
 app.get('/', (req, res) => {
     res.send('Welcome!');
+});
+
+app.get('/aCoolView', (req, res) => {
+  var content = "dope view man"; 
+  res.render('main.ejs', {
+    page_content: content
+  });
 });
 
 app.get('/users/:userId/books/:bookId', (req, res) => {
@@ -59,9 +73,18 @@ app2.get('/', (req, res) => {
   res.send('Welcome!2');
 });
 
+app.get('/api/fetch', cors(corsOptions), (req, res) => {
+  console.log("hi fetch")
+  res.json("hi fetch");
+});
+
+app.get('/api/axios', cors(corsOptions), (req, res) => {
+  console.log("hi axios")
+  res.json("hi axios");
+});
 
 // start the server
-app.listen(3000, () => { // listen at port 3000 on localhost 
-    console.log('Server is running on http://localhost:3000');
+app.listen(3001, () => { // listen at port 3001 on localhost 
+    console.log('Server is running on http://localhost:3001');
 });
 
