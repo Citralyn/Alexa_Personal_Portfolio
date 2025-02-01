@@ -1,0 +1,162 @@
+In Express Basics we cover: basic routing/handling of HTTP requests, middleware, and router modularity 
+
+What's an API? -> way for two software components to communicate with each other
+How? -> REST API -> client sends HTTP request to server, gets HTTP response back
+(other APIs exist too)
+
+What is Express.js?
+
+Good for routing and middleware
+
+Bare minimum for starting an express server:
+
+const express = require('express'); // import express
+const app = express(); // create an express object (can call it anything)
+
+// define a route
+app.get('/', (req, res) => {
+    res.send('Welcome!');
+});
+
+// start the server
+app.listen(3000, () => { // listen at port 3000 on localhost 
+    console.log('Server is running on http://localhost:3000');
+});
+
+-> Then run with node app.js (or index.js, server.js, whatever you name your file)
+**This starts a server at port 3000 (or whatever port you set),
+for any get requests, the app will respond with "Welcome!"**
+
+The express object supports all HTTP request methods (GET, POST, etc.)
+
+You could even have your app listen for any request method:
+app.all('/', (req, res) => {
+    res.send('Welcome!');
+});
+
+You could have routes for specific URLs, or use REGEX/string patterns
+
+EX: //exact
+app.get('/about', (req, res) => {
+  res.send('about')
+})
+
+EX: //less exact, * is wildcard
+app.get('/ab*cd', (req, res) => {
+  res.send('ab*cd')
+})
+
+You could add params for URL paths specific to users 
+EX:
+app.get('/users/:userId/books/:bookId', (req, res) => {
+  res.send(req.params)
+})
+
+Then, if a user sends a GET request to http://localhost:3000/users/20/books/10,
+the response will be { "userId": "34", "bookId": "10" }!
+
+There's also express middleware, where you can replace the callback function
+with an array of functions that will be effectively chained.
+
+EX:
+
+const cb0 = function (req, res, next) {
+  console.log('CB0')
+  next()
+}
+
+const cb1 = function (req, res, next) {
+  console.log('CB1')
+  next()
+}
+
+const cb2 = function (req, res) {
+  console.log('CB2')
+  res.send('Hello from C!')
+}
+
+app.get('/example/c', [cb0, cb1, cb2])
+
+Or just chain the functions together!
+
+EX:
+app.get('/example/b', (req, res, next) => {
+  console.log('the response will be sent by the next function ...')
+  next()
+}, (req, res) => {
+  res.send('Hello from B!')
+})
+
+Don't want to make separate functions for each method in a route?
+
+You can use app.all(), or be more specific and use app.route(/path)!
+(Basically chain the HTTP methods)
+
+EX:
+app.route('/book')
+  .get((req, res) => {
+    res.send('Get a random book')
+  })
+  .post((req, res) => {
+    res.send('Add a book')
+  })
+  .put((req, res) => {
+    res.send('Update the book')
+  })
+
+There's also the express.router class.
+
+const express = require('express')
+const router = express.Router()
+
+This allows for modularity between routes.
+
+You could have one route defined in one file, export it, 
+and then import it in your main app file.
+
+EX: 
+//cats.js
+const express = require('express')
+const router = express.Router()
+
+// middleware that is specific to this router
+const timeLog = (req, res, next) => {
+  console.log('Time: ', Date.now())
+  next()
+}
+router.use(timeLog)
+
+// define the home page route
+router.get('/', (req, res) => {
+  res.send('cats home page')
+})
+// define the about route
+router.get('/about', (req, res) => {
+  res.send('About cats')
+})
+
+module.exports = router
+
+
+
+//index.js
+const express = require('express'); // import express
+const app = express(); // create an express object
+const cats = require('./cats.js'); // include cat router
+
+//
+app.use('/cats', cats);
+
+// start the server
+app.listen(3000, () => { // listen at port 3000 on localhost 
+    console.log('Server is running on http://localhost:3000');
+});
+
+Useful, right? Use routers to add modularity to your routing experience.
+
+Another way to add subapps to just make another app/express object.
+Aka -> 
+const app = express();
+const dog = express(); //or define this in another file for modularity
+
+Two express objects! And then mount using app.use().
