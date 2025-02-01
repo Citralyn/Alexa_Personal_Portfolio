@@ -1,0 +1,156 @@
+What is Vite? How do we incorporate it with the rest of our application?
+
+It's a build tool that both supports a:
+- development server using Hot Module Replacement (basically instant updates)
+- build process (code is bundled into a build library using Rollup)
+
+You can create a vite app using -> npm create vite@latest, 
+and then select from the many js templates (react, vue, svelte, etc)
+
+You can also install Vite without a template -> npm install -D vite,
+and then create an index.html file
+
+The index.html file will be served on http://localhost:5173
+
+Why is index.html special? It's the entry point to your application!
+
+You could nest multiple index.html files as long as you resolve them in vite.config.js
+
+EX: if the file structure looks like this:
+├── package.json
+├── vite.config.js
+├── index.html
+├── main.js
+└── nested
+    ├── index.html
+    └── nested.js
+
+You could then specify both points in your configuration file!
+
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { defineConfig } from 'vite'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        nested: resolve(__dirname, 'nested/index.html'),
+      },
+    },
+  },
+})
+
+Just make sure your nested index.html is for one,
+called index.html (names matter),
+and also that it references an entry script, i.e.,
+<script type="module" src="nested.js"></script> somewhere in the html file
+
+We'll dive more into React soon, 
+but basically we've defined a react root element in our html file
+(such as: <div id="root"></div> in the <body> element),
+
+And then we reference it using our entry point script (EX: main.jsx):
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+
+And finally reference the script in our entry html file!
+<script type="module" src="src/main.jsx"></script> 
+
+Alright, but what if you want multiple servers?
+Like an Express backend that the Vite frontend makes API requests to?
+
+Set up a proxy server in the vite config file!
+
+EX:
+export default defineConfig({
+  server: {
+    proxy: {
+      '/api': 'http://localhost:3000',  // Proxy API requests to Express
+    },
+  },
+});
+
+**note, this will send requests to http://localhost:3000/api**
+
+You can define multiple proxies as well.
+
+EX:
+export default defineConfig({
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://jsonplaceholder.typicode.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+      '^/fallback/.*': {
+        target: 'http://jsonplaceholder.typicode.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/fallback/, ''),
+      },
+      '/api': {
+        target: 'http://jsonplaceholder.typicode.com',
+        changeOrigin: true,
+        configure: (proxy, options) => {
+          // proxy will be an instance of 'http-proxy'
+        },
+      },
+      '/socket.io': {
+        target: 'ws://localhost:5174',
+        ws: true,
+        rewriteWsOrigin: true,
+      },
+    },
+  },
+})
+
+Then, in the file with our express instance,
+we use CORS as mentioned before!
+
+EX:
+
+const express = require('express'); 
+const app = express(); 
+const cors = require('cors')
+
+var corsOptions = {
+  origin: 'http://localhost:5173'
+}
+
+app.get('/vite/api', cors(corsOptions), (req, res) => {
+  console.log("hi vite")
+  res.json("hi vite");
+});
+
+// start the server
+app.listen(3001, () => { // listen at port 3001 on localhost 
+    console.log('Server is running on http://localhost:3001');
+});
+
+To conclude my research on vite, I'm going to mention the package.json file.
+In general, a package.json file is a file containing
+all the information, dependences, scripts, etc for your Node.js project.
+
+You can add or update an existing package.json file with npm init
+
+A lot of the times the starter apps come with scripts that hide away 
+the actual build or dev commands.
+
+EX:
+{
+  "scripts": {
+    "dev": "vite", // start dev server, aliases: `vite dev`, `vite serve`
+    "build": "vite build", // build for production
+    "preview": "vite preview" // locally preview production build
+  }
+}
+
+You could do npm run dev in the terminal, and it'll run vite,
+or you can just start up the server manually by typing vite 

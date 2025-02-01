@@ -6,7 +6,7 @@ const app2 = express();
 const cors = require('cors')
 
 var corsOptions = {
-  origin: 'http://localhost:3000'
+  origin: 'http://localhost:5173'
 }
 
 
@@ -81,6 +81,11 @@ app.get('/api/fetch', cors(corsOptions), (req, res) => {
 app.get('/api/axios', cors(corsOptions), (req, res) => {
   console.log("hi axios")
   res.json("hi axios");
+});
+
+app.get('/vite/api', cors(corsOptions), (req, res) => {
+  console.log("hi vite")
+  res.json("hi vite");
 });
 
 // start the server

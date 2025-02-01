@@ -38,5 +38,4 @@ export default function Home() {
     <button onClick={callApiFetch}>Call API using Fetch</button>
     <button onClick={callApiAxios}>Call API using Axios</button>
     </>
-    
 )}
