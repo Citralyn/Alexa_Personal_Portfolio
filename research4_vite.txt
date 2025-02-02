@@ -152,5 +152,5 @@ EX:
   }
 }
 
-You could do npm run dev in the terminal, and it'll run vite,
-or you can just start up the server manually by typing vite 
+So for vite projects, whenever you do npm run dev in the terminal,
+it'll run vite!

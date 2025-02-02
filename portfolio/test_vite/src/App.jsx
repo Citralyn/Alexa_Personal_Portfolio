@@ -1,4 +1,5 @@
 import { useState } from 'react'
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -9,6 +10,7 @@ function App() {
   return (
     <>
       <div>
+      <button type="button" class="btn btn-primary">Primary</button>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
