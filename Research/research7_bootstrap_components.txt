@@ -1,0 +1,95 @@
+//we can juset look through the main page, honestly each
+section is pretty useful might as well document all
+
+then briefly how reaect components differ
+
+then SVGs and ICONS 
+//i have inkscape -> maybe make SVGs there 
+
+//realy got to get into SVG making
+//like icons are all svgs
+//some components embed svgs
+//change default colors
+
+Customization 
+
+Bootstrap comes with a lot of handy premade components/utilities.
+But what if you don't like the look of a certain component?
+Or what if you want to make it look more like your own?
+
+One way to do it, is to create a custom scss file (a file that uses SASS).
+Then in that file, you can include Bootstrap (all or parts of it).
+-> @import "../node_modules/bootstrap/scss/bootstrap";
+
+You also need to make sure you've included Sass compiler to use Sass
+-> npm install -g sass
+
+Then, in your main html file (or optionally js or jsx file),
+reference the custom scss file you made! 
+EX:
+html -> <link href="/css/custom.scss" rel="stylesheet">
+js/jsx -> import '../css/custom.scss'
+
+Once everything is referenced, you can begin modifying Bootstrap's premade styles!
+
+Bootstrap makes use of variables in its Sass files,
+which you can look at yourself in bootstrap/scss/variables.scss
+Find any variable you want, copy it, remove the !default flag,
+and include it in your custom scss with a new value!
+
+EX:
+//in variables.scss
+$primary-text-emphasis:   shade-color($primary, 60%) !default;
+//in custom.scss
+$primary-text-emphasis:   shade-color($secondary, 20%);
+
+You can also modify values in maps (such is in $theme-colors)
+or create, add, or remove map values
+EX:
+//create and add -> $theme-colors: map-merge($theme-colors, $custom-colors);
+//delete -> $theme-colors: map-remove($theme-colors, "info", "light", "dark");
+
+Additionally, if you're overriding variables,
+make sure to declare the overrides before you import bootstrap in your custom scss file
+EX:
+$primary: pink;
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+Bootstrap includes functions too that you can edit/override.
+
+EX: Tint and Shade Color for lightening/darkening colors ->
+
+// defining the shade-color function 
+@function shade-color($color, $weight) {
+  @return mix(black, $color, $weight);
+}
+// using it 
+.custom-element {
+  color: shade-color($primary, 10%);
+}
+
+Bootstrap also makes use of mixins. What are mixins? 
+Mixins are like reusable css code blocks that you can define with a name.
+
+They're also somewhat like functions, where you can pass in values
+and have the mixin decide what to do with it.
+
+To use mixins within css declaration blocks (or even other mixins),
+use the @include directive! 
+
+EX:
+@mixin bordered($color, $width) {
+  border: $width solid $color;
+}
+
+.myArticle {
+  @include bordered(blue, 1px);  // Call mixin with two values
+}
+
+.myNotes {
+  @include bordered(red, 2px); // Call mixin with two values
+}
+
+
+
+
