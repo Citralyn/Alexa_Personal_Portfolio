@@ -86,6 +86,7 @@ app.get('/api/axios', cors(corsOptions), (req, res) => {
 app.get('/vite/api', cors(corsOptions), (req, res) => {
   console.log("hi vite")
   res.json("hi vite");
+  
 });
 
 // start the server

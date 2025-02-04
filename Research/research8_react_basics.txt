@@ -1,0 +1,155 @@
+These notes are pretty important -> 
+We'll be going over React and React components,
+and how we can use React with the rest of our application (in later notes).
+
+Let's start off with React Fundamentals!
+(I'll primarily be referencing -> https://www.w3schools.com/REACT/react_intro.asp,
+as well as the official React docs -> https://react.dev/)
+
+React is a Javascript library created by Facebook
+used for creating reusable UI components.
+
+It makes a virtual DOM in memory before applying the changes to the actual DOM,
+changing only what needs to be changed.
+
+So how do we use react in our projects?
+
+One way to do it is include a React CDN script somewhere in your HTML file,
+though that's more for testing/minor development purposes.
+
+Another way to do it is by running the command ->
+npx create-react-app my-react-app (or whatever you want to call it)
+Though this way has been deprecated.
+
+More recently, the recommended wway to use React is either:
+- through a framework like Next.js or Gatsby 
+- through a build tool like Vite (which I plan on using!)
+- manually integrate React into an existing project
+
+At the moment I am struggling to run React by itself
+(not in a framework or bundler),
+but I'll go over how React components work, and how to run React using Next or Vite.
+
+How are React components structured?
+
+You can think of the UI as a tree of nodes, where each node is a component.
+The root node is the top-level node, or the parent of all nodes,
+and it is the first node React renders.
+
+Parent components (aka nodes) use/render children components.
+
+It's good to keep one's project modular, in other words,
+separating out each node into it's own module/file,
+and having the parent nodes import the children nodes.
+
+Remember, modules and components are not the same thing, 
+but you can create modular components (import/export components from one module to another)
+
+EX:
+
+//App.js
+import FancyText from './FancyText';
+import InspirationGenerator from './InspirationGenerator';
+import Copyright from './Copyright';
+
+export default function App() {
+  return (
+    <>
+      <FancyText title text="Get Inspired App" />
+      <InspirationGenerator>
+        <Copyright year={2004} />
+      </InspirationGenerator>
+    </>
+  );
+}
+//FancyText.js
+export default function FancyText({title, text}) {
+  return title
+    ? <h1 className='fancy title'>{text}</h1>
+    : <h3 className='fancy cursive'>{text}</h3>
+}
+
+The way the browser determines which components to render and which node to make root
+depends on the framework or build tool you use.
+
+For instance, Next.js (a React framework) uses folders and files to determine page routing.
+In each folder, you can create a layout file, a page file, or some alternate file.
+
+Page files (notated as page.js), are components that get rendered onto the browser.
+Layout files (layout.js), determine UI that is shared between multiple pages.
+If it's not a page or layout file, it won't be rendered. 
+
+The app directory is the root directory, 
+and the layout.js file in /app is the root layout. 
+
+Any additional directories act as additional URL segments,
+with the layout.js and various page.js files representing that particular URL segment.
+
+Next.js also comes with a lot of premade components that you can import into your project.
+Some notable ones include Font, Image, and Link (you can find this under the API reference)
+
+EX: //using link to go to a different directory/url segment
+
+import Link from 'next/link'
+
+export default function Home() {
+  return(
+    <div>
+      <Link href="/food">Food</Link>
+    </div>
+  )
+};
+
+But that's enough on Next (we won't be using it for this project, anyway).
+
+Let's move on to Vite!
+
+We've already briefly discussed Vite in an earlier research document,
+but what's important to remember about Vite is that 
+index.html is the entry point to your application (it's what's being served on the browser).
+
+So how can you incorporate React into Vite?
+How does Vite know what to render as the root element?
+
+Solution -> use React's createRoot api!
+
+createRoot allows you to render a React node within a DOM element. 
+
+EXAMPLE:
+//in some js file connected to your html file
+import { createRoot } from 'react-dom/client';
+
+//get the element of your choosing 
+const domNode = document.getElementById('root');
+//make it root
+const root = createRoot(domNode);
+//render it with the component of your choice!
+root.render(<App />);
+
+Technically, you can have multiple root nodes within your application,
+but most applications just have one. 
+
+So how does this connect to Vite?
+
+In your Vite application, edit the index.html file to include:
+1. Some element that you can attach the root to (ex: <div id="root"></div>)
+2. The jsx/js file that renders the root (ex: <script type="module" src="/src/main.jsx"></script>)
+
+Often times, you'll see the root element wrapped in StrictMode tags.
+
+EX:
+import { StrictMode } from 'react'
+//...
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+
+What is StrictMode? 
+It's not a component or anything, but it enables
+extra checks during development.
+i.e., double rendering, re-running Effects, etc.
+
+You can choose to enable StrictMode on specific parts of your app,
+or your whole application. 

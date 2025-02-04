@@ -8,3 +8,11 @@ createRoot(document.getElementById('root')).render(
     <App />
   </StrictMode>,
 )
+
+createRoot(document.getElementById('cat')).render(
+  <StrictMode>
+    <h1>hi</h1>
+    <App />
+  </StrictMode>,
+)
+
