@@ -1,5 +1,15 @@
 $primary: pink;
 $danger: blue;
+$enable-rounded: false; 
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
+.callout-info {
+    border: lavender solid 1px;
+    display: flex;
+    gap: 2vw;
+    
+}
+.callout-header {
+    font-weight: bold;
+}

@@ -1,0 +1,4 @@
+1. Need to search for a specific phrase in VSCode?
+- go to the search bar 
+- click "Search for Text" (or just press %)
+- Type the text that you desire! 

@@ -1,0 +1,149 @@
+Customization 
+
+Bootstrap comes with a lot of handy premade components/utilities.
+But what if you don't like the look of a certain component?
+Or what if you want to make it look more like your own?
+
+One way to do it, is to create a custom scss file (a file that uses SASS).
+Then in that file, you can include Bootstrap (all or parts of it).
+-> @import "../node_modules/bootstrap/scss/bootstrap";
+
+You also need to make sure you've included the Sass compiler to use Sass
+-> npm install -g sass
+
+Then, in your main html file (or optionally js or jsx file),
+reference the custom scss file you made! 
+EX:
+html -> <link href="/css/custom.scss" rel="stylesheet">
+js/jsx -> import '../css/custom.scss'
+
+Once everything is referenced, you can begin modifying Bootstrap's premade styles!
+
+Bootstrap makes use of variables in its Sass files,
+which you can look at yourself in bootstrap/scss/_variables.scss
+Find any variable you want, copy it, remove the !default flag,
+and include it in your custom scss with a new value!
+
+EX:
+//in variables.scss
+$primary-text-emphasis:   shade-color($primary, 60%) !default;
+//in custom.scss
+$primary-text-emphasis:   shade-color($secondary, 20%);
+
+You can also modify values in maps (such is in $theme-colors)
+or create, add, or remove map values
+EX:
+//create and add -> $theme-colors: map-merge($theme-colors, $custom-colors);
+//delete -> $theme-colors: map-remove($theme-colors, "info", "light", "dark");
+
+Additionally, if you're overriding variables,
+make sure to declare the overrides before you import bootstrap in your custom scss file,
+or else they might not work
+EX:
+$primary: pink;
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+Bootstrap includes functions too that you can edit/override.
+
+EX: Tint and Shade Color for lightening/darkening colors ->
+
+// defining the shade-color function 
+@function shade-color($color, $weight) {
+  @return mix(black, $color, $weight);
+}
+// using it 
+.custom-element {
+  color: shade-color($primary, 10%);
+}
+
+Bootstrap also makes use of mixins. What are mixins? 
+Mixins are like reusable css code blocks that you can define with a name.
+
+They're also somewhat like functions, where you can pass in values
+and have the mixin decide what to do with it.
+
+To use mixins within css declaration blocks (or even other mixins),
+use the @include directive! 
+
+EX:
+@mixin bordered($color, $width) {
+  border: $width solid $color;
+}
+
+.myArticle {
+  @include bordered(blue, 1px);  // Call mixin with two values
+}
+
+.myNotes {
+  @include bordered(red, 2px); // Call mixin with two values
+}
+
+There's also certain global properties that Bootstrap gives you the option
+to very easily toggle on or off.
+EX: $enable-rounded: false; //border-radius is enabled by default
+
+A special note on Bootstrap colors:
+
+Bootstrap has three main color maps:
+$colors (all 500 base colors)
+$theme-colors (named colors)
+$grays (all tints and shades of gray)
+
+You can use or modify any of them in your custom Sass file 
+
+That's a lot on general customization, but what about customizing components?
+What even are Bootstrap components (how do they work?)
+
+Typically, Bootstrap components have shared properties grouped in a base class
+// EX -> .btn
+And individual variants in modifier classes
+// EX -> .btn-primary 
+
+You can generate the css for contextual modifiers using @each,
+which iterates through each element in a list or map
+
+EX:
+// main .btn class
+.btn {
+  // some code here
+}
+// the modifiers
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @if $color == "light" {
+      @include button-variant(
+        $value,
+        $value,
+        $hover-background: shade-color($value, $btn-hover-bg-shade-amount),
+        $hover-border: shade-color($value, $btn-hover-border-shade-amount),
+        $active-background: shade-color($value, $btn-active-bg-shade-amount),
+        $active-border: shade-color($value, $btn-active-border-shade-amount)
+      );
+    } @else if $color == "dark" {
+      @include button-variant(
+        $value,
+        $value,
+        $hover-background: tint-color($value, $btn-hover-bg-tint-amount),
+        $hover-border: tint-color($value, $btn-hover-border-tint-amount),
+        $active-background: tint-color($value, $btn-active-bg-tint-amount),
+        $active-border: tint-color($value, $btn-active-border-tint-amount)
+      );
+    } @else {
+      @include button-variant($value, $value);
+    }
+  }
+}
+
+Ultimately, Bootstrap makes use of a lot of custom variables/properties,
+all located in _root.scss, under the :root selector (the root element of the DOM),
+and prefixed with bs- ($prefix = $variable-prefix = bs-)
+
+CSS variables are good for when you want to reuse values within properties.
+You can identify them with the two dashes prefix (--your-variable),
+and you can use them by referencing them in a var function
+EX: background-color: var(--main-bg-color);
+
+You can also mix in SASS variables within your custom CSS properties.
+SASS variables are identified with the $,
+and to include it in the css property name, wrap it within #{}!
+EX: --#{$prefix}link-color: #{$link-color}; // this syntax is used a lot
