@@ -2,3 +2,12 @@
 - go to the search bar 
 - click "Search for Text" (or just press %)
 - Type the text that you desire! 
+
+2. Importing and Exporting in JS
+- If you're exporting one thing (a class or function), 
+- you can export default <name>
+- Then you can import <newName> from <location> //newName can be anything
+- If you have multiple things, you can export them with names 
+- i.e., export { name1, name2 };
+- And import them using their name (import { name1 } from <location>)
+- I'm using <> for explanation purposes, you don't actually need angle brackets

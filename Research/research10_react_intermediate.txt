@@ -1,0 +1,601 @@
+Let's cover some basic React component principles!
+(JSX, maps/filters, state, events...)
+
+Components make use of JSX, which is HTML markup with a JS file.
+
+EX:
+export default function TodoList() {
+  int num = 0;
+
+  return (
+    <>
+      <h1>Hedy Lamarr's Todos</h1>
+      <img 
+        src="https://i.imgur.com/yXOvdOSs.jpg" 
+        alt="Hedy Lamarr" 
+        className="photo" 
+      />
+      <ul>
+        <li>Invent new traffic lights</li>
+        <li>Rehearse a movie scene</li>
+        <li>Improve the spectrum technology</li>
+      </ul>
+    </>
+  );
+}
+
+It's normal javascript, but it's returning HTML to be rendered.
+You can even reference JS in your HTML using curly brackets.
+
+EX:
+  function App() {
+    int cat = 4;
+    return (
+    <>
+      <h1>{cat}</h1>
+    </>
+  );
+  }
+  
+Some other cool things about React:
+
+You can pass props (bits of information) from component to component.
+
+EX:
+//first pass the props
+export default function Profile() {
+  return (
+    <Avatar
+      person={{ name: 'Lin Lanying', imageId: '1bX5QH6' }}
+      size={100}
+      isSepia={false}
+      thickBorder={border}
+    />
+  );
+}
+
+//then use them!
+function Profile({ person, size, isSepia, thickBorder }) {
+  return (
+    <div className="card">
+      <Avatar
+        person={person}
+        size={size}
+        isSepia={isSepia}
+        thickBorder={thickBorder}
+      />
+    </div>
+  );
+}
+
+Or a more cleaner approach:
+
+function Profile(props) {
+  return (
+    <div className="card">
+      <Avatar {...props} />
+    </div>
+  );
+}
+
+Props can be anything, and are adjustable.
+EX:
+function Avatar(props) {
+  let person = props.person;
+  let size = props.size;
+  // ...
+}
+
+You can also pass in entire components.
+
+//ex passing it in
+export default function Profile() {
+  return (
+    <Card>
+      <Avatar
+        size={100}
+      />
+      <Dog
+        name={"cat"}
+      />
+    </Card>
+  );
+}
+
+EX: //reading the component or components inside
+function Card({ children }) {
+  return (
+    <div className="card">
+      {children}
+    </div>
+  );
+}
+
+Just like in normal JS where you can control what is returned,
+you can conditionally render components!
+
+EX:
+function Item({ name, isPacked }) {
+  if (isPacked) {
+    return <li className="item">{name} ✅</li>;
+  }
+  return <li className="item">{name}</li>;
+}
+
+Or even cooler:
+
+function Item({ name, isPacked }) {
+  return (
+    <li className="item">
+      {isPacked ? name + ' ✅' : name}
+    </li>
+  );
+}
+
+Have long arrays or objects, but need a way to display all of them?
+
+Use a map!
+
+EX:
+
+const people = [
+  'Creola Katherine Johnson: mathematician',
+  'Mario José Molina-Pasquel Henríquez: chemist',
+  'Mohammad Abdus Salam: physicist',
+  'Percy Lavon Julian: chemist',
+  'Subrahmanyan Chandrasekhar: astrophysicist'
+];
+
+export default function List() {
+  const listItems = people.map(person =>
+    <li>{person}</li>
+  );
+  return <ul>{listItems}</ul>;
+}
+
+Or a filter! Or even both!
+
+EX:
+
+export default function List() {
+  const chemists = people.filter(person =>
+    person.profession === 'chemist'
+  );
+  const listItems = chemists.map(person =>
+    <li>
+      <img
+        src={getImageUrl(person)}
+        alt={person.name}
+      />
+      <p>
+        <b>{person.name}:</b>
+        {' ' + person.profession + ' '}
+        known for {person.accomplishment}
+      </p>
+    </li>
+  );
+  return <ul>{listItems}</ul>;
+}
+
+React recommends making your components pure, i.e.,
+- The same input passed in should return the same output
+- Components don't change anything outside of themselves
+
+Not everything has to be pure -> sometimes you want to have
+something running on the side (not during rendering).
+
+This is when you use Event Handlers (we'll cover that soon). 
+
+Quick side note -> How does rendering in React work?
+
+Two things trigger a component's render in React:
+- It's the component's initial render
+- The component's state has been updated (or its parent's state has been updated)
+
+For the intiial render, React will look at the root component
+EX: createRoot(document.getElementById('root')).render(<App/>)
+
+If the component returns some other component, that component will be rendered next.
+(It's recursive, the rendering will continue until there's no more nested components)
+
+To update the actual browser DOM, React calls the DOM Api's appendChild function for each ReactDOM node.
+It'll only render what has changed. 
+
+We'll briefly cover state and event handling in React next.
+
+What are events? User interactions! Things that happen!
+
+There's some built-in event handlers,
+i.e. -> <button onClick={() => { //your function }},
+but you can also make and use your own event handlers,
+by passing event handlers as props to components!
+
+EX: // from React website
+
+export default function App() {
+  return (
+    <Toolbar
+      onPlayMovie={() => alert('Playing!')}
+      onUploadImage={() => alert('Uploading!')}
+    />
+  );
+}
+
+function Toolbar({ onPlayMovie, onUploadImage }) {
+  return (
+    <div>
+      <Button onClick={onPlayMovie}>
+        Play Movie
+      </Button>
+      <Button onClick={onUploadImage}>
+        Upload Image
+      </Button>
+    </div>
+  );
+}
+
+function Button({ onClick, children }) {
+  return (
+    <button onClick={onClick}>
+      {children}
+    </button>
+  );
+}
+
+As a general tip, it's probably better to use/make your own components,
+rather than strictly relying on the ones built-in to the browser.
+
+Now to state. What is it?
+
+State is information that is remembered across renders.
+
+You can use a UseState hook to manage state.
+
+**Briefly -> What are hooks?
+
+They are React features you can pull into your project,
+denoted with the "use" prefix 
+EX: UseState, UseEffect, UseContext...
+
+You can even make your own!
+EX:
+function useOnlineStatus() {
+  const [isOnline, setIsOnline] = useState(true);
+  useEffect(() => {
+    function handleOnline() {
+      setIsOnline(true);
+    }
+    function handleOffline() {
+      setIsOnline(false);
+    }
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
+  return isOnline;
+}
+**
+
+Back to state.
+
+To use useState, you pass in an initial value, 
+and useState will return a state variable and a setter function.
+
+EX: const [index, setIndex] = useState(0); 
+
+Example of how to use:
+
+import { useState } from 'react';
+
+export default function App() {
+  const [index, setIndex] = useState(0);
+
+  function handleClick() {
+    setIndex(index + 1);
+  }
+
+  return(
+    <div>
+      <button onClick={handleClick}>Update!</button>
+      <h1>{index}</h1>
+    </div>
+  )
+}
+
+A change to state will automatically trigger rerenders. 
+
+
+To make sure you're actually triggering the rerenders, 
+don't just change the state -> pass your changes to the state setter. 
+
+EX:
+
+//bad
+onPointerMove={e => {
+  position.x = e.clientX;
+  position.y = e.clientY;
+}}
+
+//good
+onPointerMove={e => {
+  setPosition({
+    x: e.clientX,
+    y: e.clientY
+  });
+}}
+
+If you're setting new values for an array or object,
+it's good to use the spread syntax to ensure the original data is kept
+before new changes override.
+
+EX:
+
+setPerson({
+  ...person, // Copy the old fields
+  firstName: e.target.value // But override this one
+});
+
+Or for nested objects:
+
+setPerson({
+  ...person, // Copy other fields
+  artwork: { // but replace the artwork
+    ...person.artwork, // with the same one
+    city: 'New Delhi' // but in New Delhi!
+  }
+});
+
+Similar with arrays, if you want to add to an array,
+copy the original array using the spread syntax,
+and then prepend or append the additional item
+
+EX:
+setArtists( // Replace the state
+  [ // with a new array
+    ...artists, // that contains all the old items
+    { id: nextId++, name: name } // and one new item at the end
+  ]
+);
+
+To delete, use filter!
+
+EX:
+setArtists(
+  artists.filter(a => a.id !== artist.id)
+);
+
+You can also change specific items in an array (or all!) using map.
+
+EX:
+  function handleClick() {
+    const nextShapes = shapes.map(shape => {
+      if (shape.type === 'square') {
+        // No change
+        return shape;
+      } else {
+        // Return a new circle 50px below
+        return {
+          ...shape,
+          y: shape.y + 50,
+        };
+      }
+    });
+    // Re-render with the new array
+    setShapes(nextShapes);
+  }
+
+  You can pass extra parameters into your map function,
+  if you want to, say, check for an index
+
+EX:
+export default function CounterList() {
+  const [counters, setCounters] = useState(
+    initialCounters
+  );
+
+  function handleIncrementClick(index) {
+    const nextCounters = counters.map((c, i) => {
+      if (i === index) {
+        // Increment the clicked counter
+        return c + 1;
+      } else {
+        // The rest haven't changed
+        return c;
+      }
+    });
+    setCounters(nextCounters);
+  }
+
+  return (
+    <ul>
+      {counters.map((counter, i) => (
+        <li key={i}>
+          {counter}
+          <button onClick={() => {
+            handleIncrementClick(i);
+          }}>+1</button>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+You can pass state down from parent to children components, 
+which is good if you want components to change together on state change. 
+
+EX:
+
+export default function Accordion() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  return (
+    <>
+      <h2>Almaty, Kazakhstan</h2>
+      <Panel
+        title="About"
+        isActive={activeIndex === 0}
+        onShow={() => setActiveIndex(0)}
+      >
+        With a population of about 2 million, Almaty is Kazakhstan's largest city. From 1929 to 1997, it was its capital city.
+      </Panel>
+      <Panel
+        title="Etymology"
+        isActive={activeIndex === 1}
+        onShow={() => setActiveIndex(1)}
+      >
+        The name comes from <span lang="kk-KZ">алма</span>, the Kazakh word for "apple" and is often translated as "full of apples". In fact, the region surrounding Almaty is thought to be the ancestral home of the apple, and the wild <i lang="la">Malus sieversii</i> is considered a likely candidate for the ancestor of the modern domestic apple.
+      </Panel>
+    </>
+  );
+}
+
+State is generally preserved, but if you want to reset state,
+you can pass in special key props to children components.
+
+EX:
+return (
+    <section className="contact-list">
+      <ul>
+        {contacts.map(contact =>
+          <li key={contact.email}>
+            <button onClick={() => {
+              onSelect(contact);
+            }}>
+              {contact.name}
+            </button>
+          </li>
+        )}
+      </ul>
+    </section>
+  );
+
+Typically, you pass information through props.
+But what if the render tree is too large to handle?
+
+You can use the useContext hook!
+
+First, create the initial context:
+
+//EX put this in some file
+import { createContext } from 'react';
+export const NameContext = createContext(0);
+
+Then grab the context (import it), and pass into a ContextProvider
+You can add the ContextProvider as part of a parent component's definition,
+so that whatever is inside it gets the context passed to them
+
+//EX -> in parent/wrapper component
+import { useContext } from 'react';
+import { NameContext } from './HelperName.jsx';
+
+export default function Section({ children }) {
+  const name = useContext(NameContext);
+  return (
+    <section className="section">
+      <NameContext.Provider value={name + 1}>
+        {children}
+      </NameContext.Provider>
+    </section>
+  );
+}
+
+//in child component
+import { useContext } from 'react';
+import { NameContext } from './HelperName.jsx';
+
+const names = [
+  "Sandy",
+  "Rebecca",
+  "Margo",
+  "Allison",
+  "Julia"
+]
+
+export default function Heading({ children }) {
+  const name = useContext(NameContext);
+  switch (name) {
+    case 0:
+      return <h6>{names[name]}: {children}</h1>;
+    case 1:
+      return <h1>{names[name]}: {children}</h1>;
+    case 2:
+      return <h2>{names[name]}: {children}</h2>;
+    case 3:
+      return <h3>{names[name]}: {children}</h3>;
+    case 4:
+      return <h4>{names[name]}: {children}</h4>;
+    default:
+      throw Error('Unknown name: ' + names[name]);
+  }
+}
+
+//in the actual app 
+import Heading from '../utilities/HelperHeading.jsx'
+import NameOutline from '../utilities/HelperNameOutline.jsx'
+
+const Contact = () => {
+  return(
+    <>
+    <h1>Contact</h1>;
+    <NameOutline>
+      <Heading>
+        1
+      </Heading>
+    </NameOutline>
+    <NameOutline>
+      <Heading>
+        1
+        <NameOutline>
+          <Heading>
+            2
+            <NameOutline>
+            <Heading>
+              3
+            </Heading>
+            </NameOutline>
+          </Heading>
+        </NameOutline>
+      </Heading>
+    </NameOutline>
+    </>
+  )
+};
+
+If your NameContext.Provider was just <NameContext.Provider value={name}>,
+you could pass in the name prop manually to each NameOutline instead.
+EX:
+<NameOutline name="Margo">
+    <Heading>
+      1
+    </Heading>
+</NameOutline>
+
+Ultimately, React recommends against using context unless needed,
+and just passing props through components instead. 
+Or, to even further reduce extra work, just pass components as children instead.
+
+EX: 
+
+function Card({ children }) {
+  return (
+    <div className="card">
+      {children}
+    </div>
+  );
+}
+
+export default function Profile() {
+  return (
+    <Card>
+      <Avatar
+        size={100}
+        person={{ 
+          name: 'Katsuko Saruhashi',
+          imageId: 'YfeOqp2'
+        }}
+      />
+    </Card>
+  );
+}

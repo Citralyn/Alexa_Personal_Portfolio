@@ -9,10 +9,4 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>,
 )
 
-createRoot(document.getElementById('cat')).render(
-  <StrictMode>
-    <h1>hi</h1>
-    <App />
-  </StrictMode>,
-)
 

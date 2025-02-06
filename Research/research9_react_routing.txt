@@ -1,0 +1,106 @@
+Let's cover React Routing to handle site navigation.
+
+We've already covered routes with Express, 
+but it's typically better to use the React Router for navigation purposes,
+and Express routes for API call handling.
+
+I'll mainly be going off this page: https://www.w3schools.com/react/react_router.asp
+
+First, install the React Router library into your project folder
+-> npm i -D react-router-dom
+
+Then, you'll need the following wherever you establish your routes:
+- BrowserRouter (establishes the routing context within your app)
+- Routes (maps URL paths to the elements that should be rendered)
+
+Here is an example (from w3schools)
+
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./pages/Layout";
+import Home from "./pages/Home";
+import Blogs from "./pages/Blogs";
+import Contact from "./pages/Contact";
+import NoPage from "./pages/NoPage";
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+
+//Some notes
+The <Routes> component acts as a container for you to put your routes
+The route with the index attribute specifies it as the default route for the parent route
+(You can only have one index element)
+The route with the path * acts as a catchall for any undefined URLs
+Importing the entire ReactDOM is optional, you could just import create root
+i.e., -> import { createRoot } from 'react-dom/client'
+and one-line it from there: createRoot(document.getElementById('root')).render(<App/>)
+
+One of the routes contains all the other routes. Why?
+
+It's more so for navigation purposes.
+It's like a parent component that will render alongside all of its children.
+
+You do have to include <Outlet /> in the parent component, 
+if you want it to also render its children.
+
+EX: in the above example, Layout can be written like so:
+
+import { Outlet, Link } from "react-router-dom";
+
+const Layout = () => {
+  return (
+    <>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/animals">Animals</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Outlet />
+    </>
+  )
+};
+
+export default Layout;
+
+The list with the Links (another cool React client API component),
+will render within every child route that renders.
+<Outlet /> is so that the children render too (upon their specific path).
+
+You could define multiple layouts/parent routes within the browser router:
+<BrowserRouter>
+    <Routes>
+        <Route path="/animals" element={<AnimalLayout />}>
+          <Route index element={<AnimalHome />} />
+          <Route path="cat" element={<Cat />}></Route>
+        </Route>
+        <Route path="/" element={<HomeLayout/>}>
+          <Route index element={<Home />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<Error />} />
+        </Route>
+      </Routes>
+</BrowserRouter>
