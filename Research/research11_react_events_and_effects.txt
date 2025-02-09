@@ -1,0 +1,196 @@
+Wow! We talked a lot about React.
+
+For our last React tangent (before we dive back into Bootstrap and components),
+we're going to discuss events and effects!
+
+Events are triggered by user actions,
+and they come default in HTML elements. 
+EX: onchange, onclick, onselect...
+
+To handle events, you can define and pass in an event handler.
+You can define it outside the component, or even inline!
+
+EX:
+//outside
+export default function Button() {
+  function handleClick() {
+    alert('You clicked me!');
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Click me
+    </button>
+  );
+}
+//inline
+<button onClick={() => {
+  alert('You clicked me!');
+}}>
+
+Event handlers are defined in your components,
+and thus can read a component's props.
+
+EX:
+function AlertButton({ message, children }) {
+  return (
+    <button onClick={() => alert(message)}>
+      {children}
+    </button>
+  );
+}
+
+Event handlers can even be passed as props themselves!
+
+EX:
+function Button({ onSmash, children }) {
+  return (
+    <button onClick={onSmash}>
+      {children}
+    </button>
+  );
+}
+
+export default function App() {
+  return (
+    <div>
+    //you can name it whatever
+      <Button onSmash={() => alert('Playing!')}>
+        Play Movie
+      </Button>
+      <Button onSmash={() => alert('Uploading!')}>
+        Upload Image
+      </Button>
+    </div>
+  );
+}
+
+Events propagate too ->
+A child's onlick event will propagate to the parent.
+
+EX:
+export default function Toolbar() {
+  return (
+    <div className="Toolbar" onClick={() => {
+      alert('You clicked on the toolbar!');
+    }}>
+      <button onClick={() => alert('Playing!')}>
+        Play Movie
+      </button>
+      <button onClick={() => alert('Uploading!')}>
+        Upload Image
+      </button>
+    </div>
+  );
+}
+//ex -> clicking on upload image will start the Uploading alert and the Toolbar alert
+
+However, you can pass in a e.stopPropagation() to prevent the propagation from happening.
+EX: 
+<button onClick={e => {
+    e.stopPropagation();
+    onClick();
+}}>
+
+You can also prevent default browser event-handling from happening! 
+EX:
+<form onSubmit={e => {
+    e.preventDefault();
+    alert('Submitting!');
+}}>
+
+Cool! Now what are effects?
+
+Effects are side effects that happen outside of event handlers.
+
+By default, effects are ran after every commit (approved render to the DOM).
+However, if you don't want an effect to run every time, you can declare dependencies!
+
+You can also return a clean-up function.
+
+Let's explore how!
+
+STEP 1: Declare an Effect:
+
+import { useEffect } from 'react';
+function MyComponent() {
+  useEffect(() => {
+    // Code here will run after *every* render
+  });
+  return <div />;
+}
+
+You want to allow the screen to update first (render),
+then have the side effect run.
+
+EX:
+import { useState, useRef, useEffect } from 'react';
+
+function VideoPlayer({ src, isPlaying }) {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (isPlaying) {
+      ref.current.play();
+    } else {
+      ref.current.pause();
+    }
+  });
+
+  return <video ref={ref} src={src} loop playsInline />;
+}
+
+export default function App() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  return (
+    <>
+      <button onClick={() => setIsPlaying(!isPlaying)}>
+        {isPlaying ? 'Pause' : 'Play'}
+      </button>
+      <VideoPlayer
+        isPlaying={isPlaying}
+        src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+      />
+    </>
+  );
+}
+
+Adding dependences,
+EX:
+  useEffect(() => {
+    if (isPlaying) { // It's used here...
+      // ...
+    } else {
+      // ...
+    }
+  }, [isPlaying]); // ...so it must be declared here!
+
+-> in this case, effect only re-runs if isPlaying state changes!
+
+React has a good summary of dependencies:
+
+useEffect(() => {
+  // This runs after every render
+});
+
+useEffect(() => {
+  // This runs only on mount (when the component appears)
+}, []);
+
+useEffect(() => {
+  // This runs on mount *and also* if either a or b have changed since the last render
+}, [a, b]);
+
+Clean-up functions!
+
+EX:
+  useEffect(() => {
+    const connection = createConnection();
+    connection.connect();
+    return () => {
+      connection.disconnect();
+    };
+  }, []);
+
+Clean-ups are called everytime the effect is run,
+and once when the effect unmounts. 

@@ -1,6 +1,0 @@
---//quick thing on effects
--> basically act as side effects
-(we will also test this out) 
-//ad some deendenece (like prop or state) and if that change,
-effect happens
-//clean up functions are good too 

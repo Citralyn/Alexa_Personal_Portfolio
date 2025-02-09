@@ -27,7 +27,6 @@ const Contact = () => {
     </NameOutline>
     </>
   )
-    return 
-  };
+};
   
   export default Contact;

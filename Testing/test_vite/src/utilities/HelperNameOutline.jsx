@@ -1,8 +1,6 @@
 import { useContext } from 'react';
 import { NameContext } from './HelperName.jsx';
 
-
-
 export default function Section({ children }) {
   const name = useContext(NameContext);
   return (
