@@ -25,3 +25,4 @@
 - React Routing is the goat (makes things so easy)
 - Bootstrap Components are the goat (so easy to use, so customizable)
 - I especially like how Bootstrap handles nav bars! 
+- And Bootstrap grids/the flex system handle super well too! (yay rows and cols)
