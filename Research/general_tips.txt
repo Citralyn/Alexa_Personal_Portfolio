@@ -20,3 +20,8 @@
 - Canva also supports custom sizing, 
 - so you could make a 512 by 512 (or similar) png logo,
 - and use sips to convert it to a icns file! (for custom Apple App Icons)
+
+4. Some Glazing of React and Bootstrap
+- React Routing is the goat (makes things so easy)
+- Bootstrap Components are the goat (so easy to use, so customizable)
+- I especially like how Bootstrap handles nav bars! 
