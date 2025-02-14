@@ -11,3 +11,12 @@
 - i.e., export { name1, name2 };
 - And import them using their name (import { name1 } from <location>)
 - I'm using <> for explanation purposes, you don't actually need angle brackets
+
+3. SVGs
+- PNG stands for portable network graphic
+- SVG stands for scalable vector graphic
+- You can draw/make designs in Canva (both on a tablet or computer),
+- and export them as SVGs! Good for web icons!
+- Canva also supports custom sizing, 
+- so you could make a 512 by 512 (or similar) png logo,
+- and use sips to convert it to a icns file! (for custom Apple App Icons)

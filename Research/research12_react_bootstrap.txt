@@ -1,0 +1,101 @@
+These notes will be a lot less intense,
+as I'm more-so just going to be playing around with various components
+rather than fully documenting any one functionality.
+
+React supports all built-in browser components.
+
+Found here: https://react.dev/reference/react-dom/components
+
+EX:
+Form Components:
+<input>, <select>, <textarea>, etc...
+
+Resource/Metadata Components:
+<link>, <meta>, <script>, <style>, <title>, etc...
+These are rendered into the document head!
+
+And various other HTML components:
+<audio>, <button>, <div>, <footer>, <h1>, etc...
+
+As well as SVG components! (I will explore later...)
+<a>, <animate>, <image>, <style>, <text>, etc...
+
+In the link I gave above, each of these components
+direct to a separate page with the props/attributes the component supports.
+
+Next up -> React and Bootstrap!
+
+I'm going to mess around with React-Bootstrap and Vite,
+and come back once I have an okay understanding. 
+
+.. TEN YEARS LATER ..
+
+I'm back! 
+
+React-Bootstrap is basically just bootstrap components,
+or bootstrap classes wrapped into React components
+
+To use it, first install the dependencies
+-> npm install react-bootstrap bootstrap
+
+Then, include the Bootstrap library in both your main js file
+and the css file you decide to link to:
+
+//in your main.jsx or equivalent
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+//in your custom sass file (make sure to also install SASS!)
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+Themes follow the existing Bootstrap themes,
+which you can customize like normal (as well as other Bootstrap variables).
+
+React-Bootstrap's documentation is pretty easy to use;
+-> it categorizes layout components, form components,
+general UI components, and helper utilities very neatly.
+
+Click on any one of them in the left sidebar,
+and see what they can do/what props they handle!
+
+EX:
+//TABS (a general component) - very useful
+//doesn't have to just be text in the tab body/content
+
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
+
+function JustifiedExample() {
+  return (
+    <Tabs
+      defaultActiveKey="profile"
+      id="justify-tab-example"
+      className="mb-3"
+      justify
+    >
+      <Tab eventKey="home" title="Home">
+        Tab content for Home
+      </Tab>
+      <Tab eventKey="profile" title="Profile">
+        Tab content for Profile
+      </Tab>
+      <Tab eventKey="longer-tab" title="Loooonger Tab">
+        Tab content for Loooonger Tab
+      </Tab>
+      <Tab eventKey="contact" title="Contact" disabled>
+        Tab content for Contact
+      </Tab>
+    </Tabs>
+  );
+}
+
+One last thing -> React-Bootstrap has this special prop called "as".
+
+You have a component which you like the style of,
+but you want it to function as something different?
+
+Pass in the as prop! (works for some, not all components)
+
+EX: // looks like a button, acts like a link
+<Button as="a" variant="primary">
+Button as link
+</Button>

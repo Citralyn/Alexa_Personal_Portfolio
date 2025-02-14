@@ -9,10 +9,16 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "cors": "^2.8.5",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-bootstrap": "^2.10.9",
+    "react-dom": "^19.0.0",
+    "react-router": "^7.1.5"
+  },
+  "devDependencies": {
+    "vite": "^6.1.0"
   }
 }

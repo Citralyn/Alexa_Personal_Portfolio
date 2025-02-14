@@ -1,4 +1,0 @@
-///THIS ONE NEXT
-
-react bootstrap, cool components,
-gneeral stuff about forms, links, the DOM API, etc 
