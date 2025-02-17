@@ -17,3 +17,7 @@ TODO:
 - maybe test out some testing software (Jira, Selenium)
 - maybe something on automation
 - maybe a database review thing (postgres, mysql, etc)
+- Main(Go to Projects) //Projects(//(stack) small display// link to each) 
+//plus in proejcts -> link to (how I made it)
+//- Miscallenous ->link to miscallenous (headers i guess like a stack)
+//link to more in-depth 

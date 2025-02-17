@@ -47,3 +47,9 @@ Mobile first, responsive design is the goal. Bootstrap’s CSS aims to apply the
 alot of thema rent prefirectly fluid but do seem to change at specific breakpoijnts
 //fluid automatically sets 
 /// ya 12 columns
+//lots of rules with default
+
+-> //export default? exporting one thing
+-> //tuen u can import without curly brackets
+//exporitng many thigns? improt with curly brackets (import {Nav, Link} from whatever)
+//u can also export default and a random!
