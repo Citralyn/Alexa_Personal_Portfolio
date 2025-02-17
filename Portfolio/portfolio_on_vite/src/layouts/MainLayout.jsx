@@ -7,7 +7,7 @@ import { Outlet, Link } from "react-router";
 export default function MainLayout() {
   return (
     <div>
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar expand="false" className="bg-body-tertiary">
             <Container>
                 <Navbar.Brand href="/">Alexa's Personal Portfolio</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

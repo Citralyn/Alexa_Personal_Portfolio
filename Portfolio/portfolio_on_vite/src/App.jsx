@@ -31,7 +31,7 @@ function App() {
 
         <Route path="/misc" element={<MiscLayout />}>
           <Route index element={<MiscHome />} />
-          <Route path="api_calls" element={<API_Page />} />
+          <Route path="api_fun" element={<API_Page />} />
           <Route path="terminal_fun" element={<TerminalPage />} />
           <Route path="dsa_fun" element={<DSA_Page />} />
         </Route>

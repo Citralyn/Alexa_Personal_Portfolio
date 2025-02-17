@@ -1,0 +1,19 @@
+TODO:
+
+- incremental committing (in this order)
+- update crowsuite and qt (or at least check github, nothing too much)
+- add about me page
+- api thing
+- mobile thing
+- terminal tutorial (docusaurus?)
+- database tierlist 
+- add section for stats stuff/machine learning stuff?
+- testing out different python libraries/specifically graphing stuff?
+- code sandbox for leetcode stuff?
+- i wonder what tips and tricks help me (DSA)
+- raspberry pi -> cantonese class thing
+- review of docker 
+- make mobile compatible 
+- maybe test out some testing software (Jira, Selenium)
+- maybe something on automation
+- maybe a database review thing (postgres, mysql, etc)

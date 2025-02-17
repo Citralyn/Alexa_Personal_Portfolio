@@ -26,3 +26,24 @@
 - Bootstrap Components are the goat (so easy to use, so customizable)
 - I especially like how Bootstrap handles nav bars! 
 - And Bootstrap grids/the flex system handle super well too! (yay rows and cols)
+
+5. Media goes wild
+- lots of things i thik about colu,n or row with in bootstrpa docs and
+- probably react too
+- its about breakpoints
+- copied (will delete later)
+- Core concepts
+//containers have breakpoints??
+//can have responsive or fluid - will try out now
+//i think normal container already sets a breakpoint, we test it out
+Breakpoints are the building blocks of responsive design. Use them to control when your layout can be adapted at a particular viewport or device size.
+
+Use media queries to architect your CSS by breakpoint. Media queries are a feature of CSS that allow you to conditionally apply styles based on a set of browser and operating system parameters. We most commonly use min-width in our media queries.
+
+Mobile first, responsive design is the goal. Bootstrap’s CSS aims to apply the bare minimum of styles to make a layout work at the smallest breakpoint, and then layers on styles to adjust that design for larger devices. This optimizes your CSS, improves rendering time, and provides a great experience for your visitors.
+//set different number columns to span, at breakpoints 
+// seeing the dif in action goes crazy <Col xs={11} md={4}>
+..after going on random websites (wikipedia, doge, etc),
+alot of thema rent prefirectly fluid but do seem to change at specific breakpoijnts
+//fluid automatically sets 
+/// ya 12 columns
