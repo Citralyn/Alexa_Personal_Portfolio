@@ -5,6 +5,7 @@ import cq from "../../assets/crowsuite/crow_queen.png"
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from "react-bootstrap/Button";
 
 
 
@@ -47,14 +48,25 @@ function ActionItems() {
     )
 }
 
+function RepoShoutOut() {
+    return(
+        <Col className="text-bg-info text-center">
+            <p>Want to contribute/check out the source code?</p>
+            <p>Visit the repo! - <a href="https://github.com/Citralyn/CrowSuite">CrowSuiteRepo</a></p>
+        </Col>
+    )
+}
+
 export default function CrowSuitePage() {
     return(
         <div>
+            <Button variant="secondary" as="a" href="/projects">Back to Projects</Button>
             <h1 class="text-center">How I Built CrowSuite</h1>
             <CrowSuiteDisplay></CrowSuiteDisplay>
             <TechStack></TechStack>
             <h1 class="text-center">Current Action Items</h1>
             <ActionItems></ActionItems>
+            <RepoShoutOut></RepoShoutOut>
         </div>
     )
 }

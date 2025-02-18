@@ -49,7 +49,15 @@ alot of thema rent prefirectly fluid but do seem to change at specific breakpoij
 /// ya 12 columns
 //lots of rules with default
 
+6
 -> //export default? exporting one thing
 -> //tuen u can import without curly brackets
 //exporitng many thigns? improt with curly brackets (import {Nav, Link} from whatever)
 //u can also export default and a random!
+
+7
+
+//something about -> Bs prefix
+Another escape hatch is the bsPrefix prop available in many React-Bootstrap components. This prop allows you to override the default Bootstrap CSS classes applied to the component, providing a way to customize the component's styling beyond what's possible with standard Bootstrap classes.
+
+

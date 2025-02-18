@@ -1,30 +1,75 @@
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
 
 function CrowSuiteSection() {
     return(
         <>
-            <h1>CROWSUITE</h1>
-            <p>Small information about it</p>
-            <p>Link: <a href="https://crowsuite.netlify.app/">Click Here!</a></p>
-            <Button variant="primary" as="a" href="/projects/crowsuite">Read how it was made!</Button>
-        </>
+        <h1 className="text-center">CROWSUITE</h1>
+        <Row>
+        <Col xs={1} sm={1} md={1} lg={1} xl={1}>
+        </Col>
+        <Col xs={4} sm={4} md={4} lg={4} xl={4}>
+            <Card>
+      <Card.Header as="h5">CrowSuite</Card.Header>
+      <Card.Body>
+        <Card.Text>
+            An online SocketIO game resemblant of the card game Big 2!
+            But with a twist - birds for suits!
+        </Card.Text>
+        <Button variant="primary" as="a" href="/projects/crowsuite">Read how it was made!</Button>
+        <Button variant="primary" as="a" href="https://crowsuite.netlify.app">Play Online!</Button>
+
+      </Card.Body>
+    </Card>
+    </Col >
+    <Col xs={1} sm={1} md={1} lg={1} xl={1}>
+    </Col>
+    <Col xs={4} sm={4} md={4} lg={4} xl={4}>
+        <Image style={{width: "40vw"}} src="../src/assets/CrowSuitePreview.png"></Image>
+    </Col>
+    </Row>
+    </>
     )
 }
 
 function ChorganizerSection() {
     return(
         <>
-            <h1>Chorganizer</h1>
-            <p>Small information about it</p>
-            <p>Download! <a href="src/assets/yellow_heart.png" download>Download and Try out!</a></p>
-            <Button variant="primary" as="a" href="/projects/chorganizer">Read how it was made!</Button>
-        </>
+        <h1 className="text-center">CHORE DECIDER</h1>
+        <Row>
+        <Col xs={1} sm={1} md={1} lg={1} xl={1}>
+        </Col>
+        <Col xs={4} sm={4} md={4} lg={4} xl={4}>
+            <Card>
+      <Card.Header as="h5">Chore Decider</Card.Header>
+      <Card.Body>
+        <Card.Text>
+            A MacOS desktop application to help organize and distribute
+            your chores - tailored to ACC Communities! 
+        </Card.Text>
+        <Button variant="primary" as="a" href="/projects/chorganizer">Read how it was made!</Button>
+        <Button download variant="primary" as="a" href="../src/assets/ChoreDeciderPreview.png">Download to try out!</Button>
+
+      </Card.Body>
+    </Card>
+    </Col >
+    <Col xs={1} sm={1} md={1} lg={1} xl={1}>
+    </Col>
+    <Col xs={4} sm={4} md={4} lg={4} xl={4}>
+        <Image style={{width: "40vw"}} src="../src/assets/ChoreDeciderPreview.png"></Image>
+    </Col>
+    </Row>
+    </>
     )
 }
 
 export default function ProjectHome() {
     return(
         <>
+            <Button variant="secondary" as="a" href="/">Back to Main</Button>
             <CrowSuiteSection></CrowSuiteSection>
             <ChorganizerSection></ChorganizerSection>
         </>

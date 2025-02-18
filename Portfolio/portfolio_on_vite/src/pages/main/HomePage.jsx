@@ -6,6 +6,7 @@ import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import PersonalizedHeading from '../../utilities/PersonalizedHeading';
+
 import '../../scss/custom.scss';
 
 function AboutMePreview() {
@@ -42,26 +43,15 @@ function ProjectPreview() {
             <Col xs={6} sm={6} md={6} lg={6} xl={6}>
             <Carousel>
             <Carousel.Item>
-                <Image src="src/assets/temp_boluobao.jpeg" fluid></Image>
-                <Carousel.Caption>
-                <h3>First slide label</h3>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                <Image src="src/assets/ChoreDeciderPreview.png" fluid></Image>
+                <Carousel.Caption style={{color: "grey"}}>
+                <h3>Chore Decider</h3>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                <Image src="src/assets/temp_boluobao.jpeg" fluid></Image>
-                <Carousel.Caption>
-                <h3>Second slide label</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-                <Image src="src/assets/temp_boluobao.jpeg" fluid></Image>
-                <Carousel.Caption>
-                <h3>Third slide label</h3>
-                <p>
-                    Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                </p>
+                <Image src="src/assets/CrowSuitePreview.png" fluid></Image>
+                <Carousel.Caption style={{color: "grey"}}>
+                <h3>CrowSuite</h3>
                 </Carousel.Caption>
             </Carousel.Item>
             </Carousel>
@@ -74,7 +64,7 @@ function ProjectPreview() {
                     <Card.Text className='text-center'>
                     Interested in seeing some cool applications I've implemented? Visit my Project Page! 
                     </Card.Text>
-                    <Button variant="alexa_color1" as="a" href="/about">Explore Projects</Button>
+                    <Button variant="alexa_color1" as="a" href="/projects/">Explore Projects</Button>
                 </Card.Body>
             </Card>
             </Col>
