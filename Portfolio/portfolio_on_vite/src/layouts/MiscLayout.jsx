@@ -16,7 +16,7 @@ export default function MiscLayout() {
                     <Nav.Link href="/">Back to Home</Nav.Link>
                     <Nav.Link href="/misc/api_fun">Let's explore APIs!</Nav.Link>
                     <Nav.Link href="/misc/terminal_fun">Let's explore the terminal!</Nav.Link>
-                    <Nav.Link href="/misc/dsa_fun">Let's explore competitive programming!</Nav.Link>
+                    <Nav.Link href="/misc/db_fun">Let's explore databases!</Nav.Link>
                 </Nav>
                 </Navbar.Collapse>
             </Container>

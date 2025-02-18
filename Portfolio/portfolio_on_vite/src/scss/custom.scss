@@ -1,23 +1,36 @@
 /* import bootstrap once to avoid "{this_variable} not defined" errors*/
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
+$primary: pink;
+
+/* new custom colors! */
 $custom-colors: (
   "alexa_color1": #d6b14b,
   "alexa_color2": #a63d4f,
   "alexa_color3": #524b63
 );
 
+/* add to theme colors*/
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+
+/* set base-font family throughout website */ 
 $font-family-base: "Azeret Mono", serif;
+
+/* special font for headers */ 
 h1 {
     font-family:   "Ultra", serif;
 }
 
-$theme-colors: map-merge($theme-colors, $custom-colors);
 
+
+
+/* get the Google Fonts! */
 /* Ultra Font $font-family-base:   "Ultra", serif; */
 @import url('https://fonts.googleapis.com/css2?family=Ultra&display=swap');
 /* Azeret Mono */
 @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Ultra&display=swap');
+
 
 
 /* import bootstrap again to sync up custom variables with bootstrap's */

@@ -1,10 +1,11 @@
 import Container from 'react-bootstrap/Container';
+import '../scss/custom.scss';
 
 export default function PersonalizedHeading({message}) {
     return(
-        <Container class="bg-primary">
+        <Container>
             <hr></hr>
-            <h1 className="text-center display-1">{message}</h1>
+            <h1 className="text-bg-primary text-center display-1">{message}</h1>
             <hr></hr>
         </Container>
     )

@@ -13,7 +13,6 @@ function AboutMePreview() {
         <Container>
         <Row className="row justify-content-center align-items-center">
             <Col xs={1} sm={1} md={1} lg={1} xl={1}>
-                <Image src="src/assets/boluobao.png" fluid></Image>
             </Col>  
             <Col xs={4} sm={4} md={4} lg={4} xl={4}>
                 <Image src="src/assets/happy_sun.gif" fluid></Image>
@@ -30,7 +29,6 @@ function AboutMePreview() {
                 </Card>
             </Col>
             <Col xs={1} sm={1} md={1} lg={1} xl={1}>
-                <Image src="src/assets/boluobao.png" fluid></Image>
             </Col>  
         </Row>
         </Container>
@@ -39,76 +37,90 @@ function AboutMePreview() {
 
 function ProjectPreview() {
     return (
-        <Carousel>
-          <Carousel.Item>
-            <Image src="src/assets/temp_boluobao.jpeg" fluid></Image>
-            <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <Image src="src/assets/temp_boluobao.jpeg" fluid></Image>
-            <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <Image src="src/assets/temp_boluobao.jpeg" fluid></Image>
-            <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
+        <Container>
+        <Row className="row justify-content-center align-items-center">
+            <Col xs={6} sm={6} md={6} lg={6} xl={6}>
+            <Carousel>
+            <Carousel.Item>
+                <Image src="src/assets/temp_boluobao.jpeg" fluid></Image>
+                <Carousel.Caption>
+                <h3>First slide label</h3>
+                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+                <Image src="src/assets/temp_boluobao.jpeg" fluid></Image>
+                <Carousel.Caption>
+                <h3>Second slide label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+                <Image src="src/assets/temp_boluobao.jpeg" fluid></Image>
+                <Carousel.Caption>
+                <h3>Third slide label</h3>
+                <p>
+                    Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                </p>
+                </Carousel.Caption>
+            </Carousel.Item>
+            </Carousel>
+            </Col>
+            <Col xs={1} sm={1} md={1} lg={1} xl={1}>
+            </Col>  
+            <Col xs={4} sm={4} md={4} lg={4} xl={4}>
+            <Card>
+                <Card.Body>
+                    <Card.Text className='text-center'>
+                    Interested in seeing some cool applications I've implemented? Visit my Project Page! 
+                    </Card.Text>
+                    <Button variant="alexa_color1" as="a" href="/about">Explore Projects</Button>
+                </Card.Body>
+            </Card>
+            </Col>
+        </Row>
+        </Container>
     );
 }
 
 function MiscPreview() {
     return (
     <Container fluid="false">
-        <Row>
-            <Col>
-                <Card style={{ width: '18rem' }}>
+        <Row className="row justify-content-center align-items-center">
+            <Col xs={3} sm={3} md={3} lg={3} xl={3}>
+                <Card>
                     <Card.Body>
-                        <Card.Title>APIs</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                        <Card.Title>Databases</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">Educational</Card.Subtitle>
                         <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
+                        I test out MySQL, PostgreSQL, and SQLite, and document my findings.
                         </Card.Text>
-                        <Button as="a" href="/misc/api_fun">More</Button>
+                        <Button as="a" href="/misc/db_fun">Learn</Button>
                     </Card.Body>
                 </Card>
             </Col>
 
-            <Col>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Body>
-                        <Card.Title>DSA</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-                        <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
-                        </Card.Text>
-                        <Button as="a" href="/misc/dsa_fun">More</Button>
-                    </Card.Body>
-                </Card>
-            </Col>
-
-            <Col>
-                <Card style={{ width: '18rem' }}>
+            <Col xs={3} sm={3} md={3} lg={3} xl={3}>
+                <Card>
                     <Card.Body>
                         <Card.Title>Terminal</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                        <Card.Subtitle className="mb-2 text-muted">Opinion</Card.Subtitle>
                         <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
+                        A list of my favorite use cases of the terminal!
                         </Card.Text>
-                        <Button as="a" href="/misc/terminal_fun">More</Button>
+                        <Button as="a" href="/misc/terminal_fun">Read</Button>
+                    </Card.Body>
+                </Card>
+            </Col>
+            <Col xs={3} sm={3} md={3} lg={3} xl={3}>
+                <Card>
+                    <Card.Body>
+                        <Card.Title>APIs</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">Game</Card.Subtitle>
+                        <Card.Text>
+                        Can you access the hidden API route?
+                        </Card.Text>
+                        <Button as="a" href="/misc/api_fun">Play</Button>
                     </Card.Body>
                 </Card>
             </Col>

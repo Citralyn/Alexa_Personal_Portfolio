@@ -15,6 +15,9 @@ export default function MainLayout() {
                 <Navbar.Brand href="/">
                 <Row>
                     <Col>
+                        <Image style={{width: "3vw"}} src="src/assets/yellow_heart.png"></Image>
+                    </Col>
+                    <Col>
                         <h2>Alexa's Personal Portfolio</h2>
                     </Col>
                     <Col>

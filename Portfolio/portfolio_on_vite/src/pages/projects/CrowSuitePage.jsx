@@ -13,7 +13,6 @@ function CrowSuiteDisplay() {
 
     return(
         <>
-        <h1 class="text-center">How I built CrowSuite</h1>
         <Row>
             {Array.from({ length: 3 }, (_, i) => (
                 <Col>
@@ -22,16 +21,40 @@ function CrowSuiteDisplay() {
             ))}
         </Row>
         </>
-
     )
+}
 
+function TechStack() {
+    return(
+        <Col className="text-center">
+        <h2>Tech Stack</h2>
+        <p>Vite *with the React.js template* for managing dependencies,</p>
+        <p>the dev server, and overall client side of things</p>
+        <p>React.js, a bit of Bootstrap, and custom artwork for the front-end</p>
+        <p>Express.js for the backend server</p>
+        <p>Socket.IO for real-time communication between client sockets *the players* and the game server</p>
+        </Col>
+    )
+}
+
+function ActionItems() {
+    return(
+        <Col className="text-center">
+            <p>Utilize a Bootstrap navbar *existing one sucks*</p>
+            <p>Use Bootstrap components for the game page</p>
+            <p>Better document code *both the code itself, and the README on Github*</p>
+        </Col>
+    )
 }
 
 export default function CrowSuitePage() {
     return(
         <div>
+            <h1 class="text-center">How I Built CrowSuite</h1>
             <CrowSuiteDisplay></CrowSuiteDisplay>
-            <p>And here's how!</p>
+            <TechStack></TechStack>
+            <h1 class="text-center">Current Action Items</h1>
+            <ActionItems></ActionItems>
         </div>
     )
 }

@@ -19,7 +19,7 @@ import MiscHome from './pages/misc/MiscHome.jsx';
 import API_Page from './pages/misc/API_Page.jsx';
 import TerminalPage from './pages/misc/TerminalPage.jsx';
 import DSA_Page from './pages/misc/DSA_Page.jsx';
-
+import DatabasesPage from './pages/misc/DatabasesPage.jsx';
 
 
 
@@ -43,7 +43,7 @@ function App() {
           <Route index element={<MiscHome />} />
           <Route path="api_fun" element={<API_Page />} />
           <Route path="terminal_fun" element={<TerminalPage />} />
-          <Route path="dsa_fun" element={<DSA_Page />} />
+          <Route path="db_fun" element={<DatabasesPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
