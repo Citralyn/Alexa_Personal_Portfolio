@@ -1,18 +1,28 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 
+// layouts
 import MainLayout from './layouts/MainLayout.jsx';
 import MiscLayout from './layouts/MiscLayout.jsx';
 import ProjectLayout from './layouts/ProjectLayout.jsx';
 
-import AboutPage from './pages/AboutPage.jsx';
-import API_Page from './pages/API_Page.jsx';
-import ChorganizerPage from './pages/ChorganizerPage.jsx';
-import CrowSuitePage from './pages/CrowSuitePage.jsx';
-import HomePage from './pages/HomePage.jsx';
-import MiscHome from './pages/MiscHome.jsx';
-import ProjectHome from './pages/ProjectHome.jsx';
-import TerminalPage from './pages/TerminalPage.jsx';
-import DSA_Page from './pages/DSA_Page.jsx';
+// main page
+import HomePage from './pages/main/HomePage.jsx';
+import AboutPage from './pages/main/AboutPage.jsx';
+
+// projects
+import ProjectHome from './pages/projects/ProjectHome.jsx';
+import ChorganizerPage from './pages/projects/ChorganizerPage.jsx';
+import CrowSuitePage from './pages/projects/CrowSuitePage.jsx';
+
+// misc
+import MiscHome from './pages/misc/MiscHome.jsx';
+import API_Page from './pages/misc/API_Page.jsx';
+import TerminalPage from './pages/misc/TerminalPage.jsx';
+import DSA_Page from './pages/misc/DSA_Page.jsx';
+
+
+
+
 
 function App() {
   return (

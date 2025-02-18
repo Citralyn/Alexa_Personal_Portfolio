@@ -5,8 +5,8 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import PersonalizedHeading from '../utilities/PersonalizedHeading';
-import '../scss/custom.scss';
+import PersonalizedHeading from '../../utilities/PersonalizedHeading';
+import '../../scss/custom.scss';
 
 function AboutMePreview() {
     return (
@@ -25,7 +25,7 @@ function AboutMePreview() {
                         <Card.Text className='text-center'>
                         I'm Alexa, a 2nd year computer science student at UCI.
                         </Card.Text>
-                        <Button variant="primary" as="a" href="/about">Read About Me</Button>
+                        <Button variant="alexa_color1" as="a" href="/about">Read About Me</Button>
                     </Card.Body>
                 </Card>
             </Col>
