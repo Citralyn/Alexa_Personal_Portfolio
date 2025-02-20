@@ -1,2 +1,20 @@
+//ok this thign!
+
+//i think use fetch for api call 
+
 hard part is the middlware -> authentication thing
 to access database ig 
+
+ACTUAL REVELATIOIN!
+
+WE USE EXPRESS when we want to make API calls 
+
+if u try to direclty make the API call from ur localhost server or osmething,
+ u get a Origin http://localhost:5173 is not allowed by Access-Control-Allow-Origin. Status code: 200
+
+ so u have to handle it through express!
+
+ then make an api call to express!
+ lol xD 
+
+ -> async..? 
