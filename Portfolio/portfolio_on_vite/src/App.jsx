@@ -5,9 +5,10 @@ import MainLayout from './layouts/MainLayout.jsx';
 import MiscLayout from './layouts/MiscLayout.jsx';
 import ProjectLayout from './layouts/ProjectLayout.jsx';
 
-// main page
+// main pages
 import HomePage from './pages/main/HomePage.jsx';
 import AboutPage from './pages/main/AboutPage.jsx';
+import SecretPage from './pages/main/SecretPage.jsx'
 
 // projects
 import ProjectHome from './pages/projects/ProjectHome.jsx';
@@ -18,7 +19,6 @@ import CrowSuitePage from './pages/projects/CrowSuitePage.jsx';
 import MiscHome from './pages/misc/MiscHome.jsx';
 import API_Page from './pages/misc/API_Page.jsx';
 import TerminalPage from './pages/misc/TerminalPage.jsx';
-import DSA_Page from './pages/misc/DSA_Page.jsx';
 import DatabasesPage from './pages/misc/DatabasesPage.jsx';
 
 
@@ -31,6 +31,7 @@ function App() {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
+          <Route path="secret" element={<SecretPage />} />
         </Route>
         
         <Route path="/projects" element={<ProjectLayout />}>

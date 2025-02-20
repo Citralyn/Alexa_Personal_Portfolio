@@ -17,4 +17,11 @@ if u try to direclty make the API call from ur localhost server or osmething,
  then make an api call to express!
  lol xD 
 
- -> async..? 
+ also, to access a req.body, u need to use the
+ express.json() middleware function 
+-> this apparently: A new body object containing the parsed data is populated on the request object
+ after the middleware (i.e. req.body), 
+ or an empty object ({}) if there was no body to parse, 
+ the Content-Type was not matched, or an error occurred
+
+im tired no jwt

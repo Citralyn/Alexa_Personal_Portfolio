@@ -2,10 +2,20 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+app.use(express.json());
+
 const cors = require('cors')
 app.use(cors())
 
-
+function verifyAnswer(req, res, next) {
+    const ans = req.body.pw;
+    console.log(ans); 
+    if (ans == 'lemon') {
+        next();
+    } else {
+        res.status(401).json({ error: 'Invalid password' });
+    }
+}
 
 async function getData(url) {
     try {
@@ -36,6 +46,11 @@ app.get('/duck', async (req, res) => {
 app.get('/coffee', async (req, res) => {
     let file_name = await getData('https://coffee.alexflipnote.dev/random.json');
     res.send(file_name);
+})
+
+app.post('/secret', verifyAnswer, (req, res) => {
+    console.log(req.body);
+    res.send("SUCCESS");
 })
 
 app.get('/', (req, res) => {
