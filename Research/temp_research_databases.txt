@@ -1,0 +1,186 @@
+This will be a pretty straight-forward research doc.
+
+Presenting: some popular DBMS that use SQL!
+(DBMS) -> Database Management System
+(SQL) -> Structured Query Language
+
+Specifically we'll cover MySQL, PostgreSQL, and SQLite;
+- how to install 
+- making databases
+- linking with Express
+
+There are many ways to install these DBMSs,
+but I'm going to show how I did it on my macOS device.
+
+I used Homebrew!
+
+MYSQL -> brew install mysql
+POSTGRESQL -> brew install postgresql@14 // change version to whatever
+SQLITE -> installed on macOS by default
+
+
+MYSQL:
+
+To start and stop:
+// manually
+mysql.server start  
+mysql.server stop
+// to start, and have it run on login/startup 
+brew services start mysql
+// this will launch the mysqld_safe daemon  
+(which you can view in Login Items under Settings)
+// to stop having it run on login
+brew services start mysql
+
+If you don't do this, you will receive an error! ->
+ERROR 2002 (HY000): Can't connect to local MySQL server 
+through socket '/tmp/mysql.sock' (2)
+
+Now, you can't just type in "mysql" and start,
+you have to create a user. 
+
+The pre-installed user account is the root account,
+which only accepts connections from localhost and doesn't require a password
+-> mysql -u root    
+
+You can also create additional users
+
+EX: // from mySQL docs 
+CREATE USER 'jeffrey'@'localhost' IDENTIFIED BY 'password';
+
+From here, it's SQL time! Let's create a database.
+
+// I couldn't direcctly make a database on my new user.
+// I had to make one in admin/root and then essentially
+-> GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'localhost';
+// now we can start
+
+Show and Create Databases:
+
+CREATE DATABASE xxx;
+SHOW DATABASES;
+USE xxx; -> change to database to start using it!
+
+I make a table, fill in some data...
+// taken from MYSQL examples
+EX:
+CREATE TABLE shop (
+    article INT UNSIGNED  DEFAULT '0000' NOT NULL,
+    dealer  CHAR(20)      DEFAULT ''     NOT NULL,
+    price   DECIMAL(16,2) DEFAULT '0.00' NOT NULL,
+    PRIMARY KEY(article, dealer));
+INSERT INTO shop VALUES
+    (1,'A',3.45),(1,'B',3.99),(2,'A',10.99),(3,'B',1.45),
+    (3,'C',1.69),(3,'D',1.25),(4,'D',19.95);
+
+
+Cool, let's connect to this database with Express!
+
+Make a new, Node project directory
+-> npm init 
+Install the dependencies
+-> npm install express; -> npm install mysql2
+
+Make the standard Express app object as usual,
+but this time, start a database connection as the result of a GET request!
+
+EX:
+// the connection
+const mysql = require('mysql2')
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'bunny',
+    password: 'carrot',
+    database: 'food'
+})
+
+connection.connect()
+
+// the query!
+app.get("/data", (req, res) => {
+    let query = "SELECT price FROM shop WHERE dealer='C';";
+    connection.query(query, (error, results) => {
+        if (error) {
+            console.error('Error executing query:', error);
+            return;
+        }
+        res.json(results); 
+
+    })
+}); 
+
+And there you have it!
+
+What about PostgreSQL?
+
+You can have it run on start-up like MySQL, with
+brew services start postgresql@14 // want to see services? -> brew services list
+
+You can also do it manually! (which I will demonstrate)
+
+First, make a new database cluster.
+-> initdb newCluster
+
+Then, you can use the PostgreSQL command line utility 
+to mess around with servers (start, stop, status...)
+
+// make a directory -> mkdir newCluster
+// initdb newCluster
+// pg_ctl -D newCluster start
+
+**Note -> postgresql defaults to port 5432,
+if you have another instance running, stop it,
+or run one of them on a new port**
+
+Now the server has started!
+
+Now, we have to create a new database (can do this in any directory you want)
+-> createdb MyNewData
+
+With the new database created, we can do all the cool PostgreSQL functionality!
+
+"psql", according to PostgreSQL themselves,
+is the "terminal-based front-end to PostgreSQL"
+
+You can enter a database by simply typing psql XXX
+// that will login with the default admin user 
+Or you can specify a user before logging in!
+-> psql -U newUser XXX
+
+Creating a user is similar to MySQL:
+CREATE USER newUser; // you have to be logged in as admin First
+//can also do CREATE ROLE (login priviledge is turned off)
+
+PostgreSQL has a lot more advanced features than MySQL,
+including the commandline! 
+// you can type \h for help on SQL commands
+// and \? for help on psql specific commands (like \du or \q!)
+
+Anyway, using PostgreSQL with Express is pretty similar to MySQL.
+
+Install the dependencies:
+-> npm install express; -> npm install pg-promise (what express recommends)
+
+Do the standard express app stuff,
+and make a connection to the postgresql database!
+
+// connection
+const pgp = require('pg-promise')(/* options */)
+const db = pgp('postgres://coconut:milk@localhost:5432/app')
+
+And start a query given a GET request!
+//EX:
+app.get("/data", (req, res) => {
+    let query = "SELECT * FROM users WHERE id=1";
+    db.any(query)
+    .then((data) => {
+        res.json(data);
+    })
+    .catch((error) => {
+        console.log('ERROR:', error)
+        res.status(500).send()
+    })
+}); 
+
+I may or may not talk about SQLite as well,
+and if so, this last part will be updated. 

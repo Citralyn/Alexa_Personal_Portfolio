@@ -8,9 +8,10 @@ export default function TerminalPage() {
         <p>//viewing stuff about computer -processes, storage, memory, hostname</p>
         <p>encrypting and compressing files </p>
         <p>system / file back up </p>
-        <p>setting variables and accessing</p>
+        <p>*alias* - quite useful for running commands setting variables and accessing</p>
         <p>basic bash language</p>
         <p>chron scheduling</p>
+        <p>Bro - which for file paths? so usefuL</p>
         </>
     )
 }

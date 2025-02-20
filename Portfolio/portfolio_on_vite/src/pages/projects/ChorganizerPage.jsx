@@ -67,9 +67,11 @@ function ActionItems() {
     return(
         <Col className="text-center">
             <p>Need to reorganize a lot of unrelated code into separate modules</p>
+            <p>Integrate the other floorplans *not just PV and PV2*</p>
             <p>Sync app up to a database instead of storing user data locally</p>
             <p>Make compatible to Windows and Linux settings</p>
             <p>Fix Icon *shows up in debug mode, not in release*</p>
+            <p>Checks for errors occur *incorrect login, can't find file, etc*</p>
         </Col>
     )
 }

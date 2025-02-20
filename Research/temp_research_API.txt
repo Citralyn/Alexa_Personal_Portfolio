@@ -1,0 +1,2 @@
+hard part is the middlware -> authentication thing
+to access database ig 
