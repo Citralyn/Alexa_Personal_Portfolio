@@ -7,6 +7,28 @@ app.use(express.json());
 const cors = require('cors')
 app.use(cors())
 
+const mysql = require('mysql2')
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'radish',
+    password: 'turnip',
+    database: 'secret_recipes'
+})
+
+connection.connect();
+
+app.get("/get_recipe", (req, res) => {
+    let query = "SELECT * FROM recipes ORDER BY RAND() LIMIT 1;";
+    connection.query(query, (error, results) => {
+        if (error) {
+            console.error('Error executing query:', error);
+            return;
+        }
+        res.json(results); 
+
+    })
+}); 
+
 function verifyAnswer(req, res, next) {
     const ans = req.body.pw;
     console.log(ans); 
