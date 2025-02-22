@@ -52,7 +52,7 @@ function RepoShoutOut() {
     return(
         <Col className="text-bg-info text-center">
             <p>Want to contribute/check out the source code?</p>
-            <p>Visit the repo! - <a href="https://github.com/Citralyn/CrowSuite">CrowSuiteRepo</a></p>
+            <p>Visit the repo! - <a target="_blank" href="https://github.com/Citralyn/CrowSuite">CrowSuiteRepo</a></p>
         </Col>
     )
 }

@@ -20,7 +20,7 @@ function CrowSuiteSection() {
             But with a twist - birds for suits!
         </Card.Text>
         <Button variant="primary" as="a" href="/projects/crowsuite">Read how it was made!</Button>
-        <Button variant="primary" as="a" href="https://crowsuite.netlify.app">Play Online!</Button>
+        <Button target="_blank" variant="primary" as="a" href="https://crowsuite.netlify.app">Play Online!</Button>
 
       </Card.Body>
     </Card>
@@ -36,6 +36,12 @@ function CrowSuiteSection() {
 }
 
 function ChorganizerSection() {
+
+    function handleDownload() {
+        alert("Unfortunately Chore Decider is not available to download at the moment \
+ - it's in the progress of being revamped! \
+You can still check out the blog on how it was made.")
+    }
     return(
         <>
         <h1 className="text-center">CHORE DECIDER</h1>
@@ -51,7 +57,7 @@ function ChorganizerSection() {
             your chores - tailored to ACC Communities! 
         </Card.Text>
         <Button variant="primary" as="a" href="/projects/chorganizer">Read how it was made!</Button>
-        <Button download variant="primary" as="a" href="../src/assets/ChoreDeciderPreview.png">Download to try out!</Button>
+        <Button onClick={handleDownload}>Download to try out!</Button>
 
       </Card.Body>
     </Card>

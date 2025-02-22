@@ -30,7 +30,7 @@ export default function MainLayout() {
                     <Nav style={{float: "right"}}>
                         <Nav.Link href="/about">About Me</Nav.Link>
                         <Nav.Link href="/projects">Projects</Nav.Link>
-                        <Nav.Link href="/misc">Just For Fun</Nav.Link>
+                        <Nav.Link href="/misc/api_fun">Just For Fun</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

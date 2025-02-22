@@ -14,9 +14,6 @@ export default function MiscLayout() {
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav style={{float: "right"}}>
                     <Nav.Link href="/">Back to Home</Nav.Link>
-                    <Nav.Link href="/misc/api_fun">Let's explore APIs!</Nav.Link>
-                    <Nav.Link href="/misc/terminal_fun">Let's explore the terminal!</Nav.Link>
-                    <Nav.Link href="/misc/db_fun">Let's explore databases!</Nav.Link>
                 </Nav>
                 </Navbar.Collapse>
             </Container>

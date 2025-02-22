@@ -25,7 +25,7 @@ function AboutMePreview() {
                         <Card.Text className='text-center'>
                         I'm Alexa, a 2nd year computer science student at UCI.
                         </Card.Text>
-                        <Button variant="alexa_color1" as="a" href="/about">Read About Me</Button>
+                        <Button variant="primary" as="a" href="/about">Read About Me</Button>
                     </Card.Body>
                 </Card>
             </Col>
@@ -75,33 +75,6 @@ function ProjectPreview() {
 
 function MiscPreview() {
     return (
-    <Container fluid="false">
-        <Row className="row justify-content-center align-items-center">
-            <Col xs={3} sm={3} md={3} lg={3} xl={3}>
-                <Card>
-                    <Card.Body>
-                        <Card.Title>Databases</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">Educational</Card.Subtitle>
-                        <Card.Text>
-                        I test out MySQL, PostgreSQL, and SQLite, and document my findings.
-                        </Card.Text>
-                        <Button as="a" href="/misc/db_fun">Learn</Button>
-                    </Card.Body>
-                </Card>
-            </Col>
-
-            <Col xs={3} sm={3} md={3} lg={3} xl={3}>
-                <Card>
-                    <Card.Body>
-                        <Card.Title>Terminal</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">Opinion</Card.Subtitle>
-                        <Card.Text>
-                        A list of my favorite use cases of the terminal!
-                        </Card.Text>
-                        <Button as="a" href="/misc/terminal_fun">Read</Button>
-                    </Card.Body>
-                </Card>
-            </Col>
             <Col xs={3} sm={3} md={3} lg={3} xl={3}>
                 <Card>
                     <Card.Body>
@@ -113,9 +86,7 @@ function MiscPreview() {
                         <Button as="a" href="/misc/api_fun">Play</Button>
                     </Card.Body>
                 </Card>
-            </Col>
-        </Row>
-    </Container>
+            </Col> 
       );
 }
 

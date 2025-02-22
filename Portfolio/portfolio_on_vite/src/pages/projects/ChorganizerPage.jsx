@@ -17,11 +17,11 @@ function TechStack() {
     return(
         <Col className="text-center">
         <h2>Tech Stack</h2>
-        <p>Vite *with the React.js template* for managing dependencies,</p>
-        <p>the dev server, and overall client side of things</p>
-        <p>React.js, a bit of Bootstrap, and custom artwork for the front-end</p>
-        <p>Express.js for the backend server</p>
-        <p>Socket.IO for real-time communication between client sockets *the players* and the game server</p>
+        <p>Qt Creator - a C++ IDE - for the central application logic</p>
+        <p>Qt Widgets for the main UI</p>
+        <p>CMake for the build process</p>
+        <p>Canva to make the MacOS desktop icon</p>
+        <p>ACC home-pages for images of the floor plans</p>
         </Col>
     )
 }
@@ -29,8 +29,19 @@ function TechStack() {
 function PageOverview() {
 
     let pages = [page1, page2, page3, page4, page5, page6, page7, page8];
-    let titles = ["main page", "login page", "sign-up page", "existing plans",
-        "logout?", "select a community", "select a floor plan", "chore page"
+    let titles = ["Main Page", "Login Page", "Sign-up Page", "Existing Plans",
+        "Logout?", "Select a Community", "Select a Floor Plan", "Chore Page"
+    ]
+    let descriptions = [
+        "Main Page for Chore Decider where the user can LOG IN or SIGN UP",
+        "Existing users can log in with a username and password",
+        "New users can sign up with a username and password",
+        "Users can view their existing plans",
+        "Need to log out or want to revisit main page?",
+        "Users can select an ACC community",
+        "Users can select a floor plan from their ACC community",
+        "Users can select an area in the plan to add a chore. \
+        Chore automatically saves and plan can be returned to later."
     ]
 
     return(
@@ -38,6 +49,7 @@ function PageOverview() {
         <Col>
             <h2 className="text-center">Application Pages</h2>
             {Array.from({ length: 8 }, (_, i) => (
+                <Col>
                 <Row>
                 <Col xs={1} sm={1} md={1} lg={1} xl={1}>
                 </Col>
@@ -47,16 +59,19 @@ function PageOverview() {
                 <Col xs={1} sm={1} md={1} lg={1} xl={1}>
                 </Col>
                     <Col xs={3} sm={3} md={3} lg={3} xl={3}>
-                <Card>
+                <Card className='text-center'>
                     <Card.Body>
                         <Card.Title>{titles[i]}</Card.Title>
+                        <hr></hr>
                         <Card.Text>
-                        soon to be descriptions
+                        {descriptions[i]}
                         </Card.Text>
                     </Card.Body>
                 </Card>
             </Col>
                 </Row>
+                <hr></hr>
+                </Col>
             ))}
         </Col>
         </div>
@@ -66,6 +81,7 @@ function PageOverview() {
 function ActionItems() {
     return(
         <Col className="text-center">
+            <p>Add UML Diagram</p>
             <p>Need to reorganize a lot of unrelated code into separate modules</p>
             <p>Integrate the other floorplans *not just PV and PV2*</p>
             <p>Sync app up to a database instead of storing user data locally</p>
@@ -80,7 +96,7 @@ function RepoShoutOut() {
     return(
         <Col className="text-bg-info text-center">
             <p>Want to contribute/check out the source code?</p>
-            <p>Visit the repo! - <a href="https://github.com/Citralyn/ChoreDecideMain">Chore Decider Repo</a></p>
+            <p>Visit the repo! - <a target="_blank" href="https://github.com/Citralyn/ChoreDecideMain">Chore Decider Repo</a></p>
         </Col>
     )
 }
@@ -92,7 +108,6 @@ export default function ChorganizerPage() {
             <h1 class="text-center">How I Built Chore Decider</h1>
             <TechStack></TechStack>
             <PageOverview></PageOverview>
-            <h2 class="text-center">UML diagram goes here</h2>
             <h1 class="text-center">Current Action Items</h1>
             <ActionItems></ActionItems>
             <RepoShoutOut></RepoShoutOut>

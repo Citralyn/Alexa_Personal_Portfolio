@@ -1,18 +1,23 @@
 /* import bootstrap once to avoid "{this_variable} not defined" errors*/
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+/*@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+*/
+/* edit the existing theme colors! */
+$primary: #fad766;
+$success: #9ecf82;
+$info: #c097c2;
+$warning: #705580;
+$danger: #ad3644;
 
-$primary: pink;
-
-/* new custom colors! */
+/* new custom colors! 
 $custom-colors: (
   "alexa_color1": #d6b14b,
   "alexa_color2": #a63d4f,
   "alexa_color3": #524b63
 );
 
-/* add to theme colors*/
+/* add to theme colors
 $theme-colors: map-merge($theme-colors, $custom-colors);
-
+*/
 
 /* set base-font family throughout website */ 
 $font-family-base: "Azeret Mono", serif;
@@ -21,8 +26,6 @@ $font-family-base: "Azeret Mono", serif;
 h1 {
     font-family:   "Ultra", serif;
 }
-
-
 
 
 /* get the Google Fonts! */
