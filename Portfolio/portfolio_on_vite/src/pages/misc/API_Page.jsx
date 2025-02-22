@@ -16,9 +16,9 @@ export default function API_Page() {
         setToast(!toast); 
     }
 
-    async function changeImage(keyword) {
+    async function changeImage() {
         try {
-            const url = `http://localhost:3000/${keyword}`
+            const url = "https://plush-duck-api.onrender.com/duck"
             const response = await fetch(url);
             if (!response.ok) {
               throw new Error(`HTTP error! status: ${response.status}`);
@@ -45,7 +45,7 @@ export default function API_Page() {
         <>
             <Button variant="secondary" as="a" href="/">Back to Main</Button>
             <Image src={imageURL}></Image>
-            <Button onClick={() => {changeImage("duck")}}></Button>
+            <Button onClick={changeImage}></Button>
             <form onSubmit={handlePassword}>
             <label>
                 What's the password?: :
