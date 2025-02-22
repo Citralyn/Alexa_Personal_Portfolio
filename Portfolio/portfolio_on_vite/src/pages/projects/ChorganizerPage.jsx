@@ -4,14 +4,14 @@ import Col from 'react-bootstrap/Col';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-import page1 from "../../assets/chorganizer/page1.png";
-import page2 from "../../assets/chorganizer/page2.png";
-import page3 from "../../assets/chorganizer/page3.png";
-import page4 from "../../assets/chorganizer/page4.png";
-import page5 from "../../assets/chorganizer/page5.png";
-import page6 from "../../assets/chorganizer/page6.png";
-import page7 from "../../assets/chorganizer/page7.png";
-import page8 from "../../assets/chorganizer/page8.png";
+import page1 from "/chorganizer/page1.png";
+import page2 from "/chorganizer/page2.png";
+import page3 from "/chorganizer/page3.png";
+import page4 from "/chorganizer/page4.png";
+import page5 from "/chorganizer/page5.png";
+import page6 from "/chorganizer/page6.png";
+import page7 from "/chorganizer/page7.png";
+import page8 from "/chorganizer/page8.png";
 
 function TechStack() {
     return(

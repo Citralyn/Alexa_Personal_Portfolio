@@ -16,7 +16,7 @@ function AboutMePreview() {
             <Col xs={1} sm={1} md={1} lg={1} xl={1}>
             </Col>  
             <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-                <Image src="src/assets/happy_sun.gif" fluid></Image>
+                <Image src="/happy_sun.gif" fluid></Image>
             </Col>
             <Col xs={6} sm={6} md={6} lg={6} xl={6}>
                 <Card>
@@ -43,13 +43,13 @@ function ProjectPreview() {
             <Col xs={6} sm={6} md={6} lg={6} xl={6}>
             <Carousel>
             <Carousel.Item>
-                <Image src="src/assets/ChoreDeciderPreview.png" fluid></Image>
+                <Image src="/ChoreDeciderPreview.png" fluid></Image>
                 <Carousel.Caption style={{color: "grey"}}>
                 <h3>Chore Decider</h3>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                <Image src="src/assets/CrowSuitePreview.png" fluid></Image>
+                <Image src="/CrowSuitePreview.png" fluid></Image>
                 <Carousel.Caption style={{color: "grey"}}>
                 <h3>CrowSuite</h3>
                 </Carousel.Caption>
@@ -64,7 +64,7 @@ function ProjectPreview() {
                     <Card.Text className='text-center'>
                     Interested in seeing some cool applications I've implemented? Visit my Project Page! 
                     </Card.Text>
-                    <Button variant="alexa_color1" as="a" href="/projects/">Explore Projects</Button>
+                    <Button variant="danger" as="a" href="/projects/">Explore Projects</Button>
                 </Card.Body>
             </Card>
             </Col>

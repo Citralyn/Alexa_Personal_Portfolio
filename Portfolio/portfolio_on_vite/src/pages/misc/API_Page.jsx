@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 
 export default function API_Page() {
-    const [imageURL, setImageURL] = useState("https://d1p1su8170li4z.cloudfront.net/book_covers/11226/focus@2x.jpg?git=2601e8031b5f119880269e725f27da0b81d2a575&ts=1665716051");
+    const [imageURL, setImageURL] = useState("/change_me.jpeg");
     const [pw, setPW] = useState(""); 
     const [toast, setToast] = useState(false);
 

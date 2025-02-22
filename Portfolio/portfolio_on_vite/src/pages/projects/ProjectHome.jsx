@@ -28,7 +28,7 @@ function CrowSuiteSection() {
     <Col xs={1} sm={1} md={1} lg={1} xl={1}>
     </Col>
     <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-        <Image style={{width: "40vw"}} src="../src/assets/CrowSuitePreview.png"></Image>
+        <Image style={{width: "40vw"}} src="/CrowSuitePreview.png"></Image>
     </Col>
     </Row>
     </>
@@ -65,7 +65,7 @@ You can still check out the blog on how it was made.")
     <Col xs={1} sm={1} md={1} lg={1} xl={1}>
     </Col>
     <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-        <Image style={{width: "40vw"}} src="../src/assets/ChoreDeciderPreview.png"></Image>
+        <Image style={{width: "40vw"}} src="/ChoreDeciderPreview.png"></Image>
     </Col>
     </Row>
     </>
