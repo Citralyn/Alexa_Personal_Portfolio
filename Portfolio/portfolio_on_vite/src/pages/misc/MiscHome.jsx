@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 export default function MiscHome() {
     return(
         <div>
+          <input type='file'></input>
             <h1 className="text-center">MISCELLANEOUS</h1>
                 <Accordion defaultActiveKey={['0']} alwaysOpen>
       <Accordion.Item eventKey="0">

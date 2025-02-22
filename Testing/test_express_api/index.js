@@ -70,6 +70,16 @@ app.get('/coffee', async (req, res) => {
     res.send(file_name);
 })
 
+app.get('/duck', async (req, res) => {
+    let file_name = await getData('https://random-d.uk/api/random');
+    res.send(file_name);
+})
+
+app.get('/coffee', async (req, res) => {
+    let file_name = await getData('https://coffee.alexflipnote.dev/random.json');
+    res.send(file_name);
+})
+
 app.post('/secret', verifyAnswer, (req, res) => {
     console.log(req.body);
     res.send("SUCCESS");

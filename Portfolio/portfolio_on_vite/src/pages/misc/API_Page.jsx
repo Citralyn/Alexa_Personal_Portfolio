@@ -1,5 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import { useState } from 'react';
 
 function MyButton({visibility}) {
@@ -78,15 +80,20 @@ export default function API_Page() {
         console.log("DO")
 
     }
+    
+    let apis = ["coffee", "hacker", "emoji", "duck", "dog", "aviation", "rick"];
 
     return(
         <>
-            <h1>I call one or more APIs</h1>
-            <p> A bunch of APIS spell at the word, get auth key</p>
-            <p> Use my API</p>
+            
             <Image src={imageURL}></Image>
-            <Button onClick={() => {changeImage("coffee")}}>coffee</Button>
-            <Button onClick={() => {changeImage("duck")}}>duck</Button>
+            <Row>
+            {Array.from({ length: 7 }, (_, i) => (
+                <Col>
+                    <Button onClick={() => {changeImage(apis[i])}}>{i}</Button>
+                </Col>
+            ))}
+            </Row>
             <form onSubmit={handleSubmit}>
             <label>
                 Password:
