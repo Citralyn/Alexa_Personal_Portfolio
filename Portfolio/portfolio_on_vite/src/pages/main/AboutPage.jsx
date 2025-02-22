@@ -14,7 +14,7 @@ export default function AboutPage() {
             <Row>
                 <Col>
                 <Row>
-                    <Image style={{width: "20vw"}} src="src/assets/me_with_umbrella.png"></Image>
+                    <Image style={{width: "20vw"}} src="me_with_umbrella.png"></Image>
                 </Row>
                 <Row>
                     <Card style={{ width: '18rem' }}>

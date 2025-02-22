@@ -1,6 +1,6 @@
-import cj from "../../assets/crowsuite/crow_jack.png"
-import ck from "../../assets/crowsuite/crow_king.png"
-import cq from "../../assets/crowsuite/crow_queen.png"
+import cj from "/crowsuite/crow_jack.png"
+import ck from "/crowsuite/crow_king.png"
+import cq from "/crowsuite/crow_queen.png"
 
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
