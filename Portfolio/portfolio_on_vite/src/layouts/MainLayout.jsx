@@ -10,6 +10,7 @@ import { Outlet, Link } from "react-router";
 export default function MainLayout() {
   return (
     <div>
+        <div className="text-bg-danger">
         <Navbar expand="false" className="bg-body-tertiary">
             <Container>
                 <Navbar.Brand href="/">
@@ -30,12 +31,12 @@ export default function MainLayout() {
                     <Nav style={{float: "right"}}>
                         <Nav.Link href="/about">About Me</Nav.Link>
                         <Nav.Link href="/projects">Projects</Nav.Link>
-                        <Nav.Link href="/misc/api_fun">Just For Fun</Nav.Link>
+                        <Nav.Link href="#misc_preview">Just For Fun</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-
+        </div>
         <Outlet />
     </div>
   );

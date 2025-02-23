@@ -12,20 +12,20 @@ import '../../scss/custom.scss';
 function AboutMePreview() {
     return (
         <Container>
-        <Row className="row justify-content-center align-items-center">
+        <Row className="bg-info row justify-content-center align-items-center">
             <Col xs={1} sm={1} md={1} lg={1} xl={1}>
             </Col>  
             <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-                <Image src="/happy_sun.gif" fluid></Image>
+                <Image className="bg-info" src="/happy_sun.gif" fluid></Image>
             </Col>
             <Col xs={6} sm={6} md={6} lg={6} xl={6}>
                 <Card>
-                    <Card.Body className='text-center'>
+                    <Card.Body className='text-center bg-light'>
                         <Card.Title className='text-center'>Glad you made it!</Card.Title>
                         <Card.Text className='text-center'>
                         I'm Alexa, a 2nd year computer science student at UCI.
                         </Card.Text>
-                        <Button variant="primary" as="a" href="/about">Read About Me</Button>
+                        <Button variant="success" as="a" href="/about">Read About Me</Button>
                     </Card.Body>
                 </Card>
             </Col>
@@ -64,7 +64,7 @@ function ProjectPreview() {
                     <Card.Text className='text-center'>
                     Interested in seeing some cool applications I've implemented? Visit my Project Page! 
                     </Card.Text>
-                    <Button variant="danger" as="a" href="/projects/">Explore Projects</Button>
+                    <Button variant="success" as="a" href="/projects/">Explore Projects</Button>
                 </Card.Body>
             </Card>
             </Col>
@@ -75,6 +75,7 @@ function ProjectPreview() {
 
 function MiscPreview() {
     return (
+        <div id="misc_preview">
             <Col xs={3} sm={3} md={3} lg={3} xl={3}>
                 <Card>
                     <Card.Body>
@@ -87,6 +88,7 @@ function MiscPreview() {
                     </Card.Body>
                 </Card>
             </Col> 
+        </div>
       );
 }
 

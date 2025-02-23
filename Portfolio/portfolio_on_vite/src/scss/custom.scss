@@ -8,17 +8,17 @@ $info: #c097c2;
 $warning: #705580;
 $danger: #ad3644;
 
-/* new custom colors! 
+/*
 $custom-colors: (
   "alexa_color1": #d6b14b,
   "alexa_color2": #a63d4f,
   "alexa_color3": #524b63
 );
 
-/* add to theme colors
-$theme-colors: map-merge($theme-colors, $custom-colors);
-*/
 
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+*/
 /* set base-font family throughout website */ 
 $font-family-base: "Azeret Mono", serif;
 
@@ -27,6 +27,9 @@ h1 {
     font-family:   "Ultra", serif;
 }
 
+html > body {
+  background-color: $primary
+}
 
 /* get the Google Fonts! */
 /* Ultra Font $font-family-base:   "Ultra", serif; */

@@ -21,8 +21,7 @@ import API_Page from './pages/misc/API_Page.jsx';
 import TerminalPage from './pages/misc/TerminalPage.jsx';
 import DatabasesPage from './pages/misc/DatabasesPage.jsx';
 
-
-
+import "./scss/custom.scss"
 
 function App() {
   return (
