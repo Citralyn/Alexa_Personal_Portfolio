@@ -43,7 +43,14 @@ export default function API_Page() {
 
     return(
         <>
-            <Button variant="secondary" as="a" href="/">Back to Main</Button>
+            <Col>
+              <Row>
+                <Button variant="secondary" as="a" href="/">Back to Main</Button>
+              </Row>
+              <Row>
+                <Row></Row>
+              </Row>
+            </Col>
             <Image src={imageURL}></Image>
             <Button onClick={changeImage}></Button>
             <form onSubmit={handlePassword}>

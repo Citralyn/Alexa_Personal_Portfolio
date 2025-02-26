@@ -73,25 +73,26 @@ function ProjectPreview() {
     );
 }
 
-function MiscPreview() {
-    return (
-        <div id="misc_preview">
-            <Col xs={3} sm={3} md={3} lg={3} xl={3}>
-                <Card>
-                    <Card.Body>
-                        <Card.Title>APIs</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">Game</Card.Subtitle>
-                        <Card.Text>
-                        Can you access the hidden API route?
-                        </Card.Text>
-                        <Button as="a" href="/misc/api_fun">Play</Button>
-                    </Card.Body>
-                </Card>
-            </Col> 
-        </div>
-      );
+function Puzzle() {
+    return(
+        <Row className="row justify-content-center align-items-center">
+        <Col xs={3} sm={3} md={3} lg={3} xl={3}>
+            <Card className="text-center">
+                <Card.Body>
+                    <Card.Title>
+                        <h1>???</h1>
+                    </Card.Title>
+                    <Card.Text>
+                    Can you access the secret room?
+                    </Card.Text>
+                    <Button variant="success" as="a" href="/puzzle">Play</Button>
+                </Card.Body>
+            </Card>
+        </Col> 
+        </Row>
+       
+    )
 }
-
 
 export default function HomePage() {
     return(
@@ -101,7 +102,7 @@ export default function HomePage() {
             <PersonalizedHeading message="Projects"/>
             <ProjectPreview></ProjectPreview>
             <PersonalizedHeading message="Miscellaneous"/>
-            <MiscPreview></MiscPreview>
+            <Puzzle></Puzzle>
         </div>
     )
 }

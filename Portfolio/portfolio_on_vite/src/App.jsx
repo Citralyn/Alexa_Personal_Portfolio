@@ -20,6 +20,7 @@ import MiscHome from './pages/misc/MiscHome.jsx';
 import API_Page from './pages/misc/API_Page.jsx';
 import TerminalPage from './pages/misc/TerminalPage.jsx';
 import DatabasesPage from './pages/misc/DatabasesPage.jsx';
+import PuzzlePage from './pages/misc/PuzzlePage.jsx'
 
 import "./scss/custom.scss"
 
@@ -39,15 +40,22 @@ function App() {
           <Route path="chorganizer" element={<ChorganizerPage />} />
         </Route>
 
-        <Route path="/misc" element={<MiscLayout />}>
-          <Route index element={<MiscHome />} />
-          <Route path="api_fun" element={<API_Page />} />
-          <Route path="terminal_fun" element={<TerminalPage />} />
-          <Route path="db_fun" element={<DatabasesPage />} />
+        <Route path="/puzzle" element={<MiscLayout />}>
+          <Route index element={<PuzzlePage />} />
         </Route>
       </Routes>
     </BrowserRouter>
   )
 }
+
+/* //temporarily commenting out this route
+        <Route path="/misc" element={<MiscLayout />}>
+          <Route index element={<MiscHome />} />
+          <Route path="puzzle" element={<PuzzlePage />} />
+          <Route path="api_fun" element={<API_Page />} />
+          <Route path="terminal_fun" element={<TerminalPage />} />
+          <Route path="db_fun" element={<DatabasesPage />} />
+        </Route>
+*/
 
 export default App

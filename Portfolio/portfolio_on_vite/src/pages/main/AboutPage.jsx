@@ -171,6 +171,7 @@ export default function AboutPage() {
             {visibility >= 8 && <Libby></Libby>}
             {visibility >= 12 && <Cantonese></Cantonese>}
             {visibility >= 16 && <Piano></Piano>}
+            <h1>Add me on Github and Linkedin!</h1>
         </Col>
                 <Row>
                     <Card style={{ width: '18rem' }}>

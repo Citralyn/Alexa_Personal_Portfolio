@@ -3,11 +3,16 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
+import PersonalizedHeading from '../../utilities/PersonalizedHeading';
+import HGap from '../../utilities/HGap';
 
 function CrowSuiteSection() {
     return(
         <>
-        <h1 className="text-center">CROWSUITE</h1>
+        <hr></hr>
+        <h1 className="text-bg-success text-center">CROWSUITE</h1>
+        <hr></hr>
+        <HGap given_height={"5vw"}></HGap>
         <Row>
         <Col xs={1} sm={1} md={1} lg={1} xl={1}>
         </Col>
@@ -19,7 +24,8 @@ function CrowSuiteSection() {
             An online SocketIO game resemblant of the card game Big 2!
             But with a twist - birds for suits!
         </Card.Text>
-        <Button variant="primary" as="a" href="/projects/crowsuite">Read how it was made!</Button>
+        <Button className="center" variant="primary" as="a" href="/projects/crowsuite">Read how it was made!</Button>
+        <HGap given_height={"1vw"}></HGap>
         <Button target="_blank" variant="primary" as="a" href="https://crowsuite.netlify.app">Play Online!</Button>
 
       </Card.Body>
@@ -44,7 +50,10 @@ You can still check out the blog on how it was made.")
     }
     return(
         <>
+        <hr style={{width: "50vw"}}></hr>
         <h1 className="text-center">CHORE DECIDER</h1>
+        <hr></hr>
+        <HGap given_height={"5vh"}></HGap>
         <Row>
         <Col xs={1} sm={1} md={1} lg={1} xl={1}>
         </Col>
@@ -56,8 +65,9 @@ You can still check out the blog on how it was made.")
             A MacOS desktop application to help organize and distribute
             your chores - tailored to ACC Communities! 
         </Card.Text>
-        <Button variant="primary" as="a" href="/projects/chorganizer">Read how it was made!</Button>
-        <Button onClick={handleDownload}>Download to try out!</Button>
+        <Button className="d-flex justify-content-center align-items-center" variant="success" as="a" href="/projects/chorganizer">Read how it was made!</Button>
+        <HGap given_height={"1vw"}></HGap>
+        <Button className="d-flex justify-content-center align-items-center" variant="success" onClick={handleDownload}>Download to try out!</Button>
 
       </Card.Body>
     </Card>
@@ -76,7 +86,14 @@ export default function ProjectHome() {
     return(
         <>
             <Button variant="secondary" as="a" href="/">Back to Main</Button>
+            <PersonalizedHeading message="PROJECTS"></PersonalizedHeading>
+            <Row>
+            <Col style={{height: "10vh"}}></Col>
+            </Row>
             <CrowSuiteSection></CrowSuiteSection>
+            <Row>
+            <Col style={{height: "20vh"}}></Col>
+            </Row>
             <ChorganizerSection></ChorganizerSection>
         </>
     )
