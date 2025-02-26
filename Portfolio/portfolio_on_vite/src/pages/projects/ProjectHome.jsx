@@ -3,20 +3,15 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
-import PersonalizedHeading from '../../utilities/PersonalizedHeading';
+import PersonalizedHeading, { MinorHeading } from '../../utilities/PersonalizedHeading';
 import HGap from '../../utilities/HGap';
 import Container from "react-bootstrap/Container"
 
 function CrowSuiteSection() {
     return(
         <>
-        <Container className="text-bg-info">
-        <hr></hr>
-        <Container className="pl-5 text-bg-light">
-        <h1 className="text-center">CROWSUITE</h1>
-        </Container>
+        <MinorHeading message={"CrowSuite"}></MinorHeading>
        
-        <hr></hr>
         <HGap given_height={"5vw"}></HGap>
         <Row>
         <Col xs={1} sm={1} md={1} lg={1} xl={1}>
@@ -43,7 +38,6 @@ function CrowSuiteSection() {
     </Col>
     </Row>
     <HGap given_height={"5vw"}></HGap>
-    </Container>
     </>
     )
 }
@@ -57,9 +51,7 @@ You can still check out the blog on how it was made.")
     }
     return(
         <>
-        <hr></hr>
-        <h1 className="text-center">CHORE DECIDER</h1>
-        <hr></hr>
+        <MinorHeading message={"Chore Decider"}></MinorHeading>
         <HGap given_height={"5vh"}></HGap>
         <Row>
         <Col xs={1} sm={1} md={1} lg={1} xl={1}>
@@ -94,14 +86,11 @@ export default function ProjectHome() {
         <>
             <Button className="m-3" variant="secondary" as="a" href="/">Back to Main</Button>
             <PersonalizedHeading message="PROJECTS"></PersonalizedHeading>
-            <Row>
-            <Col style={{height: "10vh"}}></Col>
-            </Row>
+            <HGap given_height={"10vh"}></HGap>
             <CrowSuiteSection></CrowSuiteSection>
-            <Row>
-            <Col style={{height: "20vh"}}></Col>
-            </Row>
+            <HGap given_height={"20vh"}></HGap>
             <ChorganizerSection></ChorganizerSection>
+            <HGap given_height={"10vh"}></HGap>
         </>
     )
 }

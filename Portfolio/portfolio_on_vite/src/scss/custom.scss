@@ -1,6 +1,5 @@
 /* import bootstrap once to avoid "{this_variable} not defined" errors*/
-/*@import '../../node_modules/bootstrap/scss/bootstrap.scss';
-*/
+/*@import '../../node_modules/bootstrap/scss/bootstrap.scss';*/
 /* edit the existing theme colors! */
 $primary: #fad766;
 $success: #9ecf82;
@@ -24,20 +23,25 @@ $font-family-base: "Azeret Mono", serif;
 
 /* special font for headers */ 
 h1 {
-    font-family:   "Ultra", serif;
+    font-family:   "Ribeye", serif;
+}
+
+h2 {
+    font-family: "Freckle Face", serif;
 }
 
 html > body {
-  background-color: $primary
+  background-image: linear-gradient($primary, $info)
 }
 
 /* get the Google Fonts! */
-/* Ultra Font $font-family-base:   "Ultra", serif; */
+/* Ultra */
 @import url('https://fonts.googleapis.com/css2?family=Ultra&display=swap');
 /* Azeret Mono */
 @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Ultra&display=swap');
-
-
+/* Crafty Girls, Freckle Face, Kumar One, Ribeye */
+@import url('https://fonts.googleapis.com/css2?family=Crafty+Girls&family=Freckle+Face&family=Kumar+One&family=Ribeye&display=swap');
 
 /* import bootstrap again to sync up custom variables with bootstrap's */
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
