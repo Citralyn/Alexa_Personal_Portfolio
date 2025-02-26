@@ -2,31 +2,61 @@ import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { BackToHome } from '../../utilities/BackButton';
 import Toast from 'react-bootstrap/Toast';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import PersonalizedHeading from '../../utilities/PersonalizedHeading';
+import { Link } from "react-router";
 
 
 import { useState } from 'react';
+
+function HiddenDoor() {
+    return(
+        <Link to="/secret">
+            <Image style={{height: "5vw"}} src="opened_door.svg"></Image>
+        </Link>
+    )
+}
 
 
 export default function API_Page() {
     const [imageURL, setImageURL] = useState("/plain_black_square.jpeg");
     const [pw, setPW] = useState(""); 
+    const [unlocked, setUnlocked] = useState(false);
+    const [progress, setProgress] = useState(0); 
+    const [text, setText] = useState(""); 
     const [toast, setToast] = useState(false);
+
 
     function toggleToast() {
         setToast(!toast); 
     }
 
-    async function changeImage() {
+    
+
+    async function changeImage(endpoint_index) {
         try {
-            const url = "https://plush-duck-api.onrender.com/duck"
+            const api_endpoints = ["coffee", "hyrule", "emoji", "duck", "dog", "art", "rick"];
+            
+            let url = "http://localhost:3000/"
+            url += api_endpoints[endpoint_index]; 
+            setProgress((100 / 7) * (endpoint_index + 1)); 
+
             const response = await fetch(url);
             if (!response.ok) {
               throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.text();
-            setImageURL(data); 
+            if (data[0] == '&') {
+                // if an emoji 
+                setImageURL(null);
+                setText(data)
+            } else {
+                setImageURL(data);
+                setText(null);
+            }
+            console.log(data)
             
           } catch (error) {
             console.error("Could not fetch data:", error);
@@ -35,8 +65,9 @@ export default function API_Page() {
 
     function handlePassword(event) {
         event.preventDefault();
-        if (pw == "duck") {
+        if (pw == "cheddar") {
             setToast(true);
+            setUnlocked(true); 
         } else {
             alert("WRONG")
         }
@@ -45,39 +76,45 @@ export default function API_Page() {
 
     return(
         <>
-            <Col className="bg-danger">
-            <Button variant="secondary" as="a" href="/">Back to Main</Button>
+            <Col>
+            
+            <BackToHome></BackToHome>
+            <h1 className="text-center">???</h1>
             <Row style={{height: "10vw"}}>
             </Row>
             <Row className="row justify-content-center align-items-center">
-                <ProgressBar style={{width: "50vw"}} variant="secondary" now={50}></ProgressBar>
+                <ProgressBar style={{width: "50vw"}} variant="secondary" now={progress}></ProgressBar>
             </Row>
             <Row style={{height: "5vw"}}>
             </Row>
             <Row className="row text-center justify-content-center align-items-center">
                 <Col >
                     <Col>
-                        <h1>dsdf</h1>
+                    <Button onClick={() => {changeImage(6)}}>?</Button>
                     </Col>
                     <Col>
-                        <h1>dsdf</h1>
+                    <Button onClick={() => {changeImage(5)}}>Art</Button>
                     </Col>
                     <Col>
-                        <h1>dsdf</h1>
+                    <Button onClick={() => {changeImage(3)}}>Duck</Button>
                     </Col>
                 </Col>
                 <Col>
-                    <Image style={{width: "20vw"}} src="me_with_umbrella.png"></Image>
+                    {imageURL && <Image style={{width: "20vw"}} src={imageURL}></Image>}
+                    {text && <PersonalizedHeading message={text}></PersonalizedHeading>}
                 </Col>
                 <Col>
-                    <Col>
-                        <h1>dsdf</h1>
+                <Col>
+                    <Button onClick={() => {changeImage(1)}}>Hytale</Button>
                     </Col>
                     <Col>
-                        <h1>dsdf</h1>
+                    <Button onClick={() => {changeImage(0)}}>Coffee</Button>
                     </Col>
                     <Col>
-                        <h1>dsdf</h1>
+                    <Button onClick={() => {changeImage(4)}}>Dog</Button>
+                    </Col>
+                    <Col>
+                    <Button onClick={() => {changeImage(2)}}>Emoji</Button>
                     </Col>
                 </Col>
             </Row>
@@ -97,10 +134,11 @@ export default function API_Page() {
                 </form>
                 </Col>
                 <Col>
-                    <Image style={{height: "5vw"}} src="happy_sun.gif"></Image>
+                    {!unlocked && <Image style={{height: "5vw"}} src="closed_lock.png"></Image>}
+                    {unlocked && <Image style={{height: "5vw"}} src="open_lock.png"></Image>}
                 </Col>
                 <Col>
-                    <Image style={{height: "5vw"}} src="happy_sun.gif"></Image>
+                    {unlocked && <HiddenDoor></HiddenDoor>}
                 </Col>
             </Row>
             </Col>

@@ -11,8 +11,8 @@ import '../../scss/custom.scss';
 
 function AboutMePreview() {
     return (
-        <Container>
-        <Row className="bg-info row justify-content-center align-items-center">
+        <Container style={{width: "60vw"}}>
+        <Row style={{height: "40vh"}} className="bg-info row justify-content-center align-items-center">
             <Col xs={1} sm={1} md={1} lg={1} xl={1}>
             </Col>  
             <Col xs={4} sm={4} md={4} lg={4} xl={4}>
@@ -75,7 +75,7 @@ function ProjectPreview() {
 
 function Puzzle() {
     return(
-        <Row className="row justify-content-center align-items-center">
+        <Row id="puzzle_preview" className="row justify-content-center align-items-center">
         <Col xs={3} sm={3} md={3} lg={3} xl={3}>
             <Card className="text-center">
                 <Card.Body>

@@ -5,12 +5,17 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import PersonalizedHeading from '../../utilities/PersonalizedHeading';
 import HGap from '../../utilities/HGap';
+import Container from "react-bootstrap/Container"
 
 function CrowSuiteSection() {
     return(
         <>
+        <Container className="text-bg-info">
         <hr></hr>
-        <h1 className="text-bg-success text-center">CROWSUITE</h1>
+        <Container className="pl-5 text-bg-light">
+        <h1 className="text-center">CROWSUITE</h1>
+        </Container>
+       
         <hr></hr>
         <HGap given_height={"5vw"}></HGap>
         <Row>
@@ -24,10 +29,10 @@ function CrowSuiteSection() {
             An online SocketIO game resemblant of the card game Big 2!
             But with a twist - birds for suits!
         </Card.Text>
-        <Button className="center" variant="primary" as="a" href="/projects/crowsuite">Read how it was made!</Button>
+        <Button className="center" variant="success" as="a" href="/projects/crowsuite">Read how it was made!</Button>
         <HGap given_height={"1vw"}></HGap>
-        <Button target="_blank" variant="primary" as="a" href="https://crowsuite.netlify.app">Play Online!</Button>
-
+        <Button target="_blank" variant="success" as="a" href="https://crowsuite.netlify.app">Play Online!</Button>
+        
       </Card.Body>
     </Card>
     </Col >
@@ -37,6 +42,8 @@ function CrowSuiteSection() {
         <Image style={{width: "40vw"}} src="/CrowSuitePreview.png"></Image>
     </Col>
     </Row>
+    <HGap given_height={"5vw"}></HGap>
+    </Container>
     </>
     )
 }
@@ -50,7 +57,7 @@ You can still check out the blog on how it was made.")
     }
     return(
         <>
-        <hr style={{width: "50vw"}}></hr>
+        <hr></hr>
         <h1 className="text-center">CHORE DECIDER</h1>
         <hr></hr>
         <HGap given_height={"5vh"}></HGap>
@@ -65,9 +72,9 @@ You can still check out the blog on how it was made.")
             A MacOS desktop application to help organize and distribute
             your chores - tailored to ACC Communities! 
         </Card.Text>
-        <Button className="d-flex justify-content-center align-items-center" variant="success" as="a" href="/projects/chorganizer">Read how it was made!</Button>
+        <Button variant="success" as="a" href="/projects/chorganizer">Read how it was made!</Button>
         <HGap given_height={"1vw"}></HGap>
-        <Button className="d-flex justify-content-center align-items-center" variant="success" onClick={handleDownload}>Download to try out!</Button>
+        <Button variant="success" onClick={handleDownload}>Download to try out!</Button>
 
       </Card.Body>
     </Card>
@@ -85,7 +92,7 @@ You can still check out the blog on how it was made.")
 export default function ProjectHome() {
     return(
         <>
-            <Button variant="secondary" as="a" href="/">Back to Main</Button>
+            <Button className="m-3" variant="secondary" as="a" href="/">Back to Main</Button>
             <PersonalizedHeading message="PROJECTS"></PersonalizedHeading>
             <Row>
             <Col style={{height: "10vh"}}></Col>

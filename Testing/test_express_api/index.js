@@ -45,13 +45,20 @@ async function getData(url) {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
+
+        if (url == "https://place.dog/300/300") {
+            return url;
+        }
+
         const data = await response.json();
+
         if (url == 'https://coffee.alexflipnote.dev/random.json') {
             return data.file; 
         } else if (url == 'https://random-d.uk/api/random') {
             return data.url; 
+        } else if (url == "https://rickandmortyapi.com/api/character/2") {
+            return data.image; 
         }
-        console.log(data.file)
         
 
     } catch (error) {
@@ -75,8 +82,29 @@ app.get('/duck', async (req, res) => {
     res.send(file_name);
 })
 
-app.get('/coffee', async (req, res) => {
-    let file_name = await getData('https://coffee.alexflipnote.dev/random.json');
+app.get('/dog', async (req, res) => {
+    let file_name = await getData('https://place.dog/300/300');
+    res.send(file_name);
+})
+
+app.get('/rick', async (req, res) => {
+    let file_name = await getData('https://rickandmortyapi.com/api/character/2');
+    // will make randoom 
+    res.send(file_name);
+})
+
+app.get('/emjoi', async (req, res) => {
+    let file_name = await getData('https://place.dog/300/300');
+    res.send(file_name);
+})
+
+app.get('/aviation', async (req, res) => {
+    let file_name = await getData('https://place.dog/300/300');
+    res.send(file_name);
+})
+
+app.get('/hacker', async (req, res) => {
+    let file_name = await getData('https://place.dog/300/300');
     res.send(file_name);
 })
 
