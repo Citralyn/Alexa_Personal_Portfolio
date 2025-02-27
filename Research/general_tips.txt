@@ -61,3 +61,8 @@ alot of thema rent prefirectly fluid but do seem to change at specific breakpoij
 Another escape hatch is the bsPrefix prop available in many React-Bootstrap components. This prop allows you to override the default Bootstrap CSS classes applied to the component, providing a way to customize the component's styling beyond what's possible with standard Bootstrap classes.
 
 
+8
+// should probably have used m (for margin) p (padding) and h and w properties  more
+.. like m-5 or h-100 etc
+//may have to go in and adjust for all of that
+//including the waypoints and stuff

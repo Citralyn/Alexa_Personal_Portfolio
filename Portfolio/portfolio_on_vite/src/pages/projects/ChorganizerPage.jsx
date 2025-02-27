@@ -3,6 +3,14 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
+
+import { BackToProjects } from "../../utilities/BackButton";
+import {MajorHeading, MinorHeading } from '../../utilities/PersonalizedHeading';
+import HGap from "../../utilities/HGap";
+import VGap from "../../utilities/VGap";
+
+import ListGroup from 'react-bootstrap/ListGroup';
 
 import page1 from "/chorganizer/page1.png";
 import page2 from "/chorganizer/page2.png";
@@ -13,18 +21,26 @@ import page6 from "/chorganizer/page6.png";
 import page7 from "/chorganizer/page7.png";
 import page8 from "/chorganizer/page8.png";
 
-import {MajorHeading, MinorHeading } from '../../utilities/PersonalizedHeading';
-
 function TechStack() {
     return(
-        <Col className="text-center">
-        <h2>Tech Stack</h2>
-        <p>Qt Creator - a C++ IDE - for the central application logic</p>
-        <p>Qt Widgets for the main UI</p>
-        <p>CMake for the build process</p>
-        <p>Canva to make the MacOS desktop icon</p>
-        <p>ACC home-pages for images of the floor plans</p>
-        </Col>
+        <div>
+        <MinorHeading message="Tech Stack"/>
+        <Row className="text-center justify-content-center align-items-center">
+        <Container style={{width: "80vw"}} className="bg-secondary p-3 m-3 rounded shadow">
+        <ListGroup className="shadow" as="ol" numbered>
+            <ListGroup.Item as="li">
+            Qt Creator - a C++ IDE - for the central application logic
+            </ListGroup.Item>
+            <ListGroup.Item as="li">
+            Qt Widgets for the main UI
+            </ListGroup.Item>
+            <ListGroup.Item as="li">CMake for the build process</ListGroup.Item>
+            <ListGroup.Item as="li">Canva to make the MacOS desktop icon</ListGroup.Item>
+            <ListGroup.Item as="li">Macdeployqt for making app a deployable application bundle</ListGroup.Item>
+        </ListGroup>
+        </Container>
+        </Row>
+        </div>
     )
 }
 
@@ -49,29 +65,34 @@ function PageOverview() {
     return(
         <div>
         <Col>
-            <h2 className="text-center">Application Pages</h2>
+            <MinorHeading message="Application Pages"/>
+            <hr></hr>
             {Array.from({ length: 8 }, (_, i) => (
                 <Col>
-                <Row>
+                <Container className="shadow bg-info rounded">
+                <Row className="justify-content-center align-items-center h-20">
+                
                 <Col xs={1} sm={1} md={1} lg={1} xl={1}>
                 </Col>
                 <Col xs={6} sm={6} md={6} lg={6} xl={6}>
-                    <Image src={pages[i]} fluid></Image>
+                    <Image className="shadow" src={pages[i]} fluid></Image>
                 </Col>
                 <Col xs={1} sm={1} md={1} lg={1} xl={1}>
                 </Col>
                     <Col xs={3} sm={3} md={3} lg={3} xl={3}>
-                <Card className='text-center'>
-                    <Card.Body>
-                        <Card.Title>{titles[i]}</Card.Title>
-                        <hr></hr>
-                        <Card.Text>
-                        {descriptions[i]}
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-            </Col>
+                        <Card className='shadow text-center'>
+                            <Card.Body>
+                                <Card.Title>{titles[i]}</Card.Title>
+                                <hr></hr>
+                                <Card.Text>
+                                {descriptions[i]}
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                
                 </Row>
+                </Container>
                 <hr></hr>
                 </Col>
             ))}
@@ -82,37 +103,62 @@ function PageOverview() {
 
 function ActionItems() {
     return(
-        <Col className="text-center">
-            <p>Add UML Diagram</p>
-            <p>Need to reorganize a lot of unrelated code into separate modules</p>
-            <p>Integrate the other floorplans *not just PV and PV2*</p>
-            <p>Sync app up to a database instead of storing user data locally</p>
-            <p>Make compatible to Windows and Linux settings</p>
-            <p>Fix Icon *shows up in debug mode, not in release*</p>
-            <p>Checks for errors occur *incorrect login, can't find file, etc*</p>
-        </Col>
+        <div>
+        <MinorHeading message="Action Items"/>
+        <Row className="text-center justify-content-center align-items-center">
+        <Container style={{width: "80vw"}} className="bg-secondary p-3 m-3 rounded shadow">
+        <ListGroup className="shadow" as="ol" numbered>
+            <ListGroup.Item as="li">
+            Add a UML Diagram
+            </ListGroup.Item>
+            <ListGroup.Item as="li">
+            Reorganize unrelated code into separate modules
+            </ListGroup.Item>
+            <ListGroup.Item as="li">Integrate the other floorplans *not just PV and PV2*</ListGroup.Item>
+            <ListGroup.Item as="li">
+            Integrate the other floorplans *not just PV and PV2*
+            </ListGroup.Item>
+            <ListGroup.Item as="li">Sync app up to a database instead of storing user data locally</ListGroup.Item>
+            <ListGroup.Item as="li">Make deployable to Windows and Linux environments</ListGroup.Item>
+            <ListGroup.Item as="li">Fix Icon *shows up in debug mode, not in release*</ListGroup.Item>
+            <ListGroup.Item as="li">
+            Checks for errors occur *incorrect login, can't find file, etc*
+            </ListGroup.Item>
+        </ListGroup>
+        </Container>
+        </Row>
+        </div>
     )
 }
 
 function RepoShoutOut() {
     return(
-        <Col className="text-bg-info text-center">
-            <p>Want to contribute/check out the source code?</p>
-            <p>Visit the repo! - <a target="_blank" href="https://github.com/Citralyn/ChoreDecideMain">Chore Decider Repo</a></p>
-        </Col>
+        <Row className="justify-content-center align-items-center">
+            <VGap given_width={"30vw"}></VGap>
+            <Col className="text-center">
+            <h5>Want to Contribute?</h5>
+            <p>Make a Pull Request to the Online Github Repository!</p>
+            <Button className="shadow" variant="danger" as="a" target="_blank" href="https://github.com/Citralyn/ChoreDecideMain">Chore Decider Repo</Button>
+            </Col>
+            <VGap given_width={"30vw"}></VGap>
+        </Row>
     )
 }
 
 export default function ChorganizerPage() {
     return(
         <div>
-            <Button variant="secondary" as="a" href="/projects">Back to Projects</Button>
-            <h1 class="text-center">How I Built Chore Decider</h1>
+            <BackToProjects/>
+            <MajorHeading message={"How I Built Chore Decider"}></MajorHeading>
+            <HGap given_height={"10vh"}></HGap>
             <TechStack></TechStack>
+            <HGap given_height={"10vh"}></HGap>
             <PageOverview></PageOverview>
-            <h1 class="text-center">Current Action Items</h1>
+            <HGap given_height={"10vh"}></HGap>
             <ActionItems></ActionItems>
+            <HGap given_height={"5vh"}></HGap>
             <RepoShoutOut></RepoShoutOut>
+            <HGap given_height={"10vh"}></HGap>
         </div>
     )
 }

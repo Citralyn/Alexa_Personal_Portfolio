@@ -18,7 +18,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 
 function CrowSuiteDisplay() {
-    let card_images = [cj, ck, cq]
+    let card_images = [cj, cq, ck]
 
     return(
         <>
@@ -36,7 +36,7 @@ function CrowSuiteDisplay() {
 function TechStack() {
     return(
         <div>
-        <MinorHeading message="Teck Stack"/>
+        <MinorHeading message="Tech Stack"/>
         <Row className="text-center justify-content-center align-items-center">
         <Container style={{width: "80vw"}} className="bg-secondary p-3 m-3 rounded shadow">
         <ListGroup className="shadow" as="ol" numbered>
