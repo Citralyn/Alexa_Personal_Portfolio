@@ -6,6 +6,9 @@ import Image from 'react-bootstrap/Image';
 import PersonalizedHeading, { MinorHeading } from '../../utilities/PersonalizedHeading';
 import HGap from '../../utilities/HGap';
 import Container from "react-bootstrap/Container"
+import { LeftCloud, RightCloud } from '../../utilities/Clouds';
+import Modal from 'react-bootstrap/Modal';
+import { useState } from 'react';
 
 function CrowSuiteSection() {
     return(
@@ -42,15 +45,36 @@ function CrowSuiteSection() {
     )
 }
 
-function ChorganizerSection() {
+function ModalForDownload({status, setStatus}) {
+    const handleClose = () => { setStatus(false) };
 
-    function handleDownload() {
-        alert("Unfortunately Chore Decider is not available to download at the moment \
- - it's in the progress of being revamped! \
-You can still check out the blog on how it was made.")
-    }
     return(
         <>
+        <Modal show={status} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Download on Pause</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+          Unfortunately Chore Decider is not available to download at the moment,
+          it's in the progress of being revamped!
+          You can still check out the blog on how it was made.
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    )
+}
+
+function ChorganizerSection() {
+    const [modalStatus, setModalStatus] = useState(false);
+
+    return(
+        <>
+        <ModalForDownload status={modalStatus} setStatus={setModalStatus}></ModalForDownload>
         <MinorHeading message={"Chore Decider"}></MinorHeading>
         <HGap given_height={"5vh"}></HGap>
         <Row>
@@ -66,7 +90,7 @@ You can still check out the blog on how it was made.")
         </Card.Text>
         <Button variant="success" as="a" href="/projects/chorganizer">Read how it was made!</Button>
         <HGap given_height={"1vw"}></HGap>
-        <Button variant="success" onClick={handleDownload}>Download to try out!</Button>
+        <Button variant="success" onClick={() => setModalStatus(true)}>Download to try out!</Button>
 
       </Card.Body>
     </Card>
@@ -86,9 +110,11 @@ export default function ProjectHome() {
         <>
             <Button className="m-3" variant="secondary" as="a" href="/">Back to Main</Button>
             <PersonalizedHeading message="PROJECTS"></PersonalizedHeading>
+            <RightCloud></RightCloud>
             <HGap given_height={"10vh"}></HGap>
             <CrowSuiteSection></CrowSuiteSection>
-            <HGap given_height={"20vh"}></HGap>
+            <LeftCloud></LeftCloud>
+            <HGap given_height={"10vh"}></HGap>
             <ChorganizerSection></ChorganizerSection>
             <HGap given_height={"10vh"}></HGap>
         </>
