@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import HGap from '../../utilities/HGap';
 import PersonalizedHeading from '../../utilities/PersonalizedHeading';
+import { useState } from 'react';
 
 import '../../scss/custom.scss';
 
@@ -26,7 +27,7 @@ function AboutMePreview() {
                         <Card.Text className='text-center'>
                         I'm Alexa, a 2nd year computer science student at UCI.
                         </Card.Text>
-                        <Button variant="success" as="a" href="/about">Read About Me</Button>
+                        <Button className="shadow-sm" variant="success" as="a" href="/about">Read About Me</Button>
                     </Card.Body>
                 </Card>
             </Col>
@@ -65,7 +66,7 @@ function ProjectPreview() {
                     <Card.Text>
                     Interested in seeing some cool applications I've implemented? Visit my Project Page! 
                     </Card.Text>
-                    <Button variant="success" as="a" href="/projects/">Explore Projects</Button>
+                    <Button className="shadow-sm" variant="success" as="a" href="/projects/">Explore Projects</Button>
                 </Card.Body>
             </Card>
             </Col>
@@ -86,7 +87,7 @@ function Puzzle() {
                     <Card.Text>
                     Can you access the secret room?
                     </Card.Text>
-                    <Button variant="success" as="a" href="/puzzle">Play</Button>
+                    <Button className="shadow-sm" variant="success" as="a" href="/puzzle">Play</Button>
                 </Card.Body>
             </Card>
         </Col> 
