@@ -24,8 +24,8 @@ async function getData(url) {
             return data.url; 
         } else if (url.substring(0, 12) == "https://rick") {
             return data.image; 
-        } else if (url == "https://emojihub.yurace.pro/api/random") {
-            return data.htmlCode[0];
+        } else if (url == "https://elonmu.sh/api") {
+            return data.urlImage;
         } else if (url.substring(0, 12) == "https://botw") {
             let entries = data.data.length;
             let randomIndex = Math.floor(Math.random() * entries);
@@ -65,8 +65,8 @@ app.get('/rick', async (req, res) => {
     res.send(file_name);
 })
 
-app.get('/emoji', async (req, res) => {
-    let file_name = await getData('https://emojihub.yurace.pro/api/random');
+app.get('/elon', async (req, res) => {
+    let file_name = await getData('https://elonmu.sh/api');
     res.send(file_name);
 })
 

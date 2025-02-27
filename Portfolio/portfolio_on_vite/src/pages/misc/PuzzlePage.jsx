@@ -5,11 +5,34 @@ import Col from 'react-bootstrap/Col';
 import { BackToHome } from '../../utilities/BackButton';
 import Toast from 'react-bootstrap/Toast';
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import { MajorHeading } from '../../utilities/PersonalizedHeading';
+import { MajorHeading, MinorHeading } from '../../utilities/PersonalizedHeading';
 import { Link } from "react-router";
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
+import HGap from '../../utilities/HGap';
+import VGap from '../../utilities/VGap';
 
 
 import { useState } from 'react';
+import Container from 'react-bootstrap/esm/Container';
+
+
+function Lock({unlocked}) {
+    return(
+    <Container className="rounded h-50">
+    <Row className="row text-center justify-content-center align-items-center">
+    <VGap></VGap>
+    <Col>
+        <Row>
+        {!unlocked && <Image style={{width: "40vw"}} src="closed_lock.png"></Image>}
+        {unlocked && <Image style={{width: "40vw"}} src="open_lock.png"></Image>}
+        </Row>
+    </Col>
+    <VGap></VGap>
+    </Row>
+    </Container>
+    )
+}
 
 function HiddenDoor() {
     return(
@@ -19,10 +42,32 @@ function HiddenDoor() {
     )
 }
 
+function Submission(passwordSetter, passwordHandler, doorUnlocked) {
+    return(
+    <Row>
+    <Col>
+        <h1>PASSCODE:</h1>
+    </Col>
+    <Col>
+    <form onSubmit={(e) => {passwordHandler(e)}}>
+    <input
+        type="text"
+        onChange={(e) => passwordSetter(e.target.value)}
+        />
+    <button type="submit">Submit</button>
+    </form>
+    </Col>
+    <Col>
+        {doorUnlocked && <HiddenDoor></HiddenDoor>}
+    </Col>
+</Row>)
+}
+
+
 
 export default function API_Page() {
     const [imageURL, setImageURL] = useState("/plain_black_square.jpeg");
-    const [pw, setPW] = useState(""); 
+    const [password, setPassword] = useState(""); 
     const [unlocked, setUnlocked] = useState(false);
     const [progress, setProgress] = useState(0); 
     const [text, setText] = useState(""); 
@@ -37,7 +82,7 @@ export default function API_Page() {
 
     async function changeImage(endpoint_index) {
         try {
-            const api_endpoints = ["coffee", "hyrule", "emoji", "duck", "dog", "art", "rick"];
+            const api_endpoints = ["coffee", "hyrule", "elon", "duck", "dog", "art", "rick"];
             
             let url = "http://localhost:3000/"
             url += api_endpoints[endpoint_index]; 
@@ -48,14 +93,8 @@ export default function API_Page() {
               throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.text();
-            if (data[0] == '&') {
-                // if an emoji 
-                setImageURL(null);
-                setText(data)
-            } else {
-                setImageURL(data);
-                setText(null);
-            }
+            setImageURL(data);
+            setText(null);
             console.log(data)
             
           } catch (error) {
@@ -65,7 +104,7 @@ export default function API_Page() {
 
     function handlePassword(event) {
         event.preventDefault();
-        if (pw == "cheddar") {
+        if (password == "cheddar") {
             setToast(true);
             setUnlocked(true); 
         } else {
@@ -74,73 +113,82 @@ export default function API_Page() {
             
     }
 
+    const randomIndexes = [4, 3, 6, 0, 2, 5, 1];
+
     return(
         <>
             <Col>
+
             
             <BackToHome></BackToHome>
-            <h1 className="text-center">???</h1>
-            <Row style={{height: "10vw"}}>
-            </Row>
+            <Lock unlocked={unlocked}></Lock>
+            <HGap given_height={"10vh"}></HGap>
             <Row className="row justify-content-center align-items-center">
-                <ProgressBar style={{width: "50vw"}} variant="secondary" now={progress}></ProgressBar>
+    <Col></Col>
+    <Col>
+        <h1>PASSCODE:</h1>
+    </Col>
+    <Col>
+    <form onSubmit={(e) => {handlePassword(e)}}>
+        <Row style={{width: "60vw"}}>
+            <Col >
+            <input
+        
+        style={{width: "40vw"}}
+        type="text"
+        onChange={(e) => setPassword(e.target.value)}
+        />
+            </Col>
+            <Col>
+            <Button className="shadow-sm" variant="danger" style={{width: "15vw"}} type="submit">Submit</Button>
+            </Col>
+        </Row>
+    
+    </form>
+    </Col>
+    <Col></Col>
+</Row>
+<HGap given_height={"10vh"}></HGap>
+<Row className="d-flex justify-content-center align-items-center">
+            <VGap/><Col className="d-flex justify-content-center align-items-center">{unlocked && <HiddenDoor></HiddenDoor>}</Col><VGap/>
             </Row>
-            <Row style={{height: "5vw"}}>
+
+
+    <HGap given_height={"10vh"}></HGap>
+            <Row className="row justify-content-center align-items-center">
+                <ProgressBar className="shadow" style={{width: "50vw"}} striped variant="danger" now={progress}></ProgressBar>
             </Row>
-            <Row className="row text-center justify-content-center align-items-center">
-                <Col >
-                    <Col>
-                    <Button onClick={() => {changeImage(6)}}>?</Button>
-                    </Col>
-                    <Col>
-                    <Button onClick={() => {changeImage(5)}}>Art</Button>
-                    </Col>
-                    <Col>
-                    <Button onClick={() => {changeImage(3)}}>Duck</Button>
-                    </Col>
-                </Col>
-                <Col>
-                    {imageURL && <Image style={{width: "20vw"}} src={imageURL}></Image>}
-                    {text && <MajorHeading message={text}/>}
-                </Col>
-                <Col>
-                <Col>
-                    <Button onClick={() => {changeImage(1)}}>Hytale</Button>
-                    </Col>
-                    <Col>
-                    <Button onClick={() => {changeImage(0)}}>Coffee</Button>
-                    </Col>
-                    <Col>
-                    <Button onClick={() => {changeImage(4)}}>Dog</Button>
-                    </Col>
-                    <Col>
-                    <Button onClick={() => {changeImage(2)}}>Emoji</Button>
-                    </Col>
-                </Col>
-            </Row>
-            <Row style={{height: "5vw"}}>
-            </Row>
-            <Row>
-                <Col>
-                    <h1>PASSCODE:</h1>
-                </Col>
-                <Col>
-                <form onSubmit={handlePassword}>
-                <input
-                    type="text"
-                    onChange={(e) => setPW(e.target.value)}
-                    />
-                <button type="submit">Submit</button>
-                </form>
-                </Col>
-                <Col>
-                    {!unlocked && <Image style={{height: "5vw"}} src="closed_lock.png"></Image>}
-                    {unlocked && <Image style={{height: "5vw"}} src="open_lock.png"></Image>}
-                </Col>
-                <Col>
-                    {unlocked && <HiddenDoor></HiddenDoor>}
-                </Col>
-            </Row>
+            <HGap given_height={"10vh"}></HGap>
+            <Tabs
+      defaultActiveKey="profile"
+      id="uncontrolled-tab-example"
+      className="text-bg-dark mb-3"
+      fill
+    >
+        {Array.from({ length: 7 }, (_, i) => (
+
+
+      <Tab key={i} eventKey={i} title="???">
+        <HGap given_height={"10vh"}></HGap>
+        <Container className="mt-3 w-50 bg-transparent shadow rounded">
+        <HGap given_height={"20vh"}></HGap>
+        <Row className="text-center justify-content-center align-items-center">
+        <Col>
+        <Row className="text-center justify-content-center align-items-center">
+        {imageURL && <Image style={{width: "20vw"}} src={imageURL}></Image>}
+        {text && <MajorHeading message={text}/>}
+        </Row>
+        <HGap given_height={"10vh"}></HGap>
+      <Button variant="danger" onClick={() => {changeImage(randomIndexes[i])}}>GENERATE</Button>
+      <HGap given_height={"15vh"}></HGap>
+        </Col>
+        </Row>
+        </Container>
+
+      </Tab>))}
+    </Tabs>
+    <HGap given_height={"15vh"}></HGap>
+
             </Col>
         </> 
     )
