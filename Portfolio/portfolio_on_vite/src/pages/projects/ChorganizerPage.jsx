@@ -13,6 +13,8 @@ import page6 from "/chorganizer/page6.png";
 import page7 from "/chorganizer/page7.png";
 import page8 from "/chorganizer/page8.png";
 
+import {MajorHeading, MinorHeading } from '../../utilities/PersonalizedHeading';
+
 function TechStack() {
     return(
         <Col className="text-center">

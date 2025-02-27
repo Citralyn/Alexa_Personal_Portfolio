@@ -31,7 +31,7 @@ export default function MainLayout() {
                     <Nav style={{float: "right"}}>
                         <Nav.Link href="/about">About Me</Nav.Link>
                         <Nav.Link href="/projects">Projects</Nav.Link>
-                        <Nav.Link href="/puzzle">???</Nav.Link>
+                        <Nav.Link href="/puzzle">Just For Fun</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

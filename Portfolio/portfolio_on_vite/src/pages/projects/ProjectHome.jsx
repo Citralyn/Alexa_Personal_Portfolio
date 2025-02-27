@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
-import PersonalizedHeading, { MinorHeading } from '../../utilities/PersonalizedHeading';
+import {MajorHeading, MinorHeading } from '../../utilities/PersonalizedHeading';
 import HGap from '../../utilities/HGap';
 import Container from "react-bootstrap/Container"
 import { LeftCloud, RightCloud } from '../../utilities/Clouds';
@@ -109,7 +109,7 @@ export default function ProjectHome() {
     return(
         <>
             <Button className="m-3" variant="secondary" as="a" href="/">Back to Main</Button>
-            <PersonalizedHeading message="PROJECTS"></PersonalizedHeading>
+            <MajorHeading message="PROJECTS"/>
             <RightCloud></RightCloud>
             <HGap given_height={"10vh"}></HGap>
             <CrowSuiteSection></CrowSuiteSection>

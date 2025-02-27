@@ -6,8 +6,7 @@ import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import HGap from '../../utilities/HGap';
-import PersonalizedHeading from '../../utilities/PersonalizedHeading';
-import { useState } from 'react';
+import {MajorHeading, MinorHeading } from '../../utilities/PersonalizedHeading';
 
 import '../../scss/custom.scss';
 
@@ -99,15 +98,15 @@ function Puzzle() {
 export default function HomePage() {
     return(
         <div>
-            <PersonalizedHeading message="WELCOME"/>
+            <MajorHeading message="WELCOME"/>
             <HGap given_height={"5vh"}></HGap>
             <AboutMePreview></AboutMePreview>
             <HGap given_height={"5vh"}></HGap>
-            <PersonalizedHeading message="PROJECTS"/>
+            <MajorHeading message="PROJECTS"/>
             <HGap given_height={"5vh"}></HGap>
             <ProjectPreview></ProjectPreview>
             <HGap given_height={"5vh"}></HGap>
-            <PersonalizedHeading message="JUST FOR FUN"/>
+            <MajorHeading message="JUST FOR FUN"/>
             <HGap given_height={"5vh"}></HGap>
             <Puzzle></Puzzle>
             <HGap given_height={"10vh"}></HGap>

@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import '../scss/custom.scss';
 
-export default function PersonalizedHeading({message}) {
+export function MajorHeading({message}) {
     return(
         <Container className="shadow-lg bg-warning rounded">
             <hr></hr>

@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import { BackToHome } from '../../utilities/BackButton';
 import Toast from 'react-bootstrap/Toast';
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import PersonalizedHeading from '../../utilities/PersonalizedHeading';
+import { MajorHeading } from '../../utilities/PersonalizedHeading';
 import { Link } from "react-router";
 
 
@@ -101,7 +101,7 @@ export default function API_Page() {
                 </Col>
                 <Col>
                     {imageURL && <Image style={{width: "20vw"}} src={imageURL}></Image>}
-                    {text && <PersonalizedHeading message={text}></PersonalizedHeading>}
+                    {text && <MajorHeading message={text}/>}
                 </Col>
                 <Col>
                 <Col>
