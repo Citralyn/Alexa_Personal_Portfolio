@@ -115,14 +115,11 @@ function ActionItems() {
             Reorganize unrelated code into separate modules
             </ListGroup.Item>
             <ListGroup.Item as="li">Integrate the other floorplans *not just PV and PV2*</ListGroup.Item>
-            <ListGroup.Item as="li">
-            Integrate the other floorplans *not just PV and PV2*
-            </ListGroup.Item>
             <ListGroup.Item as="li">Sync app up to a database instead of storing user data locally</ListGroup.Item>
             <ListGroup.Item as="li">Make deployable to Windows and Linux environments</ListGroup.Item>
             <ListGroup.Item as="li">Fix Icon *shows up in debug mode, not in release*</ListGroup.Item>
             <ListGroup.Item as="li">
-            Checks for errors occur *incorrect login, can't find file, etc*
+            Checks app for errors *incorrect login, can't find file, etc*
             </ListGroup.Item>
         </ListGroup>
         </Container>

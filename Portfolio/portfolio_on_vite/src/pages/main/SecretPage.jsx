@@ -6,12 +6,12 @@ import HGap from "../../utilities/HGap";
 export default function SecretPage() {
     return(
         <>
-        <HGap given_height={"25vh"}></HGap>
+        <HGap given_height={"50vh"}></HGap>
         <Row>
             <Col>
             </Col>
             <Col>
-            <Image src="/holy_cheese.jpeg"></Image>
+            <Image className="shadow" src="/holy_cheese.jpeg"></Image>
             </Col>
             <Col>
             </Col>

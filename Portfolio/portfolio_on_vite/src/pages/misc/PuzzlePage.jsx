@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { BackToHome } from '../../utilities/BackButton';
 import Toast from 'react-bootstrap/Toast';
+import Modal from 'react-bootstrap/Modal';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { MajorHeading, MinorHeading } from '../../utilities/PersonalizedHeading';
 import { Link } from "react-router";
@@ -63,6 +64,27 @@ function Submission(passwordSetter, passwordHandler, doorUnlocked) {
 </Row>)
 }
 
+function BadPasswordModal({status, setStatus}) {
+    const handleClose = () => { setStatus(false) };
+
+    return(
+        <>
+        <Modal className="text-center" show={status} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Wrong Password!</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+          Hmm... what are the images telling us?
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    )
+}
 
 
 export default function API_Page() {
@@ -71,20 +93,13 @@ export default function API_Page() {
     const [unlocked, setUnlocked] = useState(false);
     const [progress, setProgress] = useState(0); 
     const [text, setText] = useState(""); 
-    const [toast, setToast] = useState(false);
-
-
-    function toggleToast() {
-        setToast(!toast); 
-    }
-
-    
+    const [modalStatus, setModalStatus] = useState(false);
 
     async function changeImage(endpoint_index) {
         try {
             const api_endpoints = ["coffee", "hyrule", "elon", "duck", "dog", "art", "rick"];
             
-            let url = "http://localhost:3000/"
+            let url = "https://plush-duck-api.onrender.com/"
             url += api_endpoints[endpoint_index]; 
             setProgress((100 / 7) * (endpoint_index + 1)); 
 
@@ -105,10 +120,9 @@ export default function API_Page() {
     function handlePassword(event) {
         event.preventDefault();
         if (password == "cheddar") {
-            setToast(true);
             setUnlocked(true); 
         } else {
-            alert("WRONG")
+            setModalStatus(true); 
         }
             
     }
@@ -121,6 +135,10 @@ export default function API_Page() {
 
             
             <BackToHome></BackToHome>
+            <BadPasswordModal
+            status={modalStatus}
+            setStatus={setModalStatus}
+            ></BadPasswordModal>
             <Lock unlocked={unlocked}></Lock>
             <HGap given_height={"10vh"}></HGap>
             <Row className="row justify-content-center align-items-center">
