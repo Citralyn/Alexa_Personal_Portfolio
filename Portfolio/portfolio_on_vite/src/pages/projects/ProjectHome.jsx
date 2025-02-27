@@ -9,6 +9,7 @@ import Container from "react-bootstrap/Container"
 import { LeftCloud, RightCloud } from '../../utilities/Clouds';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
+import { BackToHome } from '../../utilities/BackButton';
 
 function CrowSuiteSection() {
     return(
@@ -55,7 +56,7 @@ function ModalForDownload({status, setStatus}) {
             <Modal.Title>Download on Pause</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-          Unfortunately Chore Decider is not available to download at the moment,
+          Unfortunately Chore Decider is not available to download at the moment;
           it's in the progress of being revamped!
           You can still check out the blog on how it was made.
           </Modal.Body>
@@ -108,7 +109,7 @@ function ChorganizerSection() {
 export default function ProjectHome() {
     return(
         <>
-            <Button className="m-3" variant="secondary" as="a" href="/">Back to Main</Button>
+            <BackToHome></BackToHome>
             <MajorHeading message="PROJECTS"/>
             <RightCloud></RightCloud>
             <HGap given_height={"10vh"}></HGap>

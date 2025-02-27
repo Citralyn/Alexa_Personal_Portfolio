@@ -66,3 +66,18 @@ Another escape hatch is the bsPrefix prop available in many React-Bootstrap comp
 .. like m-5 or h-100 etc
 //may have to go in and adjust for all of that
 //including the waypoints and stuff
+//or at least, i need to go in and get rid of all the 
+//ya all the {{width: 50vw}} or whatever
+//actually might just be a bootstrap thing and not a bootstrap react
+
+9
+Remember
+-> padding is the inner space! margin is the outer space!
+//th
+
+10
+I also need to go in and do all the breakpoint things,
+bc my images and such are defnitely not adjusting when u minimize
+or expand the screen 
+//OR not?? maybe just pass in width and height into the images themself
+//that always controls the image properly 
