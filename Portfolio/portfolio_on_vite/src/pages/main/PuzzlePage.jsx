@@ -123,21 +123,21 @@ function Submission( {password, modalSetter, unlockedSetter, passwordSetter} ) {
 
     return(
         <Container fluid>
-        <Row className="row text-center justify-content-center align-items-center">
+        <Row className="row text-center align-items-center">
             <Col>
             <Row>
             <h1>PASSCODE:</h1>
             </Row>
-            <Row className='row justify-content-center align-items-center'>
+            <Row className='row align-items-center'>
             <form onSubmit={handlePassword}>
-                <Col className='d-flex justify-content-center align-items-center'>
+                <Col className='d-flex flex-column align-items-center'>
                 <Row className='w-50 '>
                 <input
                 type="text"
                 onChange={(e) => passwordSetter(e.target.value)}
                 />
                 </Row>
-                <Row className='row justify-content-center align-items-center' >
+                <Row className='row align-items-center' >
                 <Button className="shadow-sm" variant="danger" style={{width: "15vw"}} type="submit">Submit</Button>
                 </Row>
                 </Col>

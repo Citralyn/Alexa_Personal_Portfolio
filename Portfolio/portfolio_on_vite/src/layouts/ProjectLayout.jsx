@@ -11,16 +11,16 @@ export default function ProjectLayout() {
   return (
     <div>
         <Navbar expand="false" className="bg-body-tertiary">
-            <Container>
+            <Container flex>
                 <Navbar.Brand href="/">
                 <Row>
-                    <Col>
+                    <Col xs={1}>
                         <Image style={{width: "3vw"}} src="/yellow_heart.png"></Image>
                     </Col>
-                    <Col>
+                    <Col xs={{span: 4, offset: 0}}>
                         <h2>Alexa's Personal Portfolio</h2>
                     </Col>
-                    <Col>
+                    <Col xs={{span: 1, offset: 5}}>
                         <Image style={{width: "3vw"}} src="/yellow_heart.png"></Image>
                     </Col>
                 </Row>
