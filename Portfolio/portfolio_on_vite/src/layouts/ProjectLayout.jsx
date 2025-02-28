@@ -14,13 +14,10 @@ export default function ProjectLayout() {
             <Container flex>
                 <Navbar.Brand href="/">
                 <Row>
-                    <Col xs={1}>
-                        <Image style={{width: "3vw"}} src="/yellow_heart.png"></Image>
-                    </Col>
                     <Col xs={{span: 4, offset: 0}}>
                         <h2>Alexa's Personal Portfolio</h2>
                     </Col>
-                    <Col xs={{span: 1, offset: 5}}>
+                    <Col xs={{span: 1, offset: 6}}>
                         <Image style={{width: "3vw"}} src="/yellow_heart.png"></Image>
                     </Col>
                 </Row>
