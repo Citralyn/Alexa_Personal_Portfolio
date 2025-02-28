@@ -14,10 +14,9 @@ export default function MainLayout() {
         <Navbar expand="false" className="bg-body-tertiary">
             <Container>
                 <Navbar.Brand href="/">
-            
-                    <Row className='align-items-center'>
+                    <Row className='text-bg-transparent shadow-sm rounded justify-content-center align-items-center'>
                         <Col>
-                            <h2 style={{fontSize: "3vw"}}>&#128155;  Alexa's Personal Portfolio  &#128155;</h2>
+                            <h2 style={{fontSize: "4vw"}}>&#128155;  Alexa's Personal Portfolio  &#128155;</h2>
                         </Col>
                     </Row>
                 </Navbar.Brand>
