@@ -89,3 +89,9 @@ or expand the screen
 (and u cant go smaller than xs)
 wheras if u set lg=12, it'll default to whatever it'll default, until it reaches lg 
 -> 
+
+12
+//specifically PADDING super useful (like p-3) especially in containers
+//margin (like m-2 or whatever) good for backbuttons
+// and col (xs={8} lg={4} is really good for optimzing for mobile devices)
+// yay usecases for everything!

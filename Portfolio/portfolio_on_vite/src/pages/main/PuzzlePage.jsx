@@ -122,31 +122,30 @@ function Submission( {password, modalSetter, unlockedSetter, passwordSetter} ) {
     }
 
     return(
-        <Row className="row justify-content-center align-items-center">
-        <Col></Col>
-        <Col>
+        <Container fluid>
+        <Row className="row text-center justify-content-center align-items-center">
+            <Col>
+            <Row>
             <h1>PASSCODE:</h1>
-        </Col>
-        <Col>
-        <form onSubmit={handlePassword}>
-            <Row style={{width: "60vw"}}>
-                <Col >
-                <input
-            
-            style={{width: "40vw"}}
-            type="text"
-            onChange={(e) => passwordSetter(e.target.value)}
-            />
-                </Col>
-                <Col>
-                <Button className="shadow-sm" variant="danger" style={{width: "15vw"}} type="submit">Submit</Button>
-                </Col>
             </Row>
-        
-        </form>
+            <Row className='row justify-content-center align-items-center'>
+            <form onSubmit={handlePassword}>
+                <Col className='d-flex justify-content-center align-items-center'>
+                <Row className='w-50 '>
+                <input
+                type="text"
+                onChange={(e) => passwordSetter(e.target.value)}
+                />
+                </Row>
+                <Row className='row justify-content-center align-items-center' >
+                <Button className="shadow-sm" variant="danger" style={{width: "15vw"}} type="submit">Submit</Button>
+                </Row>
+                </Col>
+            </form>
+            </Row>
         </Col>
-        <Col></Col>
         </Row>
+        </Container>
 )
 }
 
