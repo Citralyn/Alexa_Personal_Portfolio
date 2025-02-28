@@ -17,10 +17,11 @@ function CrowSuiteSection() {
         <MinorHeading message={"CrowSuite"}></MinorHeading>
        
         <HGap given_height={"5vw"}></HGap>
-        <Row>
-        <Col xs={1} sm={1} md={1} lg={1} xl={1}>
+        <Container fluid>
+        <Row className='row justify-content-center align-items-center'>
+        <Col lg>
         </Col>
-        <Col xs={4} sm={4} md={4} lg={4} xl={4}>
+        <Col xs={8} lg={4}>
             <Card>
       <Card.Header as="h5">CrowSuite</Card.Header>
       <Card.Body>
@@ -35,12 +36,15 @@ function CrowSuiteSection() {
       </Card.Body>
     </Card>
     </Col >
-    <Col xs={1} sm={1} md={1} lg={1} xl={1}>
+    <Col lg>
     </Col>
-    <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-        <Image style={{width: "40vw"}} src="/CrowSuitePreview.png"></Image>
+    <Col xs={{ span: 8}} lg={{ span: 4}}>
+        <Image fluid src="/CrowSuitePreview.png"></Image>
+    </Col>
+    <Col lg>
     </Col>
     </Row>
+    </Container>
     <HGap given_height={"5vw"}></HGap>
     </>
     )
