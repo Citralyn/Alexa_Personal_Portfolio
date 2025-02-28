@@ -30,21 +30,21 @@ function App() {
 
         <Route path="/test" element={<TestPage></TestPage>}></Route>
         
-        <Route path="/projects" element={<ProjectLayout />}>
+        <Route path="/projects" element={<MainLayout />}>
           <Route index element={<ProjectHome />} />
           <Route path="crowsuite" element={<CrowSuitePage />} />
           <Route path="chore_decider" element={<ChoreDeciderPage />} />
         </Route>
 
-        <Route path="/about" element={<MiscLayout />}>
+        <Route path="/about" element={<MainLayout />}>
           <Route index element={<AboutPage />} />
         </Route>
 
-        <Route path="/secret" element={<MiscLayout />}>
+        <Route path="/secret" element={<MainLayout />}>
           <Route index element={<SecretPage />} />
         </Route>
 
-        <Route path="/puzzle" element={<MiscLayout />}>
+        <Route path="/puzzle" element={<MainLayout />}>
           <Route index element={<PuzzlePage />} />
         </Route>
       </Routes>

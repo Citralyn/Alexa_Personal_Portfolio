@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import FunFact from '../../utilities/FunFact';
+import Image from 'react-bootstrap/Image';
 
 /* Custom utilities */
 import HGap from '../../utilities/HGap';
@@ -14,13 +15,12 @@ import { DoubleClouds, LeftCloud, RightCloud } from '../../utilities/Clouds';
 
 function BasicProfile() {
     return (
-        <Container fluid>
-        <Row className="row justify-content-center align-items-center">
-        <Col xs={{ span: 8, offset: 4 }}>
-        {/* Row for Centered Card */}
-            <Card className='bg-transparent shadow justify-content-center align-items-center text-center' style={{ width: '30vw' }}>
-            {/* Transparent background for cool effect */}
-            <Card.Img fluid className="rounded m-5 shadow" variant="top" src="/me_with_umbrella.png" />
+        <Container fluid  className='d-flex flex-column align-items-center'>
+            <Col xs={6} lg={3}>
+            <Image className='shadow' fluid src="/me_with_umbrella.png"></Image>
+            </Col>
+            <Col xs={8} lg={4}>
+            <Card className='mt-3 bg-transparent shadow text-center'>
             <Card.Body>
                 <Card.Title>Hi, I'm Alexa!</Card.Title>
                 <Card.Text>
@@ -28,8 +28,7 @@ function BasicProfile() {
                 </Card.Text>
             </Card.Body>
             </Card>
-        </Col>
-        </Row>
+            </Col>
         </Container>
       );
 }

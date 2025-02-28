@@ -14,14 +14,15 @@ export default function MainLayout() {
         <Navbar expand="false" className="bg-body-tertiary">
             <Container>
                 <Navbar.Brand href="/">
-                <Row>
-                    <Col xs={{span: 4, offset: 0}}>
-                        <h2>Alexa's Personal Portfolio</h2>
-                    </Col>
-                    <Col xs={{span: 1, offset: 6}}>
-                        <Image style={{width: "3vw"}} src="/yellow_heart.png"></Image>
-                    </Col>
-                </Row>
+            
+                    <Row className='align-items-center'>
+                        <Col xs={6}>
+                            <h2 style={{fontSize: "3vw"}}>Alexa's Personal Portfolio</h2>
+                        </Col>
+                        <Col xs={{span: 2, offset: 4}}>
+                        <Image style={{width: "5vw"}} src="/yellow_heart.png"></Image>
+                        </Col>
+                    </Row>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">

@@ -22,7 +22,7 @@ function CrowSuiteSection() {
         <Col lg>
         </Col>
         <Col xs={8} lg={4}>
-            <Card>
+            <Card className="text-center m-3">
       <Card.Header as="h5">CrowSuite</Card.Header>
       <Card.Body>
         <Card.Text>
@@ -38,7 +38,7 @@ function CrowSuiteSection() {
     </Col >
     <Col lg>
     </Col>
-    <Col xs={{ span: 8}} lg={{ span: 4}}>
+    <Col xs={8} lg={4}>
         <Image fluid src="/CrowSuitePreview.png"></Image>
     </Col>
     <Col lg>
@@ -83,11 +83,11 @@ function ChorganizerSection() {
         <MinorHeading message={"Chore Decider"}></MinorHeading>
         <HGap given_height={"5vh"}></HGap>
         <Container>
-        <Row className="justify-content-center">
+        <Row className="justify-content-center align-items-center">
         <Col lg>
         </Col>
         <Col xs={8} lg={4}>
-            <Card>
+            <Card className='text-center m-3'>
       <Card.Header as="h5">Chore Decider</Card.Header>
       <Card.Body>
         <Card.Text>

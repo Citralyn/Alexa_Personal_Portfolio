@@ -14,9 +14,9 @@ import '../../scss/custom.scss';
 
 function AboutMePreview() {
     return (
-        <Container style={{width: "60vw"}}>
+        <Container className="w-75" >
             {/* Container for About Me preview */}
-            <Row className="p-3 shadow-lg bg-info row justify-content-center align-items-center rounded">
+            <Row className="pt-3 pb-3 shadow-lg bg-info row justify-content-center align-items-center rounded">
                 <Col lg>
                 </Col>  
                 {/* XS, SM, or MD? - 8 columns. >? 4 columns */}
@@ -48,7 +48,7 @@ function ProjectPreview() {
         <Row className="row justify-content-center align-items-center">
         <Col lg></Col>
         <Col xs={8} lg={4}>
-            <Carousel className="shadow">
+            <Carousel className="shadow m-3">
             <Carousel.Item>
                 <Image src="/ChoreDeciderPreview.png" fluid></Image>
                 <Carousel.Caption style={{color: "grey"}}>

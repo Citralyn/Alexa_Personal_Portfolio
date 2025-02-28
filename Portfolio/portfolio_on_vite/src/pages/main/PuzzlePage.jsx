@@ -73,16 +73,16 @@ function ImageGenerator({index, setImageURL, imageURL, setProgress}) {
     return(
         <div>
         <HGap given_height={"10vh"}></HGap>
-        <Container className="mt-3 w-50 bg-transparent shadow rounded">
-        <HGap given_height={"20vh"}></HGap>
+        <Container className="mt-3 p-5 w-50 bg-transparent shadow rounded">
+        <HGap given_height={"5vh"}></HGap>
         <Row className="text-center justify-content-center align-items-center">
         <Col>
         <Row className="text-center justify-content-center align-items-center">
-        {imageURL && <Image style={{width: "20vw"}} src={imageURL}></Image>}
+        {imageURL && <Image flex src={imageURL}></Image>}
         </Row>
         <HGap given_height={"10vh"}></HGap>
       <Button variant="danger" onClick={() => {changeImage(randomIndexes[index])}}>GENERATE</Button>
-      <HGap given_height={"15vh"}></HGap>
+      <HGap given_height={"5vh"}></HGap>
         </Col>
         </Row>
         </Container>
@@ -131,14 +131,14 @@ function Submission( {password, modalSetter, unlockedSetter, passwordSetter} ) {
             <Row className='row align-items-center'>
             <form onSubmit={handlePassword}>
                 <Col className='d-flex flex-column align-items-center'>
-                <Row className='w-50 '>
+                <Row className='w-50 m-3'>
                 <input
                 type="text"
                 onChange={(e) => passwordSetter(e.target.value)}
                 />
                 </Row>
                 <Row className='row align-items-center' >
-                <Button className="shadow-sm" variant="danger" style={{width: "15vw"}} type="submit">Submit</Button>
+                <Button className="shadow-sm" variant="danger" type="submit">Submit</Button>
                 </Row>
                 </Col>
             </form>
@@ -203,7 +203,7 @@ export default function API_Page() {
 
     <HGap given_height={"10vh"}></HGap>
             <Row className="row justify-content-center align-items-center">
-                <ProgressBar className="shadow" style={{width: "50vw"}} striped variant="danger" now={progress}></ProgressBar>
+                <ProgressBar className="w-75 shadow" striped variant="danger" now={progress}></ProgressBar>
             </Row>
             <HGap given_height={"10vh"}></HGap>
         <GameTabs img={imageURL} imgSetter={setImageURL} progressSetter={setProgress}></GameTabs>

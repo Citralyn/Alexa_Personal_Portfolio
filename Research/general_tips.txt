@@ -95,3 +95,17 @@ wheras if u set lg=12, it'll default to whatever it'll default, until it reaches
 //margin (like m-2 or whatever) good for backbuttons
 // and col (xs={8} lg={4} is really good for optimzing for mobile devices)
 // yay usecases for everything!
+
+13
+// should kknow the difference between justify content center, and align items center 
+// w-50, h-50, margin, breakpoints, all that good stuff 
+// or i can write in my things I learned!
+// also d-flex and flex-column are pretty good too 
+DEFINITELY a write up on w, h, margin and breakpoints and anything else i missed
+//ya flex, justify content, align items - they come up so much!
+//i love margins so much, padding too, solve 90% of my problems 
+//already said but totally fixed my image thing! put it in a container, then in a column, then image flex
+//no need for widths and stuff (and can edit w-50, w-25 etc)
+//span and offset also go crazy! (tho more self-explanatory)
+// ok so - align-items-center - that aligns along the vertical axis
+// justify content aligns along horizontal axis
