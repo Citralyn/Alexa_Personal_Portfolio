@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 import ListGroup from 'react-bootstrap/ListGroup';
 
 import { BackToProjects } from "../../utilities/BackButton";
-import {MajorHeading, MinorHeading } from '../../utilities/PersonalizedHeading';
+import {MajorHeading, MinorHeading, MediumHeading} from '../../utilities/PersonalizedHeading';
 import HGap from "../../utilities/HGap";
 import VGap from "../../utilities/VGap";
 
@@ -25,7 +25,7 @@ function TechStack() {
         <div>
         <MinorHeading message="Tech Stack"/>
         <Row className="text-center justify-content-center align-items-center">
-        <Container style={{width: "80vw"}} className="bg-secondary p-3 m-3 rounded shadow">
+        <Container className="w-75 bg-secondary p-3 m-3 rounded shadow">
         <ListGroup className="shadow" as="ol" numbered>
             <ListGroup.Item as="li">
             Qt Creator - a C++ IDE - for the central application logic
@@ -64,7 +64,7 @@ function PageOverview() {
     return(
         <div>
         <Col>
-            <MinorHeading message="Application Pages"/>
+            <MediumHeading message="Application Pages"/>
             <hr></hr>
             {Array.from({ length: 8 }, (_, i) => (
                 <Col>
@@ -79,7 +79,7 @@ function PageOverview() {
                 <Col lg>
                 </Col>
                     <Col xs={8} lg={4}>
-                        <Card className='shadow text-center'>
+                        <Card className='m-3 shadow text-center'>
                             <Card.Body>
                                 <Card.Title>{titles[i]}</Card.Title>
                                 <hr></hr>
@@ -106,7 +106,7 @@ function ActionItems() {
         <div>
         <MinorHeading message="Action Items"/>
         <Row className="text-center justify-content-center align-items-center">
-        <Container style={{width: "80vw"}} className="bg-secondary p-3 m-3 rounded shadow">
+        <Container className="w-75 bg-secondary p-3 m-3 rounded shadow">
         <ListGroup className="shadow" as="ol" numbered>
             <ListGroup.Item as="li">
             Add a UML Diagram

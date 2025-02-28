@@ -16,11 +16,8 @@ export default function MainLayout() {
                 <Navbar.Brand href="/">
             
                     <Row className='align-items-center'>
-                        <Col xs={6}>
-                            <h2 style={{fontSize: "3vw"}}>Alexa's Personal Portfolio</h2>
-                        </Col>
-                        <Col xs={{span: 2, offset: 4}}>
-                        <Image style={{width: "5vw"}} src="/yellow_heart.png"></Image>
+                        <Col>
+                            <h2 style={{fontSize: "3vw"}}>&#128155;  Alexa's Personal Portfolio  &#128155;</h2>
                         </Col>
                     </Row>
                 </Navbar.Brand>
