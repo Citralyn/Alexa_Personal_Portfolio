@@ -4,14 +4,12 @@ import Col from 'react-bootstrap/Col';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
-import Modal from 'react-bootstrap/Modal';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 import { BackToProjects } from "../../utilities/BackButton";
 import {MajorHeading, MinorHeading } from '../../utilities/PersonalizedHeading';
 import HGap from "../../utilities/HGap";
 import VGap from "../../utilities/VGap";
-
-import ListGroup from 'react-bootstrap/ListGroup';
 
 import page1 from "/chorganizer/page1.png";
 import page2 from "/chorganizer/page2.png";
@@ -70,17 +68,17 @@ function PageOverview() {
             <hr></hr>
             {Array.from({ length: 8 }, (_, i) => (
                 <Col>
-                <Container className="shadow bg-info rounded">
+                <Container className="p-3 shadow bg-info rounded">
                 <Row className="justify-content-center align-items-center h-20">
                 
-                <Col xs={1} sm={1} md={1} lg={1} xl={1}>
+                <Col lg>
                 </Col>
-                <Col xs={6} sm={6} md={6} lg={6} xl={6}>
+                <Col xs={8} lg={4}>
                     <Image className="shadow" src={pages[i]} fluid></Image>
                 </Col>
-                <Col xs={1} sm={1} md={1} lg={1} xl={1}>
+                <Col lg>
                 </Col>
-                    <Col xs={3} sm={3} md={3} lg={3} xl={3}>
+                    <Col xs={8} lg={4}>
                         <Card className='shadow text-center'>
                             <Card.Body>
                                 <Card.Title>{titles[i]}</Card.Title>
@@ -91,7 +89,8 @@ function PageOverview() {
                             </Card.Body>
                         </Card>
                     </Col>
-                
+                    <Col lg>
+                    </Col>
                 </Row>
                 </Container>
                 <hr></hr>

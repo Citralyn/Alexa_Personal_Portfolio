@@ -82,10 +82,11 @@ function ChorganizerSection() {
         <ModalForDownload status={modalStatus} setStatus={setModalStatus}></ModalForDownload>
         <MinorHeading message={"Chore Decider"}></MinorHeading>
         <HGap given_height={"5vh"}></HGap>
-        <Row>
-        <Col xs={1} sm={1} md={1} lg={1} xl={1}>
+        <Container>
+        <Row className="justify-content-center">
+        <Col lg>
         </Col>
-        <Col xs={4} sm={4} md={4} lg={4} xl={4}>
+        <Col xs={8} lg={4}>
             <Card>
       <Card.Header as="h5">Chore Decider</Card.Header>
       <Card.Body>
@@ -99,13 +100,16 @@ function ChorganizerSection() {
 
       </Card.Body>
     </Card>
-    </Col >
-    <Col xs={1} sm={1} md={1} lg={1} xl={1}>
     </Col>
-    <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-        <Image style={{width: "40vw"}} src="/ChoreDeciderPreview.png"></Image>
+    <Col lg>
+    </Col>
+    <Col xs={8} lg={4}>
+        <Image fluid src="/ChoreDeciderPreview.png"></Image>
+    </Col>
+    <Col lg>
     </Col>
     </Row>
+    </Container>
     </>
     )
 }

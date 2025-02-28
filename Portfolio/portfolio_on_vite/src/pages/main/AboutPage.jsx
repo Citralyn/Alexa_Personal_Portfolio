@@ -14,11 +14,13 @@ import { DoubleClouds, LeftCloud, RightCloud } from '../../utilities/Clouds';
 
 function BasicProfile() {
     return (
+        <Container fluid>
         <Row className="row justify-content-center align-items-center">
+        <Col xs={{ span: 8, offset: 4 }}>
         {/* Row for Centered Card */}
             <Card className='bg-transparent shadow justify-content-center align-items-center text-center' style={{ width: '30vw' }}>
             {/* Transparent background for cool effect */}
-            <Card.Img style={{width: "10vw"}} className="rounded m-5 shadow" variant="top" src="/me_with_umbrella.png" />
+            <Card.Img fluid className="rounded m-5 shadow" variant="top" src="/me_with_umbrella.png" />
             <Card.Body>
                 <Card.Title>Hi, I'm Alexa!</Card.Title>
                 <Card.Text>
@@ -26,7 +28,9 @@ function BasicProfile() {
                 </Card.Text>
             </Card.Body>
             </Card>
+        </Col>
         </Row>
+        </Container>
       );
 }
 
