@@ -15,14 +15,11 @@ export default function MainLayout() {
             <Container>
                 <Navbar.Brand href="/">
                 <Row>
-                    <Col>
-                        <Image style={{width: "3vw"}} src="yellow_heart.png"></Image>
-                    </Col>
-                    <Col>
+                    <Col xs={{span: 4, offset: 0}}>
                         <h2>Alexa's Personal Portfolio</h2>
                     </Col>
-                    <Col>
-                        <Image style={{width: "3vw"}} src="yellow_heart.png"></Image>
+                    <Col xs={{span: 1, offset: 6}}>
+                        <Image style={{width: "3vw"}} src="/yellow_heart.png"></Image>
                     </Col>
                 </Row>
                 </Navbar.Brand>
