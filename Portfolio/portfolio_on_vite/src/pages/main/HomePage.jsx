@@ -20,12 +20,12 @@ function AboutMePreview() {
                 <Col lg>
                 </Col>  
                 {/* XS, SM, or MD? - 8 columns. >? 4 columns */}
-                <Col xs={8} lg={4}>
+                <Col xs={10} lg={4}>
                     <Image src="/shooting_star.png" fluid></Image>
                 </Col>
                 <Col lg></Col>
-                <Col  xs={8} lg={4}>
-                    <Card className="shadow">
+                <Col  xs={12} lg={4}>
+                    <Card className="m-2 shadow">
                         <Card.Body className='text-center bg-light'>
                             <Card.Title className='text-center'>Glad you made it!</Card.Title>
                             <Card.Text className='text-center'>

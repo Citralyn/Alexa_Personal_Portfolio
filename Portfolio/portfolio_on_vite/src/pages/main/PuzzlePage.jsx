@@ -73,7 +73,7 @@ function ImageGenerator({index, setImageURL, imageURL, setProgress}) {
     return(
         <div>
         <HGap given_height={"10vh"}></HGap>
-        <Container className="mt-3 p-5 w-50 bg-transparent shadow rounded">
+        <Container className="mt-3 w-50 bg-transparent shadow rounded">
         <HGap given_height={"5vh"}></HGap>
         <Row className="text-center justify-content-center align-items-center">
         <Col>

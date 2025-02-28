@@ -21,7 +21,7 @@ function CrowSuiteSection() {
         <Row className='row justify-content-center align-items-center'>
         <Col lg>
         </Col>
-        <Col xs={8} lg={4}>
+        <Col xs={12} md={8} lg={4}>
             <Card className="text-center m-3">
       <Card.Header as="h5">CrowSuite</Card.Header>
       <Card.Body>
@@ -38,7 +38,7 @@ function CrowSuiteSection() {
     </Col >
     <Col lg>
     </Col>
-    <Col xs={8} lg={4}>
+    <Col xs={10} lg={4}>
         <Image fluid src="/CrowSuitePreview.png"></Image>
     </Col>
     <Col lg>
@@ -86,7 +86,7 @@ function ChorganizerSection() {
         <Row className="justify-content-center align-items-center">
         <Col lg>
         </Col>
-        <Col xs={8} lg={4}>
+        <Col xs={12} md={8} lg={4}>
             <Card className='text-center m-3'>
       <Card.Header as="h5">Chore Decider</Card.Header>
       <Card.Body>
@@ -103,7 +103,7 @@ function ChorganizerSection() {
     </Col>
     <Col lg>
     </Col>
-    <Col xs={8} lg={4}>
+    <Col xs={10} lg={4}>
         <Image fluid src="/ChoreDeciderPreview.png"></Image>
     </Col>
     <Col lg>
