@@ -190,12 +190,13 @@ export default function API_Page() {
                     setStatus={setModalStatus}
                 />
                 {/* Center Lock Logo */}
-                <Lock unlocked={unlocked}></Lock>
                 <HGap given_height={"10vh"}></HGap>
+                <Lock unlocked={unlocked}></Lock>
+                <HGap given_height={"5vh"}></HGap>
 
                 <Submission password={password} modalSetter={setModalStatus} unlockedSetter={setUnlocked} passwordSetter={setPassword}></Submission>
 
-<HGap given_height={"10vh"}></HGap>
+<HGap given_height={"5vh"}></HGap>
 <Row className="d-flex justify-content-center align-items-center">
             <VGap/><Col className="d-flex justify-content-center align-items-center">{unlocked && <HiddenDoor></HiddenDoor>}</Col><VGap/>
             </Row>
