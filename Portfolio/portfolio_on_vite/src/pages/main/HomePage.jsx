@@ -1,3 +1,4 @@
+/* Bootstrap Components */
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Carousel from 'react-bootstrap/Carousel';
@@ -5,34 +6,38 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+
+/* Custom utilities */
 import HGap from '../../utilities/HGap';
 import {MajorHeading, MinorHeading } from '../../utilities/PersonalizedHeading';
-
 import '../../scss/custom.scss';
 
 function AboutMePreview() {
     return (
         <Container style={{width: "60vw"}}>
-        <Row style={{height: "40vh"}} className="shadow-lg bg-info row justify-content-center align-items-center rounded">
-            <Col xs={1} sm={1} md={1} lg={1} xl={1}>
-            </Col>  
-            <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-                <Image src="/shooting_star.png" fluid></Image>
-            </Col>
-            <Col xs={6} sm={6} md={6} lg={6} xl={6}>
-                <Card className="shadow">
-                    <Card.Body className='text-center bg-light'>
-                        <Card.Title className='text-center'>Glad you made it!</Card.Title>
-                        <Card.Text className='text-center'>
-                        I'm Alexa, a 2nd year computer science student at UCI.
-                        </Card.Text>
-                        <Button className="shadow-sm" variant="success" as="a" href="/about">Read About Me</Button>
-                    </Card.Body>
-                </Card>
-            </Col>
-            <Col xs={1} sm={1} md={1} lg={1} xl={1}>
-            </Col>  
-        </Row>
+            {/* Container for About Me preview */}
+            <Row className="p-3 shadow-lg bg-info row justify-content-center align-items-center rounded">
+                <Col lg>
+                </Col>  
+                {/* XS, SM, or MD? - 8 columns. >? 4 columns */}
+                <Col xs={8} lg={4}>
+                    <Image src="/shooting_star.png" fluid></Image>
+                </Col>
+                <Col lg></Col>
+                <Col  xs={8} lg={4}>
+                    <Card className="shadow">
+                        <Card.Body className='text-center bg-light'>
+                            <Card.Title className='text-center'>Glad you made it!</Card.Title>
+                            <Card.Text className='text-center'>
+                            I'm Alexa, a 2nd year computer science student at UCI.
+                            </Card.Text>
+                            <Button className="shadow-sm" variant="success" as="a" href="/about">Read About Me</Button>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col lg>
+                </Col>  
+            </Row>
         </Container>
       );
 }
@@ -41,7 +46,8 @@ function ProjectPreview() {
     return (
         <Container>
         <Row className="row justify-content-center align-items-center">
-            <Col xs={6} sm={6} md={6} lg={6} xl={6}>
+        <Col lg></Col>
+        <Col xs={8} lg={4}>
             <Carousel className="shadow">
             <Carousel.Item>
                 <Image src="/ChoreDeciderPreview.png" fluid></Image>
@@ -57,9 +63,9 @@ function ProjectPreview() {
             </Carousel.Item>
             </Carousel>
             </Col>
-            <Col xs={1} sm={1} md={1} lg={1} xl={1}>
+            <Col lg>
             </Col>  
-            <Col xs={4} sm={4} md={4} lg={4} xl={4}>
+            <Col xs={8} lg={4}>
             <Card className="shadow">
                 <Card.Body className='text-center'>
                     <Card.Text>
@@ -69,6 +75,7 @@ function ProjectPreview() {
                 </Card.Body>
             </Card>
             </Col>
+            <Col lg></Col>
         </Row>
         </Container>
     );
@@ -77,7 +84,7 @@ function ProjectPreview() {
 function Puzzle() {
     return(
         <Row id="puzzle_preview" className="row justify-content-center align-items-center">
-        <Col xs={3} sm={3} md={3} lg={3} xl={3}>
+        <Col xs={8} md={6} lg={4}>
             <Card className="shadow text-center">
                 <Card.Body>
                     <Card.Title>

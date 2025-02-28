@@ -30,7 +30,7 @@ export default function ProjectLayout() {
                 <Nav style={{float: "right"}}>
                     <Nav.Link href="/">Back to Home</Nav.Link>
                     <Nav.Link href="/projects/crowsuite">CrowSuite</Nav.Link>
-                    <Nav.Link href="/projects/chorganizer">Chorganizer</Nav.Link>
+                    <Nav.Link href="/projects/chore_decider">Chore Decider</Nav.Link>
                 </Nav>
                 </Navbar.Collapse>
             </Container>

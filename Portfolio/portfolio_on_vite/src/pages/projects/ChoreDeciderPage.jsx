@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
+import Modal from 'react-bootstrap/Modal';
 
 import { BackToProjects } from "../../utilities/BackButton";
 import {MajorHeading, MinorHeading } from '../../utilities/PersonalizedHeading';

@@ -1,40 +1,31 @@
-import Button from 'react-bootstrap/Button';
-import Image from 'react-bootstrap/Image';
+/* Bootstrap Components */
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
 import Container from 'react-bootstrap/Container';
 import FunFact from '../../utilities/FunFact';
 
-import { DoubleClouds, LeftCloud, RightCloud } from '../../utilities/Clouds';
-
-import VGap from '../../utilities/VGap';
-
+/* Custom utilities */
+import HGap from '../../utilities/HGap';
 import { BackToHome  } from '../../utilities/BackButton';
 import { MajorHeading, MinorHeading } from '../../utilities/PersonalizedHeading';
+import { DoubleClouds, LeftCloud, RightCloud } from '../../utilities/Clouds';
 
-import { useState } from 'react'; 
-import HGap from '../../utilities/HGap';
 
-function Yay() {
-    return(
-        <h1>yay</h1>
-    )
-}
-
-function Basic() {
+function BasicProfile() {
     return (
         <Row className="row justify-content-center align-items-center">
-        <Card className='bg-transparent shadow justify-content-center align-items-center text-center' style={{ width: '30vw' }}>
-          <Card.Img style={{width: "10vw"}} className="rounded m-5 shadow" variant="top" src="/me_with_umbrella.png" />
-          <Card.Body>
-            <Card.Title>Hi, I'm Alexa!</Card.Title>
-            <Card.Text>
-            I’m a sophomore at UCI currently pursuing a degree in Computer Science.
-            </Card.Text>
-          </Card.Body>
-        </Card>
+        {/* Row for Centered Card */}
+            <Card className='bg-transparent shadow justify-content-center align-items-center text-center' style={{ width: '30vw' }}>
+            {/* Transparent background for cool effect */}
+            <Card.Img style={{width: "10vw"}} className="rounded m-5 shadow" variant="top" src="/me_with_umbrella.png" />
+            <Card.Body>
+                <Card.Title>Hi, I'm Alexa!</Card.Title>
+                <Card.Text>
+                I’m a sophomore at UCI currently pursuing a degree in Computer Science.
+                </Card.Text>
+            </Card.Body>
+            </Card>
         </Row>
       );
 }
@@ -69,28 +60,27 @@ function RowFacts2() {
     )
 }
 export default function AboutPage() {
-    const [visibility, setVisibility] = useState(0);
-
-    window.addEventListener('scroll', () => {
-        console.log(window.scrollY);
-        setVisibility(window.scrollY / 100);
-    })
     
     return(
         <>
-        <BackToHome/>
-        <MajorHeading message="About Me"></MajorHeading>
-        <HGap given_height={"10vh"}></HGap>
-        <Basic></Basic>
-        <DoubleClouds></DoubleClouds>
+        <BackToHome/> {/* Back Button */}
+        {/* Header */}
+        <MajorHeading message="About Me"/>
+        <HGap given_height={"10vh"}/>
+
+        {/* Profile and Aesthetic Clouds */}
+        <BasicProfile/>
+        <DoubleClouds/>
         <HGap given_height={"20vh"}></HGap>
+
+        {/* Cute Fun Fact Widgets */}
         <Container className="text-center">
             <h2>Some things I like to do are...</h2>
         </Container>
+
         <HGap given_height={"20vh"}></HGap>
         <RowFacts1></RowFacts1>
         <RowFacts2></RowFacts2>
-
         </>
     )
 }

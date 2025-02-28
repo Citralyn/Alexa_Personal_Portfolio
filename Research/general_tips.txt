@@ -81,3 +81,11 @@ bc my images and such are defnitely not adjusting when u minimize
 or expand the screen 
 //OR not?? maybe just pass in width and height into the images themself
 //that always controls the image properly 
+
+11 
+//we can combine all fo these ntoes into one
+// yeah, the way breakpoints work (if u set one for xs), like xs={6}, itll apply to all of it
+// bc its like once it reaches this -> 
+(and u cant go smaller than xs)
+wheras if u set lg=12, it'll default to whatever it'll default, until it reaches lg 
+-> 
