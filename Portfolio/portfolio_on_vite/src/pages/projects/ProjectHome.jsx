@@ -94,7 +94,7 @@ function ChorganizerSection() {
             A MacOS desktop application to help organize and distribute
             your chores - tailored to ACC Communities! 
         </Card.Text>
-        <Button variant="success" as="a" href="/projects/chorganizer">Read how it was made!</Button>
+        <Button variant="success" as="a" href="/projects/chore_decider">Read how it was made!</Button>
         <HGap given_height={"1vw"}></HGap>
         <Button variant="success" onClick={() => setModalStatus(true)}>Download to try out!</Button>
 
