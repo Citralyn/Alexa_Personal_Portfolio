@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 
 /* Custom utilities */
 import HGap from '../../utilities/HGap';
-import {MajorHeading, MinorHeading } from '../../utilities/PersonalizedHeading';
+import {MajorHeading} from '../../utilities/PersonalizedHeading';
 import '../../scss/custom.scss';
 
 // Preview to About Me Page
@@ -46,36 +46,43 @@ function AboutMePreview() {
       );
 }
 
+// preview to project page
 function ProjectPreview() {
     return (
+            /* Row for centering carousel and info ccard */
             <Row className="row justify-content-center align-items-center">
             <Col lg/>
 
             <Col xs={8} lg={4}>
+                {/* Carousel for sliding between projects! */}
                 <Carousel className="shadow m-3">
-                <Carousel.Item>
-                    <Image src="/projects/ChoreDeciderPreview.png" fluid></Image>
-                    <Carousel.Caption style={{color: "grey"}}>
-                    <h3>Chore Decider</h3>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <Image src="/projects/CrowSuitePreview.png" fluid></Image>
-                    <Carousel.Caption style={{color: "grey"}}>
-                    <h3>CrowSuite</h3>
-                    </Carousel.Caption>
-                </Carousel.Item>
+                    {/* First carousel item - Chore Decider! */}
+                    <Carousel.Item>
+                        <Image src="/projects/ChoreDeciderPreview.png" fluid></Image>
+                        <Carousel.Caption style={{color: "grey"}}>
+                        <h3>Chore Decider</h3>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    {/* Second carousel item - CrowSuite! */}
+                    <Carousel.Item>
+                        <Image src="/projects/CrowSuitePreview.png" fluid></Image>
+                        <Carousel.Caption style={{color: "grey"}}>
+                        <h3>CrowSuite</h3>
+                        </Carousel.Caption>
+                    </Carousel.Item>
                 </Carousel>
             </Col>
 
             <Col lg/> 
 
+            {/* Projects Information Card */}
             <Col xs={8} lg={4}>
                 <Card className="shadow">
                     <Card.Body className='text-center'>
                         <Card.Text>
                         Interested in seeing some cool applications I've implemented? Visit my Project Page! 
                         </Card.Text>
+                        {/* Anchor to Projects page */}
                         <Button className="shadow-sm" variant="success" as="a" href="/projects/">Explore Projects</Button>
                     </Card.Body>
                 </Card>
@@ -86,8 +93,10 @@ function ProjectPreview() {
     );
 }
 
+// preview to puzzle page
 function Puzzle() {
     return(
+        // a centered card with a mysterious title
         <Row className="row justify-content-center align-items-center">
         <Col xs={8} md={6} lg={4}>
             <Card className="shadow text-center">
@@ -106,6 +115,8 @@ function Puzzle() {
     )
 }
 
+/* A column outlining the rest of my application */
+/* Essentially: headers and descriptional components and links underneath */
 export default function HomePage() {
     return(
         <div>

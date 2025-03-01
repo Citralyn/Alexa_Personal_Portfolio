@@ -1,3 +1,4 @@
+/* Bootstrap Components */
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
@@ -6,13 +7,16 @@ import Image from 'react-bootstrap/Image';
 import Container from "react-bootstrap/Container"
 import Modal from 'react-bootstrap/Modal';
 
+/* Custom utilities */
 import {MajorHeading, MinorHeading } from '../../utilities/PersonalizedHeading';
 import HGap from '../../utilities/HGap';
 import { LeftCloud, RightCloud } from '../../utilities/Clouds';
 import { BackToHome } from '../../utilities/BackButton';
 
+/* use state */
 import { useState } from 'react';
 
+// a preview of CrowSuite
 function CrowSuiteSection() {
     return(
         <>
@@ -24,6 +28,7 @@ function CrowSuiteSection() {
         <Row className='row justify-content-center align-items-center'>
             <Col lg/>
 
+            {/* An informational card component */}
             <Col xs={12} md={8} lg={4}>
                 <Card className="text-center m-3">
                     <Card.Header as="h5">CrowSuite</Card.Header>
@@ -32,6 +37,9 @@ function CrowSuiteSection() {
                             An online SocketIO game resemblant of the card game Big 2!
                             But with a twist - birds for suits!
                         </Card.Text>
+
+                        {/* A button directing to the informational page */}
+
                         <Button 
                         className="center" 
                         variant="success" 
@@ -39,7 +47,11 @@ function CrowSuiteSection() {
                         href="/projects/crowsuite">
                         Read how it was made!
                         </Button>
+
                         <HGap given_height={"1vw"}/>
+
+                        {/* A button directing to the actual game website */}
+
                         <Button 
                         target="_blank" 
                         variant="success" 
@@ -68,6 +80,7 @@ function CrowSuiteSection() {
     )
 }
 
+// There is a model/pop-up window which will pop-up if the user tries to download Chore Decider
 function ModalForDownload({status, setStatus}) {
     const handleClose = () => { setStatus(false) };
 
@@ -92,6 +105,7 @@ function ModalForDownload({status, setStatus}) {
     )
 }
 
+// a preview of Chore Decider 
 function ChoreDeciderSection() {
     const [modalStatus, setModalStatus] = useState(false);
 
@@ -110,6 +124,7 @@ function ChoreDeciderSection() {
             <Row className="justify-content-center align-items-center">
                 <Col lg/>
                 
+                {/* An informational card component */}
                 <Col xs={12} md={8} lg={4}>
                     <Card className='text-center m-3'>
                         <Card.Header as="h5">Chore Decider</Card.Header>
@@ -119,6 +134,7 @@ function ChoreDeciderSection() {
                                 your chores - tailored to ACC Communities! 
                             </Card.Text>
 
+                            {/* A button directing to the informational page */}
                             <Button 
                             variant="success" 
                             as="a" 
@@ -128,6 +144,7 @@ function ChoreDeciderSection() {
 
                             <HGap given_height={"1vw"}/>
 
+                            {/* A button which will bring up a modal/pop-up */}
                             <Button 
                             variant="success" 
                             onClick={() => setModalStatus(true)}
@@ -151,6 +168,8 @@ function ChoreDeciderSection() {
     )
 }
 
+/* A column outlining my projects (with clouds!) */
+/* Essentially: headers and descriptional components and links underneath */
 export default function ProjectHome() {
     return(
         <>

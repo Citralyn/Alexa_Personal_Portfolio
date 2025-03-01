@@ -83,6 +83,7 @@ function ImageGenerator({index, setImageURL, imageURL, setProgress}) {
                 {imageURL && <Image flex src={imageURL}/>}
                 <HGap given_height={"10vh"}/>
                 <Row className='justify-content-center'>
+                    {/* Generate Button will change images according to selected Tab */}
                     <Button
                     className='w-auto' 
                     variant="danger" 
@@ -104,7 +105,7 @@ function GameTabs({img, imgSetter, progressSetter}) {
     return(
         <Tabs
         defaultActiveKey="profile"
-        id="uncontrolled-tab-example"
+        id="my_tabs"
         className="text-bg-dark mb-3"
         fill
         >
@@ -141,6 +142,7 @@ function Submission( {password, modalSetter, unlockedSetter, passwordSetter} ) {
             <Col>
                 <h1 className='text-center'>PASSCODE:</h1>
                 <form onSubmit={handlePassword}>
+                    {/* Vertically aligned form whichs sets password state and checks that in handlePassword */}
                     <Col className='d-flex flex-column align-items-center'>
                         <Row className='w-50 m-3'>
                             <input
@@ -167,6 +169,7 @@ function BadPasswordModal({status, setStatus}) {
 
     return(
         <>
+        {/* Modal shows depending on status state, which gets updated on handleClose function */}
         <Modal className="text-center" show={status} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Wrong Password!</Modal.Title>

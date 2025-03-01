@@ -1,3 +1,4 @@
+/* Bootstrap Components */
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -6,11 +7,13 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import ListGroup from 'react-bootstrap/ListGroup';
 
+/* Custom utilities */
 import { BackToProjects } from "../../utilities/BackButton";
 import {MajorHeading, MinorHeading, MediumHeading} from '../../utilities/PersonalizedHeading';
 import HGap from "../../utilities/HGap";
 import VGap from "../../utilities/VGap";
 
+/* Page Images */
 import page1 from "/chorganizer/page1.png";
 import page2 from "/chorganizer/page2.png";
 import page3 from "/chorganizer/page3.png";
@@ -20,6 +23,7 @@ import page6 from "/chorganizer/page6.png";
 import page7 from "/chorganizer/page7.png";
 import page8 from "/chorganizer/page8.png";
 
+// a list of items in my tech stack
 function TechStack() {
     return(
         <div>
@@ -57,7 +61,9 @@ function TechStack() {
     )
 }
 
+// an outline of each application page in Chore Decider
 function PageOverview() {
+    /* Array indexes will map the page url to the title to the description */
     let pages = [page1, page2, page3, page4, page5, page6, page7, page8];
     let titles = ["Main Page", "Login Page", "Sign-up Page", "Existing Plans",
         "Logout?", "Select a Community", "Select a Floor Plan", "Chore Page"
@@ -88,12 +94,14 @@ function PageOverview() {
                     <Row className="justify-content-center align-items-center h-20">
                         <Col lg/>
 
+                        {/* The image */}
                         <Col xs={8} lg={4}>
                             <Image className="shadow" src={pages[i]} fluid></Image>
                         </Col>
 
                         <Col lg/>
 
+                        {/* The title and description in a card component */}
                         <Col xs={8} lg={4}>
                             <Card className='m-3 shadow text-center'>
                                 <Card.Body>
@@ -117,6 +125,7 @@ function PageOverview() {
     )
 }
 
+// a list of action items for the near future
 function ActionItems() {
     return(
         <div>
@@ -159,16 +168,18 @@ function ActionItems() {
     )
 }
 
+// A shoutout to the Chore Decider repo
 function RepoShoutOut() {
     return(
         <Row className="justify-content-center align-items-center">
             <VGap given_width={"30vw"}/>
 
+            {/* Information stacked in a neat little column */}
             <Col className="text-center">
                 <h5>Want to Contribute?</h5>
 
                 <p>Make a Pull Request to the Online Github Repository!</p>
-                
+
                 <Button 
                 className="shadow"
                 variant="danger" 
@@ -184,6 +195,7 @@ function RepoShoutOut() {
     )
 }
 
+/* a column outlining my tech stack, the main pages, my action plan, and a repo shout out */
 export default function ChoreDeciderPage() {
     return(
         <div>

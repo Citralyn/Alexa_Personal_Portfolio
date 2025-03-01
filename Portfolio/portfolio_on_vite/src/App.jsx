@@ -1,3 +1,4 @@
+// React Routing
 import { BrowserRouter, Routes, Route } from "react-router";
 
 // layouts
@@ -14,26 +15,19 @@ import ProjectHome from './pages/projects/ProjectHome.jsx';
 import ChoreDeciderPage from './pages/projects/ChoreDeciderPage.jsx';
 import CrowSuitePage from './pages/projects/CrowSuitePage.jsx';
 
+// Custom CSS
 import "./scss/custom.scss"
 
 function App() {
   return (
+    // routes under the central root path, and routes under /projects
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
-        </Route>
-
-        <Route path="/about" element={<MainLayout />}>
-          <Route index element={<AboutPage />} />
-        </Route>
-
-        <Route path="/secret" element={<MainLayout />}>
-          <Route index element={<SecretPage />} />
-        </Route>
-
-        <Route path="/puzzle" element={<MainLayout />}>
-          <Route index element={<PuzzlePage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="secret" element={<SecretPage />} />
+          <Route path="puzzle" element={<PuzzlePage />} />
         </Route>
         
         <Route path="/projects" element={<MainLayout />}>

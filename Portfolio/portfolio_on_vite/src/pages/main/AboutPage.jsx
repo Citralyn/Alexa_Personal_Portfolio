@@ -9,17 +9,20 @@ import Image from 'react-bootstrap/Image';
 /* Custom utilities */
 import HGap from '../../utilities/HGap';
 import { BackToHome  } from '../../utilities/BackButton';
-import { MajorHeading, MinorHeading } from '../../utilities/PersonalizedHeading';
-import { DoubleClouds, LeftCloud, RightCloud } from '../../utilities/Clouds';
+import { MajorHeading} from '../../utilities/PersonalizedHeading';
+import { DoubleClouds} from '../../utilities/Clouds';
 
 
+// an centerpiece image and basic description
 function BasicProfile() {
     return (
         <Container fluid className='d-flex flex-column align-items-center'>
+            {/* a fluid image of myself */}
             <Col xs={6} lg={3}>
                 <Image className='shadow' fluid src="/home/me_with_umbrella.png"></Image>
             </Col>
 
+            {/* a simple informational card */}
             <Col xs={8} lg={4}>
                 <Card className='mt-3 bg-transparent shadow text-center'>
                 <Card.Body>
@@ -34,7 +37,7 @@ function BasicProfile() {
       );
 }
 
-
+// a row of fun facts about myself (the first set)
 function RowFacts1() {
     return(
         <Row>
@@ -45,6 +48,7 @@ function RowFacts1() {
     )
 }
 
+// a row of fun facts about myself (the second set)
 function RowFacts2() {
     return(
         <Row>

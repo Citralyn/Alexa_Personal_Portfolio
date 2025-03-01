@@ -1,9 +1,12 @@
-import HGap from "./HGap.jsx"
+/* Bootstrap Components */
 import VGap from "./VGap.jsx"
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 
+/* These Clouds are for Aesthetic Purposes only */
+
+// Cloud that takes up left half of the screen 
 export function LeftCloud() {
     return(
         <Row>
@@ -15,6 +18,7 @@ export function LeftCloud() {
     )
 }
 
+// Double Clouds! -> Very aesthetic :) 
 export function DoubleClouds() {
     return(
         <Row>
@@ -28,6 +32,7 @@ export function DoubleClouds() {
     )
 }
 
+// Cloud that takes up right half of the screen 
 export function RightCloud() {
     return(
         <Row>
