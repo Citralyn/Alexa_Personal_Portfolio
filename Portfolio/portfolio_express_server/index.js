@@ -7,10 +7,9 @@ app.use(cors())
 
 app.use(express.json());
 
-
 async function getData(url) {
     try {
-        const response = await fetch(url);  // Replace with the actual URL of the external API
+        const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -29,6 +28,7 @@ async function getData(url) {
         } else if (url.substring(0, 12) == "https://botw") {
             let entries = data.data.length;
             let randomIndex = Math.floor(Math.random() * entries);
+
             return data.data[randomIndex].image;
         } else if (url.substring(0, 21) == "https://collectionapi") {
             return data.primaryImage; 
@@ -61,6 +61,7 @@ app.get('/dog', async (req, res) => {
 app.get('/rick', async (req, res) => {
     let randomIndex = Math.floor(Math.random() * 1000);
     let url = 'https://rickandmortyapi.com/api/character/' + randomIndex; 
+
     let file_name = await getData(url);
     res.send(file_name);
 })
@@ -74,6 +75,7 @@ app.get('/art', async (req, res) => {
     let randomIndex = Math.floor(Math.random() * 400);
     randomIndex += 10250; 
     let url = "https://collectionapi.metmuseum.org/public/collection/v1/objects/" + randomIndex;
+
     let file_name = await getData(url);
     res.send(file_name);
 })

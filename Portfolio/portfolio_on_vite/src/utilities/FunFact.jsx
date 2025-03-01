@@ -22,21 +22,17 @@ export default function FunFact({index}) {
     let desc = descriptions[index];
 
     return(
-        <Container className="bg-transparent shadow rounded h-50">
-        <Row className="row text-center justify-content-center align-items-center">
-        <VGap></VGap>
-        <Col>
-            <Row>
-                <Image style={{width: "20vw"}} src={image}></Image>
-            </Row>
-            <Row>
-                <Container>
+        <Container className="rounded h-50">
+            <Row className="text-center justify-content-center align-items-center">
+                <VGap/>
+
+                <Col className="d-flex flex-column">
+                    <Image style={{width: "20vw"}} src={image}></Image>
                     <h2>{desc}</h2>
-                </Container>
+                </Col>
+
+                <VGap/>
             </Row>
-        </Col>
-        <VGap></VGap>
-        </Row>
         </Container>
     )
 }

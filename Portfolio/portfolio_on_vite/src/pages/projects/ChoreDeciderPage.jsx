@@ -24,19 +24,33 @@ function TechStack() {
     return(
         <div>
         <MinorHeading message="Tech Stack"/>
+
+        {/* Row for centering items and text */}
         <Row className="text-center justify-content-center align-items-center">
+        {/* Container for styling and minimizing width */}
         <Container className="w-75 bg-secondary p-3 m-3 rounded shadow">
-        <ListGroup className="shadow" as="ol" numbered>
-            <ListGroup.Item as="li">
-            Qt Creator - a C++ IDE - for the central application logic
-            </ListGroup.Item>
-            <ListGroup.Item as="li">
-            Qt Widgets for the main UI
-            </ListGroup.Item>
-            <ListGroup.Item as="li">CMake for the build process</ListGroup.Item>
-            <ListGroup.Item as="li">Canva to make the MacOS desktop icon</ListGroup.Item>
-            <ListGroup.Item as="li">Macdeployqt for making app a deployable application bundle</ListGroup.Item>
-        </ListGroup>
+            {/* Numbered List Items for each item in the tech stack */}
+            <ListGroup className="shadow" as="ol" numbered>
+                <ListGroup.Item as="li">
+                Qt Creator - a C++ IDE - for the central application logic
+                </ListGroup.Item>
+
+                <ListGroup.Item as="li">
+                Qt Widgets for the main UI
+                </ListGroup.Item>
+
+                <ListGroup.Item as="li">
+                CMake for the build process
+                </ListGroup.Item>
+
+                <ListGroup.Item as="li">
+                Canva to make the MacOS desktop icon
+                </ListGroup.Item>
+
+                <ListGroup.Item as="li">
+                Macdeployqt for making app a deployable application bundle
+                </ListGroup.Item>
+            </ListGroup>
         </Container>
         </Row>
         </div>
@@ -44,7 +58,6 @@ function TechStack() {
 }
 
 function PageOverview() {
-
     let pages = [page1, page2, page3, page4, page5, page6, page7, page8];
     let titles = ["Main Page", "Login Page", "Sign-up Page", "Existing Plans",
         "Logout?", "Select a Community", "Select a Floor Plan", "Chore Page"
@@ -65,39 +78,42 @@ function PageOverview() {
         <div>
         <Col>
             <MediumHeading message="Application Pages"/>
-            <hr></hr>
+
+            <hr/>
+
+            {/* Each page will have an image, a title, and a description */}
             {Array.from({ length: 8 }, (_, i) => (
                 <Col>
                 <Container className="p-3 shadow bg-info rounded">
-                <Row className="justify-content-center align-items-center h-20">
-                
-                <Col lg>
-                </Col>
-                <Col xs={8} lg={4}>
-                    <Image className="shadow" src={pages[i]} fluid></Image>
-                </Col>
-                <Col lg>
-                </Col>
-                    <Col xs={8} lg={4}>
-                        <Card className='m-3 shadow text-center'>
-                            <Card.Body>
-                                <Card.Title>{titles[i]}</Card.Title>
-                                <hr></hr>
-                                <Card.Text>
-                                {descriptions[i]}
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col lg>
-                    </Col>
-                </Row>
+                    <Row className="justify-content-center align-items-center h-20">
+                        <Col lg/>
+
+                        <Col xs={8} lg={4}>
+                            <Image className="shadow" src={pages[i]} fluid></Image>
+                        </Col>
+
+                        <Col lg/>
+
+                        <Col xs={8} lg={4}>
+                            <Card className='m-3 shadow text-center'>
+                                <Card.Body>
+                                    <Card.Title>{titles[i]}</Card.Title>
+                                    <hr></hr>
+                                    <Card.Text>
+                                    {descriptions[i]}
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+
+                        <Col lg/>
+                    </Row>
                 </Container>
                 <hr></hr>
                 </Col>
             ))}
-        </Col>
-        </div>
+    </Col>
+    </div>
     )
 }
 
@@ -105,24 +121,39 @@ function ActionItems() {
     return(
         <div>
         <MinorHeading message="Action Items"/>
+
         <Row className="text-center justify-content-center align-items-center">
-        <Container className="w-75 bg-secondary p-3 m-3 rounded shadow">
-        <ListGroup className="shadow" as="ol" numbered>
-            <ListGroup.Item as="li">
-            Add a UML Diagram
-            </ListGroup.Item>
-            <ListGroup.Item as="li">
-            Reorganize unrelated code into separate modules
-            </ListGroup.Item>
-            <ListGroup.Item as="li">Integrate the other floorplans *not just PV and PV2*</ListGroup.Item>
-            <ListGroup.Item as="li">Sync app up to a database instead of storing user data locally</ListGroup.Item>
-            <ListGroup.Item as="li">Make deployable to Windows and Linux environments</ListGroup.Item>
-            <ListGroup.Item as="li">Fix Icon *shows up in debug mode, not in release*</ListGroup.Item>
-            <ListGroup.Item as="li">
-            Checks app for errors *incorrect login, can't find file, etc*
-            </ListGroup.Item>
-        </ListGroup>
-        </Container>
+            <Container className="w-75 bg-secondary p-3 m-3 rounded shadow">
+                <ListGroup className="shadow" as="ol" numbered>
+                    <ListGroup.Item as="li">
+                    Add a UML Diagram
+                    </ListGroup.Item>
+
+                    <ListGroup.Item as="li">
+                    Reorganize unrelated code into separate modules
+                    </ListGroup.Item>
+
+                    <ListGroup.Item as="li">
+                    Integrate the other floorplans *not just PV and PV2*
+                    </ListGroup.Item>
+
+                    <ListGroup.Item as="li">
+                    Sync app up to a database instead of storing user data locally
+                    </ListGroup.Item>
+
+                    <ListGroup.Item as="li">
+                    Make deployable to Windows and Linux environments
+                    </ListGroup.Item>
+
+                    <ListGroup.Item as="li">
+                    Fix Icon *shows up in debug mode, not in release*
+                    </ListGroup.Item>
+
+                    <ListGroup.Item as="li">
+                    Checks app for errors *incorrect login, can't find file, etc*
+                    </ListGroup.Item>
+                </ListGroup>
+            </Container>
         </Row>
         </div>
     )
@@ -131,31 +162,52 @@ function ActionItems() {
 function RepoShoutOut() {
     return(
         <Row className="justify-content-center align-items-center">
-            <VGap given_width={"30vw"}></VGap>
+            <VGap given_width={"30vw"}/>
+
             <Col className="text-center">
-            <h5>Want to Contribute?</h5>
-            <p>Make a Pull Request to the Online Github Repository!</p>
-            <Button className="shadow" variant="danger" as="a" target="_blank" href="https://github.com/Citralyn/ChoreDecideMain">Chore Decider Repo</Button>
+                <h5>Want to Contribute?</h5>
+
+                <p>Make a Pull Request to the Online Github Repository!</p>
+                
+                <Button 
+                className="shadow"
+                variant="danger" 
+                as="a" 
+                target="_blank" 
+                href="https://github.com/Citralyn/ChoreDecideMain">
+                Chore Decider Repo
+                </Button>
             </Col>
-            <VGap given_width={"30vw"}></VGap>
+
+            <VGap given_width={"30vw"}/>
         </Row>
     )
 }
 
-export default function ChorganizerPage() {
+export default function ChoreDeciderPage() {
     return(
         <div>
             <BackToProjects/>
-            <MajorHeading message={"How I Built Chore Decider"}></MajorHeading>
-            <HGap given_height={"10vh"}></HGap>
-            <TechStack></TechStack>
-            <HGap given_height={"10vh"}></HGap>
-            <PageOverview></PageOverview>
-            <HGap given_height={"10vh"}></HGap>
-            <ActionItems></ActionItems>
-            <HGap given_height={"5vh"}></HGap>
-            <RepoShoutOut></RepoShoutOut>
-            <HGap given_height={"10vh"}></HGap>
+
+            <MajorHeading message={"How I Built Chore Decider"}/>
+
+            <HGap given_height={"10vh"}/>
+
+            <TechStack/>
+
+            <HGap given_height={"10vh"}/>
+
+            <PageOverview/>
+
+            <HGap given_height={"10vh"}/>
+
+            <ActionItems/>
+
+            <HGap given_height={"5vh"}/>
+
+            <RepoShoutOut/>
+
+            <HGap given_height={"10vh"}/>
         </div>
     )
 }

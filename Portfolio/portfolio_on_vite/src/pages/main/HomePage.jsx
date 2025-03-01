@@ -12,31 +12,35 @@ import HGap from '../../utilities/HGap';
 import {MajorHeading, MinorHeading } from '../../utilities/PersonalizedHeading';
 import '../../scss/custom.scss';
 
+// Preview to About Me Page
 function AboutMePreview() {
     return (
+        // Container for minimizing About Me preview
         <Container className="w-75" >
-            {/* Container for About Me preview */}
+            {/* Row for centering items along both x and y axises and for special effects */}
             <Row className="pt-3 pb-3 shadow-lg bg-info row justify-content-center align-items-center rounded">
-                <Col lg>
-                </Col>  
-                {/* XS, SM, or MD? - 8 columns. >? 4 columns */}
-                <Col xs={10} lg={4}>
-                    <Image src="/shooting_star.png" fluid></Image>
+                <Col lg/> {/* Extra Side Spacing (only needed for larger screens) */}
+
+                <Col xs={10} lg={4}> {/* Image takes up nearly full column on mobile devices */}
+                    <Image src="/home/shooting_star.png" fluid></Image>
                 </Col>
-                <Col lg></Col>
-                <Col  xs={12} lg={4}>
-                    <Card className="m-2 shadow">
-                        <Card.Body className='text-center bg-light'>
-                            <Card.Title className='text-center'>Glad you made it!</Card.Title>
-                            <Card.Text className='text-center'>
+
+                <Col lg/> {/* Extra Middle Spacing (only needed for larger screens) */}
+
+                <Col  xs={12} lg={4}> {/* Card takes up nearly full column on mobile devices */}
+                    <Card className="m-2 shadow text-center">
+                        <Card.Body className='bg-light'>
+                            <Card.Title>Glad you made it!</Card.Title>
+                            <Card.Text>
                             I'm Alexa, a 2nd year computer science student at UCI.
                             </Card.Text>
+                            {/* Look of a Button; Acts like an anchor element (to about-me page) */}
                             <Button className="shadow-sm" variant="success" as="a" href="/about">Read About Me</Button>
                         </Card.Body>
                     </Card>
                 </Col>
-                <Col lg>
-                </Col>  
+
+                <Col lg/> {/* Extra Side Spacing (only needed for larger screens) */}
             </Row>
         </Container>
       );
@@ -44,46 +48,47 @@ function AboutMePreview() {
 
 function ProjectPreview() {
     return (
-        <Container>
-        <Row className="row justify-content-center align-items-center">
-        <Col lg></Col>
-        <Col xs={8} lg={4}>
-            <Carousel className="shadow m-3">
-            <Carousel.Item>
-                <Image src="/ChoreDeciderPreview.png" fluid></Image>
-                <Carousel.Caption style={{color: "grey"}}>
-                <h3>Chore Decider</h3>
-                </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-                <Image src="/CrowSuitePreview.png" fluid></Image>
-                <Carousel.Caption style={{color: "grey"}}>
-                <h3>CrowSuite</h3>
-                </Carousel.Caption>
-            </Carousel.Item>
-            </Carousel>
-            </Col>
-            <Col lg>
-            </Col>  
+            <Row className="row justify-content-center align-items-center">
+            <Col lg/>
+
             <Col xs={8} lg={4}>
-            <Card className="shadow">
-                <Card.Body className='text-center'>
-                    <Card.Text>
-                    Interested in seeing some cool applications I've implemented? Visit my Project Page! 
-                    </Card.Text>
-                    <Button className="shadow-sm" variant="success" as="a" href="/projects/">Explore Projects</Button>
-                </Card.Body>
-            </Card>
+                <Carousel className="shadow m-3">
+                <Carousel.Item>
+                    <Image src="/projects/ChoreDeciderPreview.png" fluid></Image>
+                    <Carousel.Caption style={{color: "grey"}}>
+                    <h3>Chore Decider</h3>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <Image src="/projects/CrowSuitePreview.png" fluid></Image>
+                    <Carousel.Caption style={{color: "grey"}}>
+                    <h3>CrowSuite</h3>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                </Carousel>
             </Col>
-            <Col lg></Col>
-        </Row>
-        </Container>
+
+            <Col lg/> 
+
+            <Col xs={8} lg={4}>
+                <Card className="shadow">
+                    <Card.Body className='text-center'>
+                        <Card.Text>
+                        Interested in seeing some cool applications I've implemented? Visit my Project Page! 
+                        </Card.Text>
+                        <Button className="shadow-sm" variant="success" as="a" href="/projects/">Explore Projects</Button>
+                    </Card.Body>
+                </Card>
+            </Col>
+
+            <Col lg/> 
+            </Row>
     );
 }
 
 function Puzzle() {
     return(
-        <Row id="puzzle_preview" className="row justify-content-center align-items-center">
+        <Row className="row justify-content-center align-items-center">
         <Col xs={8} md={6} lg={4}>
             <Card className="shadow text-center">
                 <Card.Body>
@@ -98,7 +103,6 @@ function Puzzle() {
             </Card>
         </Col> 
         </Row>
-       
     )
 }
 
@@ -106,17 +110,28 @@ export default function HomePage() {
     return(
         <div>
             <MajorHeading message="WELCOME"/>
-            <HGap given_height={"5vh"}></HGap>
-            <AboutMePreview></AboutMePreview>
-            <HGap given_height={"5vh"}></HGap>
+
+            <HGap given_height={"5vh"}/>
+
+            <AboutMePreview/>
+
+            <HGap given_height={"5vh"}/>
+
             <MajorHeading message="PROJECTS"/>
-            <HGap given_height={"5vh"}></HGap>
-            <ProjectPreview></ProjectPreview>
-            <HGap given_height={"5vh"}></HGap>
+
+            <HGap given_height={"5vh"}/>
+
+            <ProjectPreview/>
+
+            <HGap given_height={"5vh"}/>
+
             <MajorHeading message="JUST FOR FUN"/>
-            <HGap given_height={"5vh"}></HGap>
-            <Puzzle></Puzzle>
-            <HGap given_height={"10vh"}></HGap>
+
+            <HGap given_height={"5vh"}/>
+
+            <Puzzle/>
+
+            <HGap given_height={"10vh"}/>
         </div>
     )
 }

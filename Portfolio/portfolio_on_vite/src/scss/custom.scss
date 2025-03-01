@@ -1,5 +1,3 @@
-/* import bootstrap once to avoid "{this_variable} not defined" errors*/
-/*@import '../../node_modules/bootstrap/scss/bootstrap.scss';*/
 /* edit the existing theme colors! */
 $primary: #fad766;
 $success: #9ecf82;
@@ -7,17 +5,6 @@ $info: #c097c2;
 $warning: #705580;
 $danger: #ad3644;
 
-/*
-$custom-colors: (
-  "alexa_color1": #d6b14b,
-  "alexa_color2": #a63d4f,
-  "alexa_color3": #524b63
-);
-
-
-$theme-colors: map-merge($theme-colors, $custom-colors);
-
-*/
 /* set base-font family throughout website */ 
 $font-family-base: "Azeret Mono", serif;
 
@@ -31,11 +18,13 @@ h2 {
     font-family: "Freckle Face", serif;
 }
 
+/* add a cool linear-gradient for the background */
 html > body {
   background-image: linear-gradient($primary, $info)
 }
 
-/* get the Google Fonts! */
+/* Utilize Google Fonts! */
+
 /* Ultra */
 @import url('https://fonts.googleapis.com/css2?family=Ultra&display=swap');
 /* Azeret Mono */
@@ -43,6 +32,5 @@ html > body {
 /* Crafty Girls, Freckle Face, Kumar One, Ribeye */
 @import url('https://fonts.googleapis.com/css2?family=Crafty+Girls&family=Freckle+Face&family=Kumar+One&family=Ribeye&display=swap');
 
-/* import bootstrap again to sync up custom variables with bootstrap's */
+/* Import Bootstrap! */
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
-
