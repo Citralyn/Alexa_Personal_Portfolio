@@ -4,7 +4,9 @@ const port = 3000
 
 // enable cross-origin resource sharing so that front-end server an access this api
 const cors = require('cors')
-app.use(cors())
+app.use(cors({
+    origin: "https://plushprojectportfolio.netlify.app"
+}))
 
 // using express.json to deal with json objects from the external APIs
 app.use(express.json());
