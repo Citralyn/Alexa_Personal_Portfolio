@@ -1,4 +1,4 @@
-# Alexa_Personal_Portfolio
+# PLUSH_PROJECT_PORTFOLIO
 
 ### My goals for making this portfolio are:
 - Everything is well-documented and explained with comments
